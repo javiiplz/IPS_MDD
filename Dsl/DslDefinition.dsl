@@ -82,6 +82,39 @@
         </DomainRole>
       </Target>
     </DomainRelationship>
+    <DomainRelationship Id="0d83bb08-c405-4538-b654-73c152b86d2a" Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion" Name="Relacion" DisplayName="Relacion" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS">
+      <Properties>
+        <DomainProperty Id="0cbe5a5e-4ae0-4f52-b957-83b050627f8c" Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.Nombre Relacion" Name="NombreRelacion" DisplayName="Nombre Relacion">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="2c1ceb8c-528d-4d56-b42a-01edc214b5cc" Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.Card Origen" Name="CardOrigen" DisplayName="Card Origen">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="e96b62ee-3391-440a-b99e-87537ba431cb" Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.Card Destino" Name="CardDestino" DisplayName="Card Destino">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+      </Properties>
+      <Source>
+        <DomainRole Id="2c441897-562f-4cba-a687-4c5488774f9e" Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.OrigenEntidad" Name="OrigenEntidad" DisplayName="OrigenEntidad" PropertyName="DestinoEntidad" PropertyDisplayName="DestinoEntidad">
+          <RolePlayer>
+            <DomainClassMoniker Name="Entidad" />
+          </RolePlayer>
+        </DomainRole>
+      </Source>
+      <Target>
+        <DomainRole Id="2424df7c-f223-45cc-acf4-4d460dfb586a" Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.DestinoEntidad" Name="DestinoEntidad" DisplayName="DestinoEntidad" PropertyName="OrigenEntidad" PropertyDisplayName="OrigenEntidad">
+          <RolePlayer>
+            <DomainClassMoniker Name="Entidad" />
+          </RolePlayer>
+        </DomainRole>
+      </Target>
+    </DomainRelationship>
   </Relationships>
   <Types>
     <ExternalType Name="DateTime" Namespace="System" />
@@ -108,6 +141,19 @@
       <Compartment Name="ListaAtributos" Title="Atributos" />
     </CompartmentShape>
   </Shapes>
+  <Connectors>
+    <Connector Id="c525d9fa-d45f-4715-b60d-a1f9028bf46c" Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.RelacionConector" Name="RelacionConector" DisplayName="Relacion Conector" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS" FixedTooltipText="Relacion Conector" TargetEndStyle="EmptyArrow">
+      <ConnectorHasDecorators Position="SourceTop" OffsetFromShape="0" OffsetFromLine="0">
+        <TextDecorator Name="NombreDec" DisplayName="Nombre Dec" DefaultText="NombreDec" />
+      </ConnectorHasDecorators>
+      <ConnectorHasDecorators Position="SourceBottom" OffsetFromShape="0" OffsetFromLine="0">
+        <TextDecorator Name="CardOrigenDec" DisplayName="Card Origen Dec" DefaultText="CardOrigenDec" />
+      </ConnectorHasDecorators>
+      <ConnectorHasDecorators Position="TargetBottom" OffsetFromShape="0" OffsetFromLine="0">
+        <TextDecorator Name="CardDestinoDec" DisplayName="Card Destino Dec" DefaultText="CardDestinoDec" />
+      </ConnectorHasDecorators>
+    </Connector>
+  </Connectors>
   <XmlSerializationBehavior Name="PracticaDERASerializationBehavior" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS">
     <ClassData>
       <XmlClassData TypeName="DiagramaWeb" MonikerAttributeName="" SerializeId="true" MonikerElementName="exampleModelMoniker" ElementName="diagramaWeb" MonikerTypeName="ExampleModelMoniker">
@@ -133,6 +179,9 @@
           <XmlRelationshipData UseFullForm="true" RoleElementName="atributo">
             <DomainRelationshipMoniker Name="EntidadTieneAtributo" />
           </XmlRelationshipData>
+          <XmlRelationshipData UseFullForm="true" RoleElementName="destinoEntidad">
+            <DomainRelationshipMoniker Name="Relacion" />
+          </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="DiagramaWebTieneEntidad" MonikerAttributeName="" SerializeId="true" MonikerElementName="DiagramaWebTieneEntidadMoniker" ElementName="diagramaWebTieneEntidad" MonikerTypeName="DiagramaWebTieneEntidadMoniker">
@@ -152,9 +201,47 @@
       <XmlClassData TypeName="EntidadTieneAtributo" MonikerAttributeName="" SerializeId="true" MonikerElementName="EntidadTieneAtributoMoniker" ElementName="entidadTieneAtributo" MonikerTypeName="EntidadTieneAtributoMoniker">
         <DomainRelationshipMoniker Name="EntidadTieneAtributo" />
       </XmlClassData>
+      <XmlClassData TypeName="Relacion" MonikerAttributeName="" SerializeId="true" MonikerElementName="RelacionMoniker" ElementName="relacion" MonikerTypeName="RelacionMoniker">
+        <DomainRelationshipMoniker Name="Relacion" />
+        <ElementData>
+          <XmlPropertyData XmlName="nombreRelacion">
+            <DomainPropertyMoniker Name="Relacion/NombreRelacion" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="cardOrigen">
+            <DomainPropertyMoniker Name="Relacion/CardOrigen" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="cardDestino">
+            <DomainPropertyMoniker Name="Relacion/CardDestino" />
+          </XmlPropertyData>
+        </ElementData>
+      </XmlClassData>
+      <XmlClassData TypeName="RelacionConector" MonikerAttributeName="" SerializeId="true" MonikerElementName="RelacionConectorMoniker" ElementName="relacionConector" MonikerTypeName="RelacionConectorMoniker">
+        <ConnectorMoniker Name="RelacionConector" />
+      </XmlClassData>
     </ClassData>
   </XmlSerializationBehavior>
   <ExplorerBehavior Name="PracticaDERAExplorer" />
+  <ConnectionBuilders>
+    <ConnectionBuilder Name="GeneradorRelacion">
+      <LinkConnectDirective>
+        <DomainRelationshipMoniker Name="Relacion" />
+        <SourceDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="Entidad" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </SourceDirectives>
+        <TargetDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="Entidad" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </TargetDirectives>
+      </LinkConnectDirective>
+    </ConnectionBuilder>
+  </ConnectionBuilders>
   <Diagram Id="2923c8bc-7510-4adc-87ef-959cc74bff16" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADiagram" Name="PracticaDERADiagram" DisplayName="Minimal Language Diagram" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS">
     <Class>
       <DomainClassMoniker Name="DiagramaWeb" />
@@ -187,6 +274,36 @@
         </CompartmentMap>
       </CompartmentShapeMap>
     </ShapeMaps>
+    <ConnectorMaps>
+      <ConnectorMap>
+        <ConnectorMoniker Name="RelacionConector" />
+        <DomainRelationshipMoniker Name="Relacion" />
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="RelacionConector/CardDestinoDec" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Relacion/CardDestino" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="RelacionConector/CardOrigenDec" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Relacion/CardOrigen" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="RelacionConector/NombreDec" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Relacion/NombreRelacion" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+      </ConnectorMap>
+    </ConnectorMaps>
   </Diagram>
   <Designer CopyPasteGeneration="CopyPasteOnly" FileExtension="JGAJPTJJL_ProyectoIPS" EditorGuid="72c70a48-a248-4138-abea-3ffc75fe2957">
     <RootClass>
@@ -202,6 +319,9 @@
       <ElementTool Name="AtributoTool" ToolboxIcon="C:\Users\franc\Desktop\DEF\Iconos\NS_Tool.bmp" Caption="AtributoTool" Tooltip="Atributo Tool" HelpKeyword="AtributoTool">
         <DomainClassMoniker Name="Atributo" />
       </ElementTool>
+      <ConnectionTool Name="RelacionTool" ToolboxIcon="C:\Users\franc\Desktop\MDD Clone\IPS_MDD\Iconos\EnlaceNP_NS_Tool.bmp" Caption="Relacion" Tooltip="Relacion Tool" HelpKeyword="RelacionTool">
+        <ConnectionBuilderMoniker Name="PracticaDERA/GeneradorRelacion" />
+      </ConnectionTool>
     </ToolboxTab>
     <Validation UsesMenu="false" UsesOpen="false" UsesSave="false" UsesLoad="false" />
     <DiagramMoniker Name="PracticaDERADiagram" />

@@ -47,6 +47,10 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 		/// item filters.
 		/// </remarks>
 		public const string ToolboxFilterString = "PracticaDERA.1.0";
+		/// <summary>
+		/// Toolbox item filter string used to identify RelacionTool connector tool.
+		/// </summary>
+		public const string RelacionToolFilterString = "RelacionTool.1.0";
 
 	
 		private global::System.Collections.Generic.Dictionary<string, DslDesign::ModelingToolboxItem> toolboxItemCache = new global::System.Collections.Generic.Dictionary<string, DslDesign::ModelingToolboxItem>();
@@ -94,7 +98,7 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 		{
 			get
 			{
-				return 2;
+				return 3;
 			}
 		}
 		
@@ -173,6 +177,24 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 						CreateElementToolPrototype(store, global::UPM_IPS.JGAJPTJJLProyectoIPS.Atributo.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
 						new global::System.ComponentModel.ToolboxItemFilterAttribute[] { // Collection of ToolboxItemFilterAttribute objects that determine visibility of the toolbox item.
 						new global::System.ComponentModel.ToolboxItemFilterAttribute(ToolboxFilterString, global::System.ComponentModel.ToolboxItemFilterType.Require) 
+						});
+					break;
+				case "UPM_IPS.JGAJPTJJLProyectoIPS.RelacionToolToolboxItem":
+
+					// Add RelacionTool connector tool.
+					result = new DslDesign::ModelingToolboxItem(
+						"UPM_IPS.JGAJPTJJLProyectoIPS.RelacionToolToolboxItem", // Unique identifier (non-localized) for the toolbox item.
+						3, // Position relative to other items in the same toolbox tab.
+						resourceManager.GetString("RelacionToolToolboxItem", resourceCulture), // Localized display name for the item.
+						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("RelacionToolToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.				
+						"UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERAToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
+						resourceManager.GetString("PracticaDERAToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
+						"RelacionTool", // F1 help keyword for the toolbox item.
+						resourceManager.GetString("RelacionToolToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
+						null, // Connector toolbox items do not have an underlying data object.
+						new global::System.ComponentModel.ToolboxItemFilterAttribute[] { // Collection of ToolboxItemFilterAttribute objects that determine visibility of the toolbox item.
+							new global::System.ComponentModel.ToolboxItemFilterAttribute(ToolboxFilterString, global::System.ComponentModel.ToolboxItemFilterType.Require), 
+							new global::System.ComponentModel.ToolboxItemFilterAttribute(RelacionToolFilterString)
 						});
 					break;
 				default:

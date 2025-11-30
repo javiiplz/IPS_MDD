@@ -237,6 +237,62 @@
     <value>Entidad</value>
     <comment>PropertyDisplayName for DomainRole &apos;Atributo&apos; on DomainRelationship &apos;EntidadTieneAtributo&apos;</comment>
   </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.Description" xml:space="preserve">
+    <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion</value>
+    <comment>Description for DomainClass &apos;Relacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.DisplayName" xml:space="preserve">
+    <value>Relacion</value>
+    <comment>DisplayName for DomainClass &apos;Relacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/NombreRelacion.Description" xml:space="preserve">
+    <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.Nombre Relacion</value>
+    <comment>Description for DomainProperty &apos;NombreRelacion&apos; on DomainClass &apos;Relacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/NombreRelacion.DisplayName" xml:space="preserve">
+    <value>Nombre Relacion</value>
+    <comment>DisplayName for DomainProperty &apos;NombreRelacion&apos; on DomainClass &apos;Relacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/CardOrigen.Description" xml:space="preserve">
+    <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.Card Origen</value>
+    <comment>Description for DomainProperty &apos;CardOrigen&apos; on DomainClass &apos;Relacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/CardOrigen.DisplayName" xml:space="preserve">
+    <value>Card Origen</value>
+    <comment>DisplayName for DomainProperty &apos;CardOrigen&apos; on DomainClass &apos;Relacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/CardDestino.Description" xml:space="preserve">
+    <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.Card Destino</value>
+    <comment>Description for DomainProperty &apos;CardDestino&apos; on DomainClass &apos;Relacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/CardDestino.DisplayName" xml:space="preserve">
+    <value>Card Destino</value>
+    <comment>DisplayName for DomainProperty &apos;CardDestino&apos; on DomainClass &apos;Relacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/OrigenEntidad.Description" xml:space="preserve">
+    <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.OrigenEntidad</value>
+    <comment>Description for DomainRole &apos;OrigenEntidad&apos; on DomainRelationship &apos;Relacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/OrigenEntidad.DisplayName" xml:space="preserve">
+    <value>OrigenEntidad</value>
+    <comment>DisplayName for DomainRole &apos;OrigenEntidad&apos; on DomainRelationship &apos;Relacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/OrigenEntidad.PropertyDisplayName" xml:space="preserve">
+    <value>DestinoEntidad</value>
+    <comment>PropertyDisplayName for DomainRole &apos;OrigenEntidad&apos; on DomainRelationship &apos;Relacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/DestinoEntidad.Description" xml:space="preserve">
+    <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.DestinoEntidad</value>
+    <comment>Description for DomainRole &apos;DestinoEntidad&apos; on DomainRelationship &apos;Relacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/DestinoEntidad.DisplayName" xml:space="preserve">
+    <value>DestinoEntidad</value>
+    <comment>DisplayName for DomainRole &apos;DestinoEntidad&apos; on DomainRelationship &apos;Relacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/DestinoEntidad.PropertyDisplayName" xml:space="preserve">
+    <value>OrigenEntidad</value>
+    <comment>PropertyDisplayName for DomainRole &apos;DestinoEntidad&apos; on DomainRelationship &apos;Relacion&apos;</comment>
+  </data>
   <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EntidadShape.Description" xml:space="preserve">
     <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.EntidadShape</value>
     <comment>Description for DomainClass &apos;EntidadShape&apos;</comment>
@@ -251,6 +307,26 @@
   </data>
   <data name="EntidadShapeNombreDecDefaultText" xml:space="preserve">
     <value>NombreDec</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.RelacionConector.Description" xml:space="preserve">
+    <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.RelacionConector</value>
+    <comment>Description for DomainClass &apos;RelacionConector&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.RelacionConector.DisplayName" xml:space="preserve">
+    <value>Relacion Conector</value>
+    <comment>DisplayName for DomainClass &apos;RelacionConector&apos;</comment>
+  </data>
+  <data name="RelacionConectorNombreDecDefaultText" xml:space="preserve">
+    <value>NombreDec</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="RelacionConectorCardOrigenDecDefaultText" xml:space="preserve">
+    <value>CardOrigenDec</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="RelacionConectorCardDestinoDecDefaultText" xml:space="preserve">
+    <value>CardDestinoDec</value>
     <comment>Text decorator default text</comment>
   </data>
   <data name="FormatList" xml:space="preserve">
@@ -287,6 +363,14 @@
   </data>
   <data name="AtributoToolToolboxTooltip" xml:space="preserve">
     <value>Atributo Tool</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="RelacionToolToolboxItem" xml:space="preserve">
+    <value>Relacion</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="RelacionToolToolboxTooltip" xml:space="preserve">
+    <value>Relacion Tool</value>
     <comment>Toolbox tooltip text</comment>
   </data>
   <data name="UnresolvedToolboxItem" xml:space="preserve">
@@ -420,6 +504,10 @@ A DomainClass can be serialized as a moniker only if
   </data>
   <data name="AtributoToolToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
     <value>..\..\..\..\DEF\Iconos\NS_Tool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="RelacionToolToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\..\Iconos\EnlaceNP_NS_Tool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Toolbox item image</comment>
   </data>
 </root>

@@ -72,9 +72,13 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 				typeof(Atributo),
 				typeof(DiagramaWebTieneEntidad),
 				typeof(EntidadTieneAtributo),
+				typeof(Relacion),
 				typeof(PracticaDERADiagram),
+				typeof(RelacionConector),
 				typeof(EntidadShape),
 				typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.FixUpDiagram),
+				typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.DecoratorPropertyChanged),
+				typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.ConnectorRolePlayerChanged),
 				typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.CompartmentItemAddRule),
 				typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.CompartmentItemDeleteRule),
 				typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.CompartmentItemRolePlayerChangeRule),
@@ -94,6 +98,9 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 				new DomainMemberInfo(typeof(DiagramaWeb), "Titulo", DiagramaWeb.TituloDomainPropertyId, typeof(DiagramaWeb.TituloPropertyHandler)),
 				new DomainMemberInfo(typeof(Entidad), "Nombre", Entidad.NombreDomainPropertyId, typeof(Entidad.NombrePropertyHandler)),
 				new DomainMemberInfo(typeof(Atributo), "Nombre", Atributo.NombreDomainPropertyId, typeof(Atributo.NombrePropertyHandler)),
+				new DomainMemberInfo(typeof(Relacion), "NombreRelacion", Relacion.NombreRelacionDomainPropertyId, typeof(Relacion.NombreRelacionPropertyHandler)),
+				new DomainMemberInfo(typeof(Relacion), "CardOrigen", Relacion.CardOrigenDomainPropertyId, typeof(Relacion.CardOrigenPropertyHandler)),
+				new DomainMemberInfo(typeof(Relacion), "CardDestino", Relacion.CardDestinoDomainPropertyId, typeof(Relacion.CardDestinoPropertyHandler)),
 			};
 		}
 		/// <summary>
@@ -108,6 +115,8 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 				new DomainRolePlayerInfo(typeof(DiagramaWebTieneEntidad), "Entidad", DiagramaWebTieneEntidad.EntidadDomainRoleId),
 				new DomainRolePlayerInfo(typeof(EntidadTieneAtributo), "Entidad", EntidadTieneAtributo.EntidadDomainRoleId),
 				new DomainRolePlayerInfo(typeof(EntidadTieneAtributo), "Atributo", EntidadTieneAtributo.AtributoDomainRoleId),
+				new DomainRolePlayerInfo(typeof(Relacion), "OrigenEntidad", Relacion.OrigenEntidadDomainRoleId),
+				new DomainRolePlayerInfo(typeof(Relacion), "DestinoEntidad", Relacion.DestinoEntidadDomainRoleId),
 			};
 		}
 		#endregion
@@ -129,12 +138,13 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 	
 			if (createElementMap == null)
 			{
-				createElementMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(5);
+				createElementMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(6);
 				createElementMap.Add(typeof(DiagramaWeb), 0);
 				createElementMap.Add(typeof(Entidad), 1);
 				createElementMap.Add(typeof(Atributo), 2);
 				createElementMap.Add(typeof(PracticaDERADiagram), 3);
-				createElementMap.Add(typeof(EntidadShape), 4);
+				createElementMap.Add(typeof(RelacionConector), 4);
+				createElementMap.Add(typeof(EntidadShape), 5);
 			}
 			int index;
 			if (!createElementMap.TryGetValue(elementType, out index))
@@ -152,7 +162,8 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 				case 1: return new Entidad(partition, propertyAssignments);
 				case 2: return new Atributo(partition, propertyAssignments);
 				case 3: return new PracticaDERADiagram(partition, propertyAssignments);
-				case 4: return new EntidadShape(partition, propertyAssignments);
+				case 4: return new RelacionConector(partition, propertyAssignments);
+				case 5: return new EntidadShape(partition, propertyAssignments);
 				default: return null;
 			}
 		}
@@ -175,9 +186,10 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 	
 			if (createElementLinkMap == null)
 			{
-				createElementLinkMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(2);
+				createElementLinkMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(3);
 				createElementLinkMap.Add(typeof(DiagramaWebTieneEntidad), 0);
 				createElementLinkMap.Add(typeof(EntidadTieneAtributo), 1);
+				createElementLinkMap.Add(typeof(Relacion), 2);
 			}
 			int index;
 			if (!createElementLinkMap.TryGetValue(elementLinkType, out index))
@@ -194,6 +206,7 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 			{
 				case 0: return new DiagramaWebTieneEntidad(partition, roleAssignments, propertyAssignments);
 				case 1: return new EntidadTieneAtributo(partition, roleAssignments, propertyAssignments);
+				case 2: return new Relacion(partition, roleAssignments, propertyAssignments);
 				default: return null;
 			}
 		}
@@ -314,6 +327,8 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 			
 			DslModeling::RuleManager ruleManager = store.RuleManager;
 			ruleManager.EnableRule(typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.FixUpDiagram));
+			ruleManager.EnableRule(typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.DecoratorPropertyChanged));
+			ruleManager.EnableRule(typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.ConnectorRolePlayerChanged));
 			ruleManager.EnableRule(typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.CompartmentItemAddRule));
 			ruleManager.EnableRule(typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.CompartmentItemDeleteRule));
 			ruleManager.EnableRule(typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.CompartmentItemRolePlayerChangeRule));
@@ -330,6 +345,8 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 			
 			DslModeling::RuleManager ruleManager = store.RuleManager;
 			ruleManager.DisableRule(typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.FixUpDiagram));
+			ruleManager.DisableRule(typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.DecoratorPropertyChanged));
+			ruleManager.DisableRule(typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.ConnectorRolePlayerChanged));
 			ruleManager.DisableRule(typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.CompartmentItemAddRule));
 			ruleManager.DisableRule(typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.CompartmentItemDeleteRule));
 			ruleManager.DisableRule(typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.CompartmentItemRolePlayerChangeRule));

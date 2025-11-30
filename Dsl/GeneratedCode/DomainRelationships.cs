@@ -487,3 +487,484 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 		#endregion
 	}
 }
+namespace UPM_IPS.JGAJPTJJLProyectoIPS
+{
+	/// <summary>
+	/// DomainRelationship Relacion
+	/// Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion
+	/// </summary>
+	[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainRelationship()]
+	[DslModeling::DomainObjectId("0d83bb08-c405-4538-b654-73c152b86d2a")]
+	public partial class Relacion : DslModeling::ElementLink
+	{
+		#region Constructors, domain class Id
+		
+		/// <summary>
+		/// Relacion domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x0d83bb08, 0xc405, 0x4538, 0xb6, 0x54, 0x73, 0xc1, 0x52, 0xb8, 0x6d, 0x2a);
+	
+				
+		/// <summary>
+		/// Constructor
+		/// Creates a Relacion link in the same Partition as the given Entidad
+		/// </summary>
+		/// <param name="source">Entidad to use as the source of the relationship.</param>
+		/// <param name="target">Entidad to use as the target of the relationship.</param>
+		public Relacion(Entidad source, Entidad target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(Relacion.OrigenEntidadDomainRoleId, source), new DslModeling::RoleAssignment(Relacion.DestinoEntidadDomainRoleId, target)}, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public Relacion(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public Relacion(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public Relacion(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(partition, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public Relacion(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, roleAssignments, propertyAssignments)
+		{
+		}
+		#endregion
+		#region OrigenEntidad domain role code
+		
+		/// <summary>
+		/// OrigenEntidad domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid OrigenEntidadDomainRoleId = new global::System.Guid(0x2c441897, 0x562f, 0x4cba, 0xa6, 0x87, 0x4c, 0x54, 0x88, 0x77, 0x4f, 0x9e);
+		
+		/// <summary>
+		/// DomainRole OrigenEntidad
+		/// Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.OrigenEntidad
+		/// </summary>
+		[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/OrigenEntidad.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/OrigenEntidad.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "DestinoEntidad", PropertyDisplayNameKey="UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/OrigenEntidad.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslModeling::DomainObjectId("2c441897-562f-4cba-a687-4c5488774f9e")]
+		public virtual Entidad OrigenEntidad
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (Entidad)DslModeling::DomainRoleInfo.GetRolePlayer(this, OrigenEntidadDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, OrigenEntidadDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access OrigenEntidad of a Entidad
+		/// <summary>
+		/// Gets a list of OrigenEntidad.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static DslModeling::LinkedElementCollection<Entidad> GetOrigenEntidad(Entidad element)
+		{
+			return GetRoleCollection<DslModeling::LinkedElementCollection<Entidad>, Entidad>(element, DestinoEntidadDomainRoleId);
+		}
+		#endregion
+		#region DestinoEntidad domain role code
+		
+		/// <summary>
+		/// DestinoEntidad domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid DestinoEntidadDomainRoleId = new global::System.Guid(0x2424df7c, 0xf223, 0x45cc, 0xac, 0xf4, 0x4d, 0x46, 0x0d, 0xfb, 0x58, 0x6a);
+		
+		/// <summary>
+		/// DomainRole DestinoEntidad
+		/// Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.DestinoEntidad
+		/// </summary>
+		[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/DestinoEntidad.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/DestinoEntidad.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "OrigenEntidad", PropertyDisplayNameKey="UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/DestinoEntidad.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslModeling::DomainObjectId("2424df7c-f223-45cc-acf4-4d460dfb586a")]
+		public virtual Entidad DestinoEntidad
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (Entidad)DslModeling::DomainRoleInfo.GetRolePlayer(this, DestinoEntidadDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, DestinoEntidadDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access DestinoEntidad of a Entidad
+		/// <summary>
+		/// Gets a list of DestinoEntidad.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static DslModeling::LinkedElementCollection<Entidad> GetDestinoEntidad(Entidad element)
+		{
+			return GetRoleCollection<DslModeling::LinkedElementCollection<Entidad>, Entidad>(element, OrigenEntidadDomainRoleId);
+		}
+		#endregion
+		#region NombreRelacion domain property code
+		
+		/// <summary>
+		/// NombreRelacion domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid NombreRelacionDomainPropertyId = new global::System.Guid(0x0cbe5a5e, 0x4ae0, 0x4f52, 0xb9, 0x57, 0x83, 0xb0, 0x50, 0x62, 0x7f, 0x8c);
+		
+		/// <summary>
+		/// Storage for NombreRelacion
+		/// </summary>
+		private global::System.String nombreRelacionPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of NombreRelacion domain property.
+		/// Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.Nombre Relacion
+		/// </summary>
+		[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/NombreRelacion.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/NombreRelacion.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("0cbe5a5e-4ae0-4f52-b957-83b050627f8c")]
+		public global::System.String NombreRelacion
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return nombreRelacionPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				NombreRelacionPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Relacion.NombreRelacion domain property.
+		/// </summary>
+		internal sealed partial class NombreRelacionPropertyHandler : DslModeling::DomainPropertyValueHandler<Relacion, global::System.String>
+		{
+			private NombreRelacionPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Relacion.NombreRelacion domain property value handler.
+			/// </summary>
+			public static readonly NombreRelacionPropertyHandler Instance = new NombreRelacionPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Relacion.NombreRelacion domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return NombreRelacionDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(Relacion element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.nombreRelacionPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Relacion element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.nombreRelacionPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region CardOrigen domain property code
+		
+		/// <summary>
+		/// CardOrigen domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid CardOrigenDomainPropertyId = new global::System.Guid(0x2c1ceb8c, 0x528d, 0x4d56, 0xb4, 0x2a, 0x01, 0xed, 0xc2, 0x14, 0xb5, 0xcc);
+		
+		/// <summary>
+		/// Storage for CardOrigen
+		/// </summary>
+		private global::System.String cardOrigenPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of CardOrigen domain property.
+		/// Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.Card Origen
+		/// </summary>
+		[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/CardOrigen.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/CardOrigen.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("2c1ceb8c-528d-4d56-b42a-01edc214b5cc")]
+		public global::System.String CardOrigen
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return cardOrigenPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				CardOrigenPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Relacion.CardOrigen domain property.
+		/// </summary>
+		internal sealed partial class CardOrigenPropertyHandler : DslModeling::DomainPropertyValueHandler<Relacion, global::System.String>
+		{
+			private CardOrigenPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Relacion.CardOrigen domain property value handler.
+			/// </summary>
+			public static readonly CardOrigenPropertyHandler Instance = new CardOrigenPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Relacion.CardOrigen domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return CardOrigenDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(Relacion element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.cardOrigenPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Relacion element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.cardOrigenPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region CardDestino domain property code
+		
+		/// <summary>
+		/// CardDestino domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid CardDestinoDomainPropertyId = new global::System.Guid(0xe96b62ee, 0x3391, 0x440a, 0xb9, 0x9e, 0x87, 0x53, 0x7b, 0xa4, 0x31, 0xcb);
+		
+		/// <summary>
+		/// Storage for CardDestino
+		/// </summary>
+		private global::System.String cardDestinoPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of CardDestino domain property.
+		/// Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.Card Destino
+		/// </summary>
+		[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/CardDestino.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/CardDestino.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("e96b62ee-3391-440a-b99e-87537ba431cb")]
+		public global::System.String CardDestino
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return cardDestinoPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				CardDestinoPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Relacion.CardDestino domain property.
+		/// </summary>
+		internal sealed partial class CardDestinoPropertyHandler : DslModeling::DomainPropertyValueHandler<Relacion, global::System.String>
+		{
+			private CardDestinoPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Relacion.CardDestino domain property value handler.
+			/// </summary>
+			public static readonly CardDestinoPropertyHandler Instance = new CardDestinoPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Relacion.CardDestino domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return CardDestinoDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(Relacion element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.cardDestinoPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Relacion element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.cardDestinoPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region OrigenEntidad link accessor
+		/// <summary>
+		/// Get the list of Relacion links to a Entidad.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion> GetLinksToDestinoEntidad ( global::UPM_IPS.JGAJPTJJLProyectoIPS.Entidad origenEntidadInstance )
+		{
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion>(origenEntidadInstance, global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.OrigenEntidadDomainRoleId);
+		}
+		#endregion
+		#region DestinoEntidad link accessor
+		/// <summary>
+		/// Get the list of Relacion links to a Entidad.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion> GetLinksToOrigenEntidad ( global::UPM_IPS.JGAJPTJJLProyectoIPS.Entidad destinoEntidadInstance )
+		{
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion>(destinoEntidadInstance, global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.DestinoEntidadDomainRoleId);
+		}
+		#endregion
+		#region Relacion instance accessors
+		
+		/// <summary>
+		/// Get any Relacion links between a given Entidad and a Entidad.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion> GetLinks( global::UPM_IPS.JGAJPTJJLProyectoIPS.Entidad source, global::UPM_IPS.JGAJPTJJLProyectoIPS.Entidad target )
+		{
+			global::System.Collections.Generic.List<global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion> outLinks = new global::System.Collections.Generic.List<global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion>();
+			global::System.Collections.Generic.IList<global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion> links = DslModeling::DomainRoleInfo.GetElementLinks<global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion>(source, global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.OrigenEntidadDomainRoleId);
+			foreach ( global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion link in links )
+			{
+				if ( target.Equals(link.DestinoEntidad) )
+				{
+					outLinks.Add(link);
+				}
+			}
+			return outLinks.AsReadOnly();
+		}
+		/// <summary>
+		/// Get the one Relacion link between a given Entidadand a Entidad.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion GetLink( global::UPM_IPS.JGAJPTJJLProyectoIPS.Entidad source, global::UPM_IPS.JGAJPTJJLProyectoIPS.Entidad target )
+		{
+			global::System.Collections.Generic.IList<global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion> links = DslModeling::DomainRoleInfo.GetElementLinks<global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion>(source, global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.OrigenEntidadDomainRoleId);
+			foreach ( global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion link in links )
+			{
+				if ( target.Equals(link.DestinoEntidad) )
+				{
+					return link;
+				}
+			}
+			return null;
+		}
+		
+		#endregion
+	}
+}

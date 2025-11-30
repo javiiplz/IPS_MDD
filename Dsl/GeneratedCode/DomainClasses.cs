@@ -409,6 +409,36 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 			}
 		}
 		#endregion
+		#region DestinoEntidad opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of DestinoEntidad.
+		/// Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.OrigenEntidad
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<Entidad> DestinoEntidad
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Entidad>, Entidad>(global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.OrigenEntidadDomainRoleId);
+			}
+		}
+		#endregion
+		#region OrigenEntidad opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of OrigenEntidad.
+		/// Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.DestinoEntidad
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<Entidad> OrigenEntidad
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Entidad>, Entidad>(global::UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.DestinoEntidadDomainRoleId);
+			}
+		}
+		#endregion
 		#region ElementGroupPrototype Merge methods
 		/// <summary>
 		/// Returns a value indicating whether the source element represented by the
