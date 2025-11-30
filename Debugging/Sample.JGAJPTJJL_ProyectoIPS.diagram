@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<practicaDERADiagram dslVersion="1.0.0.0" Id="b5bda7ca-f01a-4288-b4c7-df2de1ec3cc8" absoluteBounds="0, 0, 11, 8.5" name="Sample">
+  <exampleModelMoniker Id="42d3d651-bcc2-4d6c-8226-41593168f5c1" />
+  <nestedChildShapes>
+    <exampleShape Id="ba2e9429-1222-449f-82df-6afa35919847" absoluteBounds="0.5, 1.75, 2, 0.75">
+      <exampleElementMoniker name="/42d3d651-bcc2-4d6c-8226-41593168f5c1/ExampleElement1" />
+    </exampleShape>
+    <exampleShape Id="715c7f20-0461-46b6-9079-8cf5fe960817" absoluteBounds="3, 0.5, 2, 0.75">
+      <exampleElementMoniker name="/42d3d651-bcc2-4d6c-8226-41593168f5c1/ExampleElement2" />
+    </exampleShape>
+    <exampleConnector Id="933b6e71-4c9d-4598-8cb7-da7d3a461546" edgePoints="[(1.5 : 1.75); (1.5 : 0.875); (3 : 0.875)]" fixedFrom="Algorithm" fixedTo="Algorithm" TargetRelationshipDomainClassId="45e7d622-18fd-4d2c-87c1-89a2f14832e4">
+      <nodes>
+        <exampleShapeMoniker Id="ba2e9429-1222-449f-82df-6afa35919847" />
+        <exampleShapeMoniker Id="715c7f20-0461-46b6-9079-8cf5fe960817" />
+      </nodes>
+    </exampleConnector>
+  </nestedChildShapes>
+</practicaDERADiagram>

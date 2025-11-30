@@ -1,0 +1,8 @@
+.vs/
+bin/
+obj/
+GeneratedCode/
+*.suo
+*.user
+*.db
+*.opc

@@ -1,0 +1,17 @@
+﻿<!--DSL Tools Language Template-->
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TemplateData>
+		<TemplateID>{14a0a139-a314-4b72-9836-e41776c51e04}</TemplateID>
+		<Name Package="{1e318e2f-e85f-406a-a13b-ab09f10f5242}" ID="103"/>
+		<Description Package="{1e318e2f-e85f-406a-a13b-ab09f10f5242}" ID="102"/>
+		<Icon Package="{1e318e2f-e85f-406a-a13b-ab09f10f5242}" ID="201" />
+		<ProjectType>CSharp</ProjectType>
+		<SortOrder>360</SortOrder>
+		<DefaultName>PracticaDERA.JGAJPTJJL_ProyectoIPS</DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectItem TargetFileName="$fileinputname$.JGAJPTJJL_ProyectoIPS">JGAJPTJJL_ProyectoIPS.JGAJPTJJL_ProyectoIPS</ProjectItem>
+		<ProjectItem TargetFileName="$fileinputname$.JGAJPTJJL_ProyectoIPS.diagram">JGAJPTJJL_ProyectoIPS.diagram</ProjectItem>
+	</TemplateContent>
+</VSTemplate>
+
