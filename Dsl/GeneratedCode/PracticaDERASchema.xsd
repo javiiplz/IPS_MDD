@@ -140,6 +140,8 @@
         </xsd:attribute>
         <!-- Property: Nombre -->
         <xsd:attribute name="nombre" type="xsd:string" />
+        <!-- Property: Tipo -->
+        <xsd:attribute name="tipo" type="TipoDatoEnum" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -286,6 +288,17 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
+  
+  <!-- Enum TipoDatoEnum -->
+  <xsd:simpleType name="TipoDatoEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Entero"/>
+      <xsd:enumeration value="Real"/>
+      <xsd:enumeration value="Texto"/>
+      <xsd:enumeration value="Fecha"/>
+      <xsd:enumeration value="Booleano"/>
+    </xsd:restriction>
+  </xsd:simpleType>
   
 </xsd:schema>
 

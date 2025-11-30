@@ -98,6 +98,7 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 				new DomainMemberInfo(typeof(DiagramaWeb), "Titulo", DiagramaWeb.TituloDomainPropertyId, typeof(DiagramaWeb.TituloPropertyHandler)),
 				new DomainMemberInfo(typeof(Entidad), "Nombre", Entidad.NombreDomainPropertyId, typeof(Entidad.NombrePropertyHandler)),
 				new DomainMemberInfo(typeof(Atributo), "Nombre", Atributo.NombreDomainPropertyId, typeof(Atributo.NombrePropertyHandler)),
+				new DomainMemberInfo(typeof(Atributo), "Tipo", Atributo.TipoDomainPropertyId, typeof(Atributo.TipoPropertyHandler)),
 				new DomainMemberInfo(typeof(Relacion), "NombreRelacion", Relacion.NombreRelacionDomainPropertyId, typeof(Relacion.NombreRelacionPropertyHandler)),
 				new DomainMemberInfo(typeof(Relacion), "CardOrigen", Relacion.CardOrigenDomainPropertyId, typeof(Relacion.CardOrigenPropertyHandler)),
 				new DomainMemberInfo(typeof(Relacion), "CardDestino", Relacion.CardDestinoDomainPropertyId, typeof(Relacion.CardDestinoPropertyHandler)),
@@ -462,5 +463,46 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 	}
 	#endregion
 		
+}
+namespace UPM_IPS.JGAJPTJJLProyectoIPS
+{
+	/// <summary>
+	/// DomainEnumeration: TipoDatoEnum
+	/// Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum
+	/// </summary>
+	[global::System.CLSCompliant(true)]
+	public enum TipoDatoEnum
+	{
+		/// <summary>
+		/// Entero
+		/// Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Entero
+		/// </summary>
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum/Entero.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		Entero = 0,
+		/// <summary>
+		/// Real
+		/// Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Real
+		/// </summary>
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum/Real.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		Real = 1,
+		/// <summary>
+		/// Texto
+		/// Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Texto
+		/// </summary>
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum/Texto.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		Texto = 2,
+		/// <summary>
+		/// Fecha
+		/// Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Fecha
+		/// </summary>
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum/Fecha.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		Fecha = 3,
+		/// <summary>
+		/// Booleano
+		/// Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Booleano
+		/// </summary>
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum/Booleano.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		Booleano = 4,
+	}
 }
 

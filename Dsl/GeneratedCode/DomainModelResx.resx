@@ -173,6 +173,14 @@
     <value>Nombre</value>
     <comment>DisplayName for DomainProperty &apos;Nombre&apos; on DomainClass &apos;Atributo&apos;</comment>
   </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Atributo/Tipo.Description" xml:space="preserve">
+    <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Atributo.Tipo</value>
+    <comment>Description for DomainProperty &apos;Tipo&apos; on DomainClass &apos;Atributo&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Atributo/Tipo.DisplayName" xml:space="preserve">
+    <value>Tipo</value>
+    <comment>DisplayName for DomainProperty &apos;Tipo&apos; on DomainClass &apos;Atributo&apos;</comment>
+  </data>
   <data name="UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEntidad.Description" xml:space="preserve">
     <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEntidad</value>
     <comment>Description for DomainClass &apos;DiagramaWebTieneEntidad&apos;</comment>
@@ -292,6 +300,46 @@
   <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Relacion/DestinoEntidad.PropertyDisplayName" xml:space="preserve">
     <value>OrigenEntidad</value>
     <comment>PropertyDisplayName for DomainRole &apos;DestinoEntidad&apos; on DomainRelationship &apos;Relacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum/Entero.DisplayName" xml:space="preserve">
+    <value>Entero</value>
+    <comment>Display name for EnumerationLiteral &apos;Entero&apos; on DomainEnumeration &apos;TipoDatoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum/Entero.Description" xml:space="preserve">
+    <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Entero</value>
+    <comment>Description for EnumerationLiteral &apos;Entero&apos; on DomainEnumeration &apos;TipoDatoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum/Real.DisplayName" xml:space="preserve">
+    <value>Real</value>
+    <comment>Display name for EnumerationLiteral &apos;Real&apos; on DomainEnumeration &apos;TipoDatoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum/Real.Description" xml:space="preserve">
+    <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Real</value>
+    <comment>Description for EnumerationLiteral &apos;Real&apos; on DomainEnumeration &apos;TipoDatoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum/Texto.DisplayName" xml:space="preserve">
+    <value>Texto</value>
+    <comment>Display name for EnumerationLiteral &apos;Texto&apos; on DomainEnumeration &apos;TipoDatoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum/Texto.Description" xml:space="preserve">
+    <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Texto</value>
+    <comment>Description for EnumerationLiteral &apos;Texto&apos; on DomainEnumeration &apos;TipoDatoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum/Fecha.DisplayName" xml:space="preserve">
+    <value>Fecha</value>
+    <comment>Display name for EnumerationLiteral &apos;Fecha&apos; on DomainEnumeration &apos;TipoDatoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum/Fecha.Description" xml:space="preserve">
+    <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Fecha</value>
+    <comment>Description for EnumerationLiteral &apos;Fecha&apos; on DomainEnumeration &apos;TipoDatoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum/Booleano.DisplayName" xml:space="preserve">
+    <value>Booleano</value>
+    <comment>Display name for EnumerationLiteral &apos;Booleano&apos; on DomainEnumeration &apos;TipoDatoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum/Booleano.Description" xml:space="preserve">
+    <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Booleano</value>
+    <comment>Description for EnumerationLiteral &apos;Booleano&apos; on DomainEnumeration &apos;TipoDatoEnum&apos;</comment>
   </data>
   <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EntidadShape.Description" xml:space="preserve">
     <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.EntidadShape</value>

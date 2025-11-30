@@ -664,6 +664,93 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 		}
 		
 		#endregion
+		#region Tipo domain property code
+		
+		/// <summary>
+		/// Tipo domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid TipoDomainPropertyId = new global::System.Guid(0xb72c54a8, 0x8ae3, 0x4d45, 0x82, 0x12, 0x40, 0x8f, 0xe2, 0x25, 0x0a, 0xcf);
+		
+		/// <summary>
+		/// Storage for Tipo
+		/// </summary>
+		private TipoDatoEnum tipoPropertyStorage;
+		
+		/// <summary>
+		/// Gets or sets the value of Tipo domain property.
+		/// Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Atributo.Tipo
+		/// </summary>
+		[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.Atributo/Tipo.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.Atributo/Tipo.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("b72c54a8-8ae3-4d45-8212-408fe2250acf")]
+		public TipoDatoEnum Tipo
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return tipoPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				TipoPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Atributo.Tipo domain property.
+		/// </summary>
+		internal sealed partial class TipoPropertyHandler : DslModeling::DomainPropertyValueHandler<Atributo, TipoDatoEnum>
+		{
+			private TipoPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Atributo.Tipo domain property value handler.
+			/// </summary>
+			public static readonly TipoPropertyHandler Instance = new TipoPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Atributo.Tipo domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return TipoDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed TipoDatoEnum GetValue(Atributo element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.tipoPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Atributo element, TipoDatoEnum newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				TipoDatoEnum oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.tipoPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
 		#region Entidad opposite domain role accessor
 		/// <summary>
 		/// Gets or sets Entidad.

@@ -1825,6 +1825,23 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 					}
 				}
 			}
+			// Tipo
+			if (!serializationContext.Result.Failed)
+			{
+				string attribTipo = PracticaDERASerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "tipo");
+				if (attribTipo != null)
+				{
+					TipoDatoEnum valueOfTipo;
+					if (DslModeling::SerializationUtilities.TryGetValue<TipoDatoEnum>(serializationContext, attribTipo, out valueOfTipo))
+					{
+						instanceOfAtributo.Tipo = valueOfTipo;
+					}
+					else
+					{	// Invalid property value, ignored.
+						PracticaDERASerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "tipo", typeof(TipoDatoEnum), attribTipo);
+					}
+				}
+			}
 		}
 	
 		/// <summary>
@@ -2259,6 +2276,16 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 					if (!string.IsNullOrEmpty(propValue))
 						PracticaDERASerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "nombre", propValue);
 	
+				}
+			}
+			// Tipo
+			if (!serializationContext.Result.Failed)
+			{
+				TipoDatoEnum propValue = instanceOfAtributo.Tipo;
+				string serializedPropValue = DslModeling::SerializationUtilities.GetString<TipoDatoEnum>(serializationContext, propValue);
+				if (!serializationContext.Result.Failed)
+				{
+					PracticaDERASerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "tipo", serializedPropValue);
 				}
 			}
 		}

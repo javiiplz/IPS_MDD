@@ -46,6 +46,11 @@
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
+        <DomainProperty Id="b72c54a8-8ae3-4d45-8212-408fe2250acf" Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Atributo.Tipo" Name="Tipo" DisplayName="Tipo">
+          <Type>
+            <DomainEnumerationMoniker Name="TipoDatoEnum" />
+          </Type>
+        </DomainProperty>
       </Properties>
     </DomainClass>
   </Classes>
@@ -132,6 +137,15 @@
     <ExternalType Name="Guid" Namespace="System" />
     <ExternalType Name="Boolean" Namespace="System" />
     <ExternalType Name="Char" Namespace="System" />
+    <DomainEnumeration Name="TipoDatoEnum" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS" Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum">
+      <Literals>
+        <EnumerationLiteral Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Entero" Name="Entero" Value="0" />
+        <EnumerationLiteral Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Real" Name="Real" Value="1" />
+        <EnumerationLiteral Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Texto" Name="Texto" Value="2" />
+        <EnumerationLiteral Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Fecha" Name="Fecha" Value="3" />
+        <EnumerationLiteral Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Booleano" Name="Booleano" Value="4" />
+      </Literals>
+    </DomainEnumeration>
   </Types>
   <Shapes>
     <CompartmentShape Id="f9d20f0f-f953-4da4-acfa-425d7dc09b23" Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.EntidadShape" Name="EntidadShape" DisplayName="Entidad_Shape" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS" FixedTooltipText="Entidad_Shape" FillColor="Aquamarine" InitialHeight="1" Geometry="RoundedRectangle">
@@ -195,6 +209,9 @@
         <ElementData>
           <XmlPropertyData XmlName="nombre">
             <DomainPropertyMoniker Name="Atributo/Nombre" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="tipo">
+            <DomainPropertyMoniker Name="Atributo/Tipo" />
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>
