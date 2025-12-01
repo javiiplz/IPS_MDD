@@ -51,6 +51,11 @@
             <DomainEnumerationMoniker Name="TipoDatoEnum" />
           </Type>
         </DomainProperty>
+        <DomainProperty Id="47333426-4fd3-47db-8efd-1a3b0357891e" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.Atributo.Es Claveprimaria" Name="esClaveprimaria" DisplayName="Es Claveprimaria" DefaultValue="false">
+          <Type>
+            <ExternalTypeMoniker Name="/System/Boolean" />
+          </Type>
+        </DomainProperty>
       </Properties>
     </DomainClass>
   </Classes>
@@ -154,6 +159,11 @@
       </ShapeHasDecorators>
       <Compartment Name="ListaAtributos" Title="Atributos" />
     </CompartmentShape>
+    <CompartmentShape Id="d7af5063-06da-46c6-b3c6-b18598041f4a" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.CompartmentShape1" Name="CompartmentShape1" DisplayName="Compartment Shape1" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS" FixedTooltipText="Compartment Shape1" InitialHeight="1" Geometry="Rectangle">
+      <ShapeHasDecorators Position="InnerTopRight" HorizontalOffset="0" VerticalOffset="0">
+        <TextDecorator Name="TextDecorator1" DisplayName="PKDecorator" DefaultText="(PK)" />
+      </ShapeHasDecorators>
+    </CompartmentShape>
   </Shapes>
   <Connectors>
     <Connector Id="c525d9fa-d45f-4715-b60d-a1f9028bf46c" Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.RelacionConector" Name="RelacionConector" DisplayName="Relacion Conector" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS" FixedTooltipText="Relacion Conector" TargetEndStyle="EmptyArrow">
@@ -213,6 +223,9 @@
           <XmlPropertyData XmlName="tipo">
             <DomainPropertyMoniker Name="Atributo/Tipo" />
           </XmlPropertyData>
+          <XmlPropertyData XmlName="esClaveprimaria">
+            <DomainPropertyMoniker Name="Atributo/esClaveprimaria" />
+          </XmlPropertyData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="EntidadTieneAtributo" MonikerAttributeName="" SerializeId="true" MonikerElementName="EntidadTieneAtributoMoniker" ElementName="entidadTieneAtributo" MonikerTypeName="EntidadTieneAtributoMoniker">
@@ -234,6 +247,9 @@
       </XmlClassData>
       <XmlClassData TypeName="RelacionConector" MonikerAttributeName="" SerializeId="true" MonikerElementName="RelacionConectorMoniker" ElementName="relacionConector" MonikerTypeName="RelacionConectorMoniker">
         <ConnectorMoniker Name="RelacionConector" />
+      </XmlClassData>
+      <XmlClassData TypeName="CompartmentShape1" MonikerAttributeName="" SerializeId="true" MonikerElementName="compartmentShape1Moniker" ElementName="compartmentShape1" MonikerTypeName="CompartmentShape1Moniker">
+        <CompartmentShapeMoniker Name="CompartmentShape1" />
       </XmlClassData>
     </ClassData>
   </XmlSerializationBehavior>
