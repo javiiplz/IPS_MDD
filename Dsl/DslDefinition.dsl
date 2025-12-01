@@ -330,13 +330,13 @@
       <XmlSerializationBehaviorMoniker Name="PracticaDERASerializationBehavior" />
     </XmlSerializationDefinition>
     <ToolboxTab TabText="PracticaDERA">
-      <ElementTool Name="EntidadTool" ToolboxIcon="C:\Users\franc\Desktop\DEF\Iconos\NP_Tool.bmp" Caption="EntidadTool" Tooltip="Entidad Tool" HelpKeyword="EntidadTool">
+      <ElementTool Name="EntidadTool" ToolboxIcon="Resources\Iconos\NP_Tool.bmp" Caption="EntidadTool" Tooltip="Entidad Tool" HelpKeyword="EntidadTool">
         <DomainClassMoniker Name="Entidad" />
       </ElementTool>
-      <ElementTool Name="AtributoTool" ToolboxIcon="C:\Users\franc\Desktop\DEF\Iconos\NS_Tool.bmp" Caption="AtributoTool" Tooltip="Atributo Tool" HelpKeyword="AtributoTool">
+      <ElementTool Name="AtributoTool" ToolboxIcon="Resources\Iconos\NS_Tool.bmp" Caption="AtributoTool" Tooltip="Atributo Tool" HelpKeyword="AtributoTool">
         <DomainClassMoniker Name="Atributo" />
       </ElementTool>
-      <ConnectionTool Name="RelacionTool" ToolboxIcon="C:\Users\franc\Desktop\MDD Clone\IPS_MDD\Iconos\EnlaceNP_NS_Tool.bmp" Caption="Relacion" Tooltip="Relacion Tool" HelpKeyword="RelacionTool">
+      <ConnectionTool Name="RelacionTool" ToolboxIcon="Resources\Iconos\EnlaceNP_NS_Tool.bmp" Caption="Relacion" Tooltip="Relacion Tool" HelpKeyword="RelacionTool">
         <ConnectionBuilderMoniker Name="PracticaDERA/GeneradorRelacion" />
       </ConnectionTool>
     </ToolboxTab>
