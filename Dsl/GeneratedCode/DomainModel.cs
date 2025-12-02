@@ -71,10 +71,12 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 				typeof(Entidad),
 				typeof(Atributo),
 				typeof(EstiloPortal),
+				typeof(EstiloPagina),
 				typeof(DiagramaWebTieneEntidad),
 				typeof(EntidadTieneAtributo),
 				typeof(Relacion),
 				typeof(DiagramaWebTieneEstiloPortal),
+				typeof(EntidadTieneEstiloPagina),
 				typeof(PracticaDERADiagram),
 				typeof(RelacionConector),
 				typeof(EntidadShape),
@@ -109,6 +111,10 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 				new DomainMemberInfo(typeof(EstiloPortal), "TipoLetra", EstiloPortal.TipoLetraDomainPropertyId, typeof(EstiloPortal.TipoLetraPropertyHandler)),
 				new DomainMemberInfo(typeof(EstiloPortal), "TamanoLetra", EstiloPortal.TamanoLetraDomainPropertyId, typeof(EstiloPortal.TamanoLetraPropertyHandler)),
 				new DomainMemberInfo(typeof(EstiloPortal), "Alineacion", EstiloPortal.AlineacionDomainPropertyId, typeof(EstiloPortal.AlineacionPropertyHandler)),
+				new DomainMemberInfo(typeof(EstiloPagina), "Color", EstiloPagina.ColorDomainPropertyId, typeof(EstiloPagina.ColorPropertyHandler)),
+				new DomainMemberInfo(typeof(EstiloPagina), "TipoLetra", EstiloPagina.TipoLetraDomainPropertyId, typeof(EstiloPagina.TipoLetraPropertyHandler)),
+				new DomainMemberInfo(typeof(EstiloPagina), "TamanoLetra", EstiloPagina.TamanoLetraDomainPropertyId, typeof(EstiloPagina.TamanoLetraPropertyHandler)),
+				new DomainMemberInfo(typeof(EstiloPagina), "Alineacion", EstiloPagina.AlineacionDomainPropertyId, typeof(EstiloPagina.AlineacionPropertyHandler)),
 				new DomainMemberInfo(typeof(Relacion), "NombreRelacion", Relacion.NombreRelacionDomainPropertyId, typeof(Relacion.NombreRelacionPropertyHandler)),
 				new DomainMemberInfo(typeof(Relacion), "CardOrigen", Relacion.CardOrigenDomainPropertyId, typeof(Relacion.CardOrigenPropertyHandler)),
 				new DomainMemberInfo(typeof(Relacion), "CardDestino", Relacion.CardDestinoDomainPropertyId, typeof(Relacion.CardDestinoPropertyHandler)),
@@ -130,6 +136,8 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 				new DomainRolePlayerInfo(typeof(Relacion), "DestinoEntidad", Relacion.DestinoEntidadDomainRoleId),
 				new DomainRolePlayerInfo(typeof(DiagramaWebTieneEstiloPortal), "DiagramaWeb", DiagramaWebTieneEstiloPortal.DiagramaWebDomainRoleId),
 				new DomainRolePlayerInfo(typeof(DiagramaWebTieneEstiloPortal), "EstiloPortal", DiagramaWebTieneEstiloPortal.EstiloPortalDomainRoleId),
+				new DomainRolePlayerInfo(typeof(EntidadTieneEstiloPagina), "Entidad", EntidadTieneEstiloPagina.EntidadDomainRoleId),
+				new DomainRolePlayerInfo(typeof(EntidadTieneEstiloPagina), "EstiloPagina", EntidadTieneEstiloPagina.EstiloPaginaDomainRoleId),
 			};
 		}
 		#endregion
@@ -151,15 +159,16 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 	
 			if (createElementMap == null)
 			{
-				createElementMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(8);
+				createElementMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(9);
 				createElementMap.Add(typeof(DiagramaWeb), 0);
 				createElementMap.Add(typeof(Entidad), 1);
 				createElementMap.Add(typeof(Atributo), 2);
 				createElementMap.Add(typeof(EstiloPortal), 3);
-				createElementMap.Add(typeof(PracticaDERADiagram), 4);
-				createElementMap.Add(typeof(RelacionConector), 5);
-				createElementMap.Add(typeof(EntidadShape), 6);
-				createElementMap.Add(typeof(CompartmentShape1), 7);
+				createElementMap.Add(typeof(EstiloPagina), 4);
+				createElementMap.Add(typeof(PracticaDERADiagram), 5);
+				createElementMap.Add(typeof(RelacionConector), 6);
+				createElementMap.Add(typeof(EntidadShape), 7);
+				createElementMap.Add(typeof(CompartmentShape1), 8);
 			}
 			int index;
 			if (!createElementMap.TryGetValue(elementType, out index))
@@ -177,10 +186,11 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 				case 1: return new Entidad(partition, propertyAssignments);
 				case 2: return new Atributo(partition, propertyAssignments);
 				case 3: return new EstiloPortal(partition, propertyAssignments);
-				case 4: return new PracticaDERADiagram(partition, propertyAssignments);
-				case 5: return new RelacionConector(partition, propertyAssignments);
-				case 6: return new EntidadShape(partition, propertyAssignments);
-				case 7: return new CompartmentShape1(partition, propertyAssignments);
+				case 4: return new EstiloPagina(partition, propertyAssignments);
+				case 5: return new PracticaDERADiagram(partition, propertyAssignments);
+				case 6: return new RelacionConector(partition, propertyAssignments);
+				case 7: return new EntidadShape(partition, propertyAssignments);
+				case 8: return new CompartmentShape1(partition, propertyAssignments);
 				default: return null;
 			}
 		}
@@ -203,11 +213,12 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 	
 			if (createElementLinkMap == null)
 			{
-				createElementLinkMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(4);
+				createElementLinkMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(5);
 				createElementLinkMap.Add(typeof(DiagramaWebTieneEntidad), 0);
 				createElementLinkMap.Add(typeof(EntidadTieneAtributo), 1);
 				createElementLinkMap.Add(typeof(Relacion), 2);
 				createElementLinkMap.Add(typeof(DiagramaWebTieneEstiloPortal), 3);
+				createElementLinkMap.Add(typeof(EntidadTieneEstiloPagina), 4);
 			}
 			int index;
 			if (!createElementLinkMap.TryGetValue(elementLinkType, out index))
@@ -226,6 +237,7 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 				case 1: return new EntidadTieneAtributo(partition, roleAssignments, propertyAssignments);
 				case 2: return new Relacion(partition, roleAssignments, propertyAssignments);
 				case 3: return new DiagramaWebTieneEstiloPortal(partition, roleAssignments, propertyAssignments);
+				case 4: return new EntidadTieneEstiloPagina(partition, roleAssignments, propertyAssignments);
 				default: return null;
 			}
 		}
@@ -409,6 +421,7 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 			DomainRoles.Add(global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEntidad.EntidadDomainRoleId, true);
 			DomainRoles.Add(global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneAtributo.AtributoDomainRoleId, true);
 			DomainRoles.Add(global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal.EstiloPortalDomainRoleId, true);
+			DomainRoles.Add(global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.EstiloPaginaDomainRoleId, true);
 			#endregion
 		}
 		/// <summary>

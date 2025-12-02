@@ -245,6 +245,46 @@
     <value>Alineacion</value>
     <comment>DisplayName for DomainProperty &apos;Alineacion&apos; on DomainClass &apos;EstiloPortal&apos;</comment>
   </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina</value>
+    <comment>Description for DomainClass &apos;EstiloPagina&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.DisplayName" xml:space="preserve">
+    <value>Estilo Pagina</value>
+    <comment>DisplayName for DomainClass &apos;EstiloPagina&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina/Color.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.Color</value>
+    <comment>Description for DomainProperty &apos;Color&apos; on DomainClass &apos;EstiloPagina&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina/Color.DisplayName" xml:space="preserve">
+    <value>Color</value>
+    <comment>DisplayName for DomainProperty &apos;Color&apos; on DomainClass &apos;EstiloPagina&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina/TipoLetra.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.Tipo Letra</value>
+    <comment>Description for DomainProperty &apos;TipoLetra&apos; on DomainClass &apos;EstiloPagina&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina/TipoLetra.DisplayName" xml:space="preserve">
+    <value>Tipo Letra</value>
+    <comment>DisplayName for DomainProperty &apos;TipoLetra&apos; on DomainClass &apos;EstiloPagina&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina/TamanoLetra.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.Tamano Letra</value>
+    <comment>Description for DomainProperty &apos;TamanoLetra&apos; on DomainClass &apos;EstiloPagina&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina/TamanoLetra.DisplayName" xml:space="preserve">
+    <value>Tamano Letra</value>
+    <comment>DisplayName for DomainProperty &apos;TamanoLetra&apos; on DomainClass &apos;EstiloPagina&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina/Alineacion.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.Alineacion</value>
+    <comment>Description for DomainProperty &apos;Alineacion&apos; on DomainClass &apos;EstiloPagina&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina/Alineacion.DisplayName" xml:space="preserve">
+    <value>Alineacion</value>
+    <comment>DisplayName for DomainProperty &apos;Alineacion&apos; on DomainClass &apos;EstiloPagina&apos;</comment>
+  </data>
   <data name="UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEntidad.Description" xml:space="preserve">
     <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEntidad</value>
     <comment>Description for DomainClass &apos;DiagramaWebTieneEntidad&apos;</comment>
@@ -397,6 +437,38 @@
     <value>Diagrama Web</value>
     <comment>PropertyDisplayName for DomainRole &apos;EstiloPortal&apos; on DomainRelationship &apos;DiagramaWebTieneEstiloPortal&apos;</comment>
   </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina</value>
+    <comment>Description for DomainClass &apos;EntidadTieneEstiloPagina&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.DisplayName" xml:space="preserve">
+    <value>Entidad Tiene Estilo Pagina</value>
+    <comment>DisplayName for DomainClass &apos;EntidadTieneEstiloPagina&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina/Entidad.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.Entidad</value>
+    <comment>Description for DomainRole &apos;Entidad&apos; on DomainRelationship &apos;EntidadTieneEstiloPagina&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina/Entidad.DisplayName" xml:space="preserve">
+    <value>Entidad</value>
+    <comment>DisplayName for DomainRole &apos;Entidad&apos; on DomainRelationship &apos;EntidadTieneEstiloPagina&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina/Entidad.PropertyDisplayName" xml:space="preserve">
+    <value>Estilo Pagina</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Entidad&apos; on DomainRelationship &apos;EntidadTieneEstiloPagina&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina/EstiloPagina.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.EstiloPagina</value>
+    <comment>Description for DomainRole &apos;EstiloPagina&apos; on DomainRelationship &apos;EntidadTieneEstiloPagina&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina/EstiloPagina.DisplayName" xml:space="preserve">
+    <value>Estilo Pagina</value>
+    <comment>DisplayName for DomainRole &apos;EstiloPagina&apos; on DomainRelationship &apos;EntidadTieneEstiloPagina&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina/EstiloPagina.PropertyDisplayName" xml:space="preserve">
+    <value>Entidad</value>
+    <comment>PropertyDisplayName for DomainRole &apos;EstiloPagina&apos; on DomainRelationship &apos;EntidadTieneEstiloPagina&apos;</comment>
+  </data>
   <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum/Entero.DisplayName" xml:space="preserve">
     <value>Entero</value>
     <comment>Display name for EnumerationLiteral &apos;Entero&apos; on DomainEnumeration &apos;TipoDatoEnum&apos;</comment>
@@ -537,6 +609,14 @@
     <value>Estilo Portal Tool</value>
     <comment>Toolbox tooltip text</comment>
   </data>
+  <data name="EstiloPaginaToolToolboxItem" xml:space="preserve">
+    <value>EstiloPaginaTool</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="EstiloPaginaToolToolboxTooltip" xml:space="preserve">
+    <value>Estilo Pagina Tool</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
   <data name="UnresolvedToolboxItem" xml:space="preserve">
     <value>ToolboxItem {0} was not found</value>
     <comment>Invalid toolId</comment>
@@ -675,6 +755,10 @@ A DomainClass can be serialized as a moniker only if
     <comment>Toolbox item image</comment>
   </data>
   <data name="EstiloPortalToolToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Iconos\NP.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="EstiloPaginaToolToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
     <value>..\Resources\Iconos\NP.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Toolbox item image</comment>
   </data>

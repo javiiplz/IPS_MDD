@@ -1228,3 +1228,262 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 		#endregion
 	}
 }
+namespace UPM_IPS.JGAJPTJJLProyectoIPS
+{
+	/// <summary>
+	/// DomainRelationship EntidadTieneEstiloPagina
+	/// Description for UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina
+	/// </summary>
+	[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainRelationship(IsEmbedding=true)]
+	[DslModeling::DomainObjectId("ba6e6e02-4b15-4fbb-a32c-daeec94b621d")]
+	public partial class EntidadTieneEstiloPagina : DslModeling::ElementLink
+	{
+		#region Constructors, domain class Id
+		
+		/// <summary>
+		/// EntidadTieneEstiloPagina domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xba6e6e02, 0x4b15, 0x4fbb, 0xa3, 0x2c, 0xda, 0xee, 0xc9, 0x4b, 0x62, 0x1d);
+	
+				
+		/// <summary>
+		/// Constructor
+		/// Creates a EntidadTieneEstiloPagina link in the same Partition as the given Entidad
+		/// </summary>
+		/// <param name="source">Entidad to use as the source of the relationship.</param>
+		/// <param name="target">EstiloPagina to use as the target of the relationship.</param>
+		public EntidadTieneEstiloPagina(Entidad source, EstiloPagina target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(EntidadTieneEstiloPagina.EntidadDomainRoleId, source), new DslModeling::RoleAssignment(EntidadTieneEstiloPagina.EstiloPaginaDomainRoleId, target)}, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public EntidadTieneEstiloPagina(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public EntidadTieneEstiloPagina(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public EntidadTieneEstiloPagina(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(partition, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public EntidadTieneEstiloPagina(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, roleAssignments, propertyAssignments)
+		{
+		}
+		#endregion
+		#region Entidad domain role code
+		
+		/// <summary>
+		/// Entidad domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid EntidadDomainRoleId = new global::System.Guid(0x8c77841a, 0xe15b, 0x437f, 0x88, 0xb7, 0x34, 0x35, 0x4e, 0x35, 0xf2, 0xc0);
+		
+		/// <summary>
+		/// DomainRole Entidad
+		/// Description for UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.Entidad
+		/// </summary>
+		[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina/Entidad.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina/Entidad.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "EstiloPagina", PropertyDisplayNameKey="UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina/Entidad.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.PropagatesCopyToLinkAndOppositeRolePlayer, Multiplicity = DslModeling::Multiplicity.One)]
+		[DslModeling::DomainObjectId("8c77841a-e15b-437f-88b7-34354e35f2c0")]
+		public virtual Entidad Entidad
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (Entidad)DslModeling::DomainRoleInfo.GetRolePlayer(this, EntidadDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, EntidadDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access Entidad of a EstiloPagina
+		/// <summary>
+		/// Gets Entidad.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static Entidad GetEntidad(EstiloPagina element)
+		{
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, EstiloPaginaDomainRoleId) as Entidad;
+		}
+		
+		/// <summary>
+		/// Sets Entidad.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetEntidad(EstiloPagina element, Entidad newEntidad)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, EstiloPaginaDomainRoleId, newEntidad);
+		}
+		#endregion
+		#region EstiloPagina domain role code
+		
+		/// <summary>
+		/// EstiloPagina domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid EstiloPaginaDomainRoleId = new global::System.Guid(0x844ccbaf, 0xe8eb, 0x4718, 0xae, 0x39, 0x2a, 0xb5, 0x6f, 0xad, 0x18, 0xd5);
+		
+		/// <summary>
+		/// DomainRole EstiloPagina
+		/// Description for
+		/// UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.EstiloPagina
+		/// </summary>
+		[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina/EstiloPagina.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina/EstiloPagina.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "Entidad", PropertyDisplayNameKey="UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina/EstiloPagina.PropertyDisplayName", PropagatesDelete = true,  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroOne)]
+		[DslModeling::DomainObjectId("844ccbaf-e8eb-4718-ae39-2ab56fad18d5")]
+		public virtual EstiloPagina EstiloPagina
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (EstiloPagina)DslModeling::DomainRoleInfo.GetRolePlayer(this, EstiloPaginaDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, EstiloPaginaDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access EstiloPagina of a Entidad
+		/// <summary>
+		/// Gets EstiloPagina.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static EstiloPagina GetEstiloPagina(Entidad element)
+		{
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, EntidadDomainRoleId) as EstiloPagina;
+		}
+		
+		/// <summary>
+		/// Sets EstiloPagina.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetEstiloPagina(Entidad element, EstiloPagina newEstiloPagina)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, EntidadDomainRoleId, newEstiloPagina);
+		}
+		#endregion
+		#region Entidad link accessor
+		/// <summary>
+		/// Get the EntidadTieneEstiloPagina link to a Entidad.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina GetLinkToEstiloPagina (global::UPM_IPS.JGAJPTJJLProyectoIPS.Entidad entidadInstance)
+		{
+			global::System.Collections.Generic.IList<global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina> links = DslModeling::DomainRoleInfo.GetElementLinks<global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina>(entidadInstance, global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.EntidadDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of Entidad not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
+		}
+		#endregion
+		#region EstiloPagina link accessor
+		/// <summary>
+		/// Get the EntidadTieneEstiloPagina link to a EstiloPagina.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina GetLinkToEntidad (global::UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina estiloPaginaInstance)
+		{
+			global::System.Collections.Generic.IList<global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina> links = DslModeling::DomainRoleInfo.GetElementLinks<global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina>(estiloPaginaInstance, global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.EstiloPaginaDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of EstiloPagina not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
+		}
+		#endregion
+		#region EntidadTieneEstiloPagina instance accessors
+		
+		/// <summary>
+		/// Get any EntidadTieneEstiloPagina links between a given Entidad and a EstiloPagina.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina> GetLinks( global::UPM_IPS.JGAJPTJJLProyectoIPS.Entidad source, global::UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina target )
+		{
+			global::System.Collections.Generic.List<global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina> outLinks = new global::System.Collections.Generic.List<global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina>();
+			global::System.Collections.Generic.IList<global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina> links = DslModeling::DomainRoleInfo.GetElementLinks<global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina>(source, global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.EntidadDomainRoleId);
+			foreach ( global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina link in links )
+			{
+				if ( target.Equals(link.EstiloPagina) )
+				{
+					outLinks.Add(link);
+				}
+			}
+			return outLinks.AsReadOnly();
+		}
+		/// <summary>
+		/// Get the one EntidadTieneEstiloPagina link between a given Entidadand a EstiloPagina.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina GetLink( global::UPM_IPS.JGAJPTJJLProyectoIPS.Entidad source, global::UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina target )
+		{
+			global::System.Collections.Generic.IList<global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina> links = DslModeling::DomainRoleInfo.GetElementLinks<global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina>(source, global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.EntidadDomainRoleId);
+			foreach ( global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina link in links )
+			{
+				if ( target.Equals(link.EstiloPagina) )
+				{
+					return link;
+				}
+			}
+			return null;
+		}
+		
+		#endregion
+	}
+}

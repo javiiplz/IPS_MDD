@@ -459,6 +459,25 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 			}
 		}
 		#endregion
+		#region EstiloPagina opposite domain role accessor
+		/// <summary>
+		/// Gets or sets EstiloPagina.
+		/// Description for UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.Entidad
+		/// </summary>
+		public virtual EstiloPagina EstiloPagina
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.EntidadDomainRoleId) as EstiloPagina;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.EntidadDomainRoleId, value);
+			}
+		}
+		#endregion
 		#region ElementGroupPrototype Merge methods
 		/// <summary>
 		/// Returns a value indicating whether the source element represented by the
@@ -1457,6 +1476,415 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 			set
 			{
 				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal.EstiloPortalDomainRoleId, value);
+			}
+		}
+		#endregion
+	}
+}
+namespace UPM_IPS.JGAJPTJJLProyectoIPS
+{
+	/// <summary>
+	/// DomainClass EstiloPagina
+	/// Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina
+	/// </summary>
+	[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainObjectId("1c337f5a-a41d-4c17-8952-b5891188310e")]
+	public partial class EstiloPagina : DslModeling::ModelElement
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// EstiloPagina domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x1c337f5a, 0xa41d, 0x4c17, 0x89, 0x52, 0xb5, 0x89, 0x11, 0x88, 0x31, 0x0e);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public EstiloPagina(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public EstiloPagina(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+		#region Color domain property code
+		
+		/// <summary>
+		/// Color domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ColorDomainPropertyId = new global::System.Guid(0x0987ecbc, 0xaa53, 0x4168, 0xa2, 0x1e, 0x01, 0x96, 0xf7, 0x9e, 0x7e, 0xab);
+		
+		/// <summary>
+		/// Storage for Color
+		/// </summary>
+		private global::System.String colorPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Color domain property.
+		/// Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.Color
+		/// </summary>
+		[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina/Color.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina/Color.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("0987ecbc-aa53-4168-a21e-0196f79e7eab")]
+		public global::System.String Color
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return colorPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ColorPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the EstiloPagina.Color domain property.
+		/// </summary>
+		internal sealed partial class ColorPropertyHandler : DslModeling::DomainPropertyValueHandler<EstiloPagina, global::System.String>
+		{
+			private ColorPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the EstiloPagina.Color domain property value handler.
+			/// </summary>
+			public static readonly ColorPropertyHandler Instance = new ColorPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the EstiloPagina.Color domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ColorDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(EstiloPagina element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.colorPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(EstiloPagina element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.colorPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region TipoLetra domain property code
+		
+		/// <summary>
+		/// TipoLetra domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid TipoLetraDomainPropertyId = new global::System.Guid(0xf638a893, 0xb901, 0x4949, 0xa7, 0x91, 0xf4, 0xeb, 0x8d, 0x19, 0x1d, 0xd4);
+		
+		/// <summary>
+		/// Storage for TipoLetra
+		/// </summary>
+		private global::System.String tipoLetraPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of TipoLetra domain property.
+		/// Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.Tipo Letra
+		/// </summary>
+		[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina/TipoLetra.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina/TipoLetra.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("f638a893-b901-4949-a791-f4eb8d191dd4")]
+		public global::System.String TipoLetra
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return tipoLetraPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				TipoLetraPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the EstiloPagina.TipoLetra domain property.
+		/// </summary>
+		internal sealed partial class TipoLetraPropertyHandler : DslModeling::DomainPropertyValueHandler<EstiloPagina, global::System.String>
+		{
+			private TipoLetraPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the EstiloPagina.TipoLetra domain property value handler.
+			/// </summary>
+			public static readonly TipoLetraPropertyHandler Instance = new TipoLetraPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the EstiloPagina.TipoLetra domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return TipoLetraDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(EstiloPagina element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.tipoLetraPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(EstiloPagina element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.tipoLetraPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region TamanoLetra domain property code
+		
+		/// <summary>
+		/// TamanoLetra domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid TamanoLetraDomainPropertyId = new global::System.Guid(0x623607df, 0x57b8, 0x49e9, 0xa5, 0x43, 0x24, 0x9e, 0x66, 0x67, 0x25, 0xe7);
+		
+		/// <summary>
+		/// Storage for TamanoLetra
+		/// </summary>
+		private global::System.Int32 tamanoLetraPropertyStorage;
+		
+		/// <summary>
+		/// Gets or sets the value of TamanoLetra domain property.
+		/// Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.Tamano Letra
+		/// </summary>
+		[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina/TamanoLetra.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina/TamanoLetra.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("623607df-57b8-49e9-a543-249e666725e7")]
+		public global::System.Int32 TamanoLetra
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return tamanoLetraPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				TamanoLetraPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the EstiloPagina.TamanoLetra domain property.
+		/// </summary>
+		internal sealed partial class TamanoLetraPropertyHandler : DslModeling::DomainPropertyValueHandler<EstiloPagina, global::System.Int32>
+		{
+			private TamanoLetraPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the EstiloPagina.TamanoLetra domain property value handler.
+			/// </summary>
+			public static readonly TamanoLetraPropertyHandler Instance = new TamanoLetraPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the EstiloPagina.TamanoLetra domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return TamanoLetraDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.Int32 GetValue(EstiloPagina element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.tamanoLetraPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(EstiloPagina element, global::System.Int32 newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.Int32 oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.tamanoLetraPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Alineacion domain property code
+		
+		/// <summary>
+		/// Alineacion domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid AlineacionDomainPropertyId = new global::System.Guid(0xff924661, 0x6613, 0x4eea, 0xaf, 0xd1, 0x92, 0x7e, 0xc6, 0xf0, 0x99, 0xc4);
+		
+		/// <summary>
+		/// Storage for Alineacion
+		/// </summary>
+		private global::System.String alineacionPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Alineacion domain property.
+		/// Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.Alineacion
+		/// </summary>
+		[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina/Alineacion.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina/Alineacion.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("ff924661-6613-4eea-afd1-927ec6f099c4")]
+		public global::System.String Alineacion
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return alineacionPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				AlineacionPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the EstiloPagina.Alineacion domain property.
+		/// </summary>
+		internal sealed partial class AlineacionPropertyHandler : DslModeling::DomainPropertyValueHandler<EstiloPagina, global::System.String>
+		{
+			private AlineacionPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the EstiloPagina.Alineacion domain property value handler.
+			/// </summary>
+			public static readonly AlineacionPropertyHandler Instance = new AlineacionPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the EstiloPagina.Alineacion domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return AlineacionDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(EstiloPagina element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.alineacionPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(EstiloPagina element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.alineacionPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Entidad opposite domain role accessor
+		/// <summary>
+		/// Gets or sets Entidad.
+		/// Description for
+		/// UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.EstiloPagina
+		/// </summary>
+		public virtual Entidad Entidad
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.EstiloPaginaDomainRoleId) as Entidad;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.EstiloPaginaDomainRoleId, value);
 			}
 		}
 		#endregion

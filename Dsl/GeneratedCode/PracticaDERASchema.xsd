@@ -119,6 +119,21 @@
               </xsd:sequence>
             </xsd:complexType>
           </xsd:element>
+          <!-- Relationship: EntidadTieneEstiloPagina -->
+          <xsd:element name="estiloPagina" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instance of EntidadTieneEstiloPagina</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="entidadTieneEstiloPagina" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of EntidadTieneEstiloPagina needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
         </xsd:sequence>
         <!-- Id -->
         <xsd:attribute name="Id" type="xsd:string">
@@ -234,6 +249,46 @@
   <xsd:complexType name="EstiloPortalMoniker">
     <xsd:annotation>
       <xsd:documentation>Moniker for EstiloPortal instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- EstiloPagina -->
+  <xsd:element name="estiloPagina" type="EstiloPagina" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="EstiloPagina">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Color -->
+        <xsd:attribute name="color" type="xsd:string" />
+        <!-- Property: TipoLetra -->
+        <xsd:attribute name="tipoLetra" type="xsd:string" />
+        <!-- Property: TamanoLetra -->
+        <xsd:attribute name="tamanoLetra" type="xsd:integer" />
+        <!-- Property: Alineacion -->
+        <xsd:attribute name="alineacion" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- EstiloPagina Moniker -->
+  <xsd:element name="estiloPaginaMoniker" type="EstiloPaginaMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="EstiloPaginaMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for EstiloPagina instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -421,6 +476,46 @@
   <xsd:complexType name="DiagramaWebTieneEstiloPortalMoniker">
     <xsd:annotation>
       <xsd:documentation>Moniker for DiagramaWebTieneEstiloPortal instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- EntidadTieneEstiloPagina -->
+  <xsd:element name="entidadTieneEstiloPagina" type="EntidadTieneEstiloPagina" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="EntidadTieneEstiloPagina">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end EstiloPagina -->
+          <xsd:element ref="estiloPagina" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- EntidadTieneEstiloPagina Moniker -->
+  <xsd:element name="entidadTieneEstiloPaginaMoniker" type="EntidadTieneEstiloPaginaMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="EntidadTieneEstiloPaginaMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for EntidadTieneEstiloPagina instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">

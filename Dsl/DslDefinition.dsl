@@ -92,6 +92,30 @@
         </DomainProperty>
       </Properties>
     </DomainClass>
+    <DomainClass Id="1c337f5a-a41d-4c17-8952-b5891188310e" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina" Name="EstiloPagina" DisplayName="Estilo Pagina" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS">
+      <Properties>
+        <DomainProperty Id="0987ecbc-aa53-4168-a21e-0196f79e7eab" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.Color" Name="Color" DisplayName="Color">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="f638a893-b901-4949-a791-f4eb8d191dd4" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.Tipo Letra" Name="TipoLetra" DisplayName="Tipo Letra">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="623607df-57b8-49e9-a543-249e666725e7" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.Tamano Letra" Name="TamanoLetra" DisplayName="Tamano Letra">
+          <Type>
+            <ExternalTypeMoniker Name="/System/Int32" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="ff924661-6613-4eea-afd1-927ec6f099c4" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.Alineacion" Name="Alineacion" DisplayName="Alineacion">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+      </Properties>
+    </DomainClass>
   </Classes>
   <Relationships>
     <DomainRelationship Id="b20186c3-98c3-4932-a9f5-9c00ae76b0ce" Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEntidad" Name="DiagramaWebTieneEntidad" DisplayName="Diagrama_Web_Tiene_Entidad" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS" IsEmbedding="true">
@@ -171,6 +195,22 @@
         <DomainRole Id="b7511ad4-4683-4b30-a84f-0252d689baf6" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal.EstiloPortal" Name="EstiloPortal" DisplayName="Estilo Portal" PropertyName="DiagramaWeb" Multiplicity="ZeroOne" PropagatesDelete="true" PropertyDisplayName="Diagrama Web">
           <RolePlayer>
             <DomainClassMoniker Name="EstiloPortal" />
+          </RolePlayer>
+        </DomainRole>
+      </Target>
+    </DomainRelationship>
+    <DomainRelationship Id="ba6e6e02-4b15-4fbb-a32c-daeec94b621d" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina" Name="EntidadTieneEstiloPagina" DisplayName="Entidad Tiene Estilo Pagina" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS" IsEmbedding="true">
+      <Source>
+        <DomainRole Id="8c77841a-e15b-437f-88b7-34354e35f2c0" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.Entidad" Name="Entidad" DisplayName="Entidad" PropertyName="EstiloPagina" Multiplicity="One" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Estilo Pagina">
+          <RolePlayer>
+            <DomainClassMoniker Name="Entidad" />
+          </RolePlayer>
+        </DomainRole>
+      </Source>
+      <Target>
+        <DomainRole Id="844ccbaf-e8eb-4718-ae39-2ab56fad18d5" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina.EstiloPagina" Name="EstiloPagina" DisplayName="Estilo Pagina" PropertyName="Entidad" Multiplicity="ZeroOne" PropagatesDelete="true" PropertyDisplayName="Entidad">
+          <RolePlayer>
+            <DomainClassMoniker Name="EstiloPagina" />
           </RolePlayer>
         </DomainRole>
       </Target>
@@ -259,6 +299,9 @@
           <XmlRelationshipData UseFullForm="true" RoleElementName="destinoEntidad">
             <DomainRelationshipMoniker Name="Relacion" />
           </XmlRelationshipData>
+          <XmlRelationshipData UseFullForm="true" RoleElementName="estiloPagina">
+            <DomainRelationshipMoniker Name="EntidadTieneEstiloPagina" />
+          </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="DiagramaWebTieneEntidad" MonikerAttributeName="" SerializeId="true" MonikerElementName="DiagramaWebTieneEntidadMoniker" ElementName="diagramaWebTieneEntidad" MonikerTypeName="DiagramaWebTieneEntidadMoniker">
@@ -329,6 +372,26 @@
       </XmlClassData>
       <XmlClassData TypeName="DiagramaWebTieneEstiloPortal" MonikerAttributeName="" SerializeId="true" MonikerElementName="diagramaWebTieneEstiloPortalMoniker" ElementName="diagramaWebTieneEstiloPortal" MonikerTypeName="DiagramaWebTieneEstiloPortalMoniker">
         <DomainRelationshipMoniker Name="DiagramaWebTieneEstiloPortal" />
+      </XmlClassData>
+      <XmlClassData TypeName="EstiloPagina" MonikerAttributeName="" SerializeId="true" MonikerElementName="estiloPaginaMoniker" ElementName="estiloPagina" MonikerTypeName="EstiloPaginaMoniker">
+        <DomainClassMoniker Name="EstiloPagina" />
+        <ElementData>
+          <XmlPropertyData XmlName="color">
+            <DomainPropertyMoniker Name="EstiloPagina/Color" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="tipoLetra">
+            <DomainPropertyMoniker Name="EstiloPagina/TipoLetra" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="tamanoLetra">
+            <DomainPropertyMoniker Name="EstiloPagina/TamanoLetra" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="alineacion">
+            <DomainPropertyMoniker Name="EstiloPagina/Alineacion" />
+          </XmlPropertyData>
+        </ElementData>
+      </XmlClassData>
+      <XmlClassData TypeName="EntidadTieneEstiloPagina" MonikerAttributeName="" SerializeId="true" MonikerElementName="entidadTieneEstiloPaginaMoniker" ElementName="entidadTieneEstiloPagina" MonikerTypeName="EntidadTieneEstiloPaginaMoniker">
+        <DomainRelationshipMoniker Name="EntidadTieneEstiloPagina" />
       </XmlClassData>
     </ClassData>
   </XmlSerializationBehavior>
@@ -436,6 +499,9 @@
       </ConnectionTool>
       <ElementTool Name="EstiloPortalTool" ToolboxIcon="Resources\Iconos\NP.bmp" Caption="EstiloPortalTool" Tooltip="Estilo Portal Tool" HelpKeyword="EstiloPortalTool">
         <DomainClassMoniker Name="EstiloPortal" />
+      </ElementTool>
+      <ElementTool Name="EstiloPaginaTool" ToolboxIcon="Resources\Iconos\NP.bmp" Caption="EstiloPaginaTool" Tooltip="Estilo Pagina Tool" HelpKeyword="EstiloPaginaTool">
+        <DomainClassMoniker Name="EstiloPagina" />
       </ElementTool>
     </ToolboxTab>
     <Validation UsesMenu="false" UsesOpen="false" UsesSave="false" UsesLoad="false" />

@@ -61,6 +61,14 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 					"@EstiloPortalToolToolboxBitmap;UPM_IPS.JGAJPTJJLProyectoIPS.Dsl.dll", 
 					0xff00ff,
 					Index = 3)]
+	[VSShell::ProvideStaticToolboxItem("UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERAToolboxTab",
+					"@EstiloPaginaToolToolboxItem;UPM_IPS.JGAJPTJJLProyectoIPS.Dsl.dll", 
+					"UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPaginaToolToolboxItem", 
+					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
+					"EstiloPaginaTool", 
+					"@EstiloPaginaToolToolboxBitmap;UPM_IPS.JGAJPTJJLProyectoIPS.Dsl.dll", 
+					0xff00ff,
+					Index = 4)]
 	[VSShell::ProvideEditorFactory(typeof(PracticaDERAEditorFactory), 103, TrustLevel = VSShellInterop::__VSEDITORTRUSTLEVEL.ETL_AlwaysTrusted)]
 	[VSShell::ProvideEditorExtension(typeof(PracticaDERAEditorFactory), "." + Constants.DesignerFileExtension, 50)]
 	[VSShell::ProvideEditorLogicalView(typeof(PracticaDERAEditorFactory), "{7651A702-06E5-11D1-8EBD-00A0C90F26EA}")] // Designer logical view GUID i.e. VSConstants.LOGVIEWID_Designer
