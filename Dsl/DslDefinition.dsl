@@ -116,6 +116,30 @@
         </DomainProperty>
       </Properties>
     </DomainClass>
+    <DomainClass Id="c2ba480b-65f3-42ad-b24e-bebcfa71076a" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo" Name="EstiloCampo" DisplayName="Estilo Campo" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS">
+      <Properties>
+        <DomainProperty Id="a408f1e1-c8b8-4f59-adda-ebe3b74eb018" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo.Color" Name="Color" DisplayName="Color">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="808283ed-c42e-4ab5-8a7c-669da45b5d6e" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo.Tamano Letra" Name="TamanoLetra" DisplayName="Tamano Letra">
+          <Type>
+            <ExternalTypeMoniker Name="/System/Int32" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="dfbbe420-628f-4ac6-905d-980bbb05bb0f" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo.Tipo Letra" Name="TipoLetra" DisplayName="Tipo Letra">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="f05d8461-f9e4-4ad3-86cb-e05e44f0893f" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo.Tipo Campo" Name="TipoCampo" DisplayName="Tipo Campo">
+          <Type>
+            <DomainEnumerationMoniker Name="TipoCampoEnum" />
+          </Type>
+        </DomainProperty>
+      </Properties>
+    </DomainClass>
   </Classes>
   <Relationships>
     <DomainRelationship Id="b20186c3-98c3-4932-a9f5-9c00ae76b0ce" Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEntidad" Name="DiagramaWebTieneEntidad" DisplayName="Diagrama_Web_Tiene_Entidad" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS" IsEmbedding="true">
@@ -215,6 +239,22 @@
         </DomainRole>
       </Target>
     </DomainRelationship>
+    <DomainRelationship Id="8f613234-52d2-4b8d-ac08-48c506655410" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo" Name="AtributoTieneEstiloCampo" DisplayName="Atributo Tiene Estilo Campo" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS" IsEmbedding="true">
+      <Source>
+        <DomainRole Id="155d75da-b87f-44d0-9ee2-bada6bf5f9c4" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo.Atributo" Name="Atributo" DisplayName="Atributo" PropertyName="EstiloCampo" Multiplicity="One" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Estilo Campo">
+          <RolePlayer>
+            <DomainClassMoniker Name="Atributo" />
+          </RolePlayer>
+        </DomainRole>
+      </Source>
+      <Target>
+        <DomainRole Id="fbfb4a03-0555-44f8-a3ae-62f5363d8a0d" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo.EstiloCampo" Name="EstiloCampo" DisplayName="Estilo Campo" PropertyName="Atributo" Multiplicity="ZeroOne" PropagatesDelete="true" PropertyDisplayName="Atributo">
+          <RolePlayer>
+            <DomainClassMoniker Name="EstiloCampo" />
+          </RolePlayer>
+        </DomainRole>
+      </Target>
+    </DomainRelationship>
   </Relationships>
   <Types>
     <ExternalType Name="DateTime" Namespace="System" />
@@ -239,6 +279,15 @@
         <EnumerationLiteral Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Texto" Name="Texto" Value="2" />
         <EnumerationLiteral Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Fecha" Name="Fecha" Value="3" />
         <EnumerationLiteral Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Booleano" Name="Booleano" Value="4" />
+      </Literals>
+    </DomainEnumeration>
+    <DomainEnumeration Name="TipoCampoEnum" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum">
+      <Literals>
+        <EnumerationLiteral Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum.Texto" Name="Texto" Value="" />
+        <EnumerationLiteral Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum.Numero" Name="Numero" Value="" />
+        <EnumerationLiteral Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum.Fecha" Name="Fecha" Value="" />
+        <EnumerationLiteral Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum.Checkbox" Name="Checkbox" Value="" />
+        <EnumerationLiteral Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum.Radiobutton" Name="Radiobutton" Value="" />
       </Literals>
     </DomainEnumeration>
   </Types>
@@ -322,6 +371,9 @@
           <XmlPropertyData XmlName="esClaveprimaria">
             <DomainPropertyMoniker Name="Atributo/esClaveprimaria" />
           </XmlPropertyData>
+          <XmlRelationshipData UseFullForm="true" RoleElementName="estiloCampo">
+            <DomainRelationshipMoniker Name="AtributoTieneEstiloCampo" />
+          </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="EntidadTieneAtributo" MonikerAttributeName="" SerializeId="true" MonikerElementName="EntidadTieneAtributoMoniker" ElementName="entidadTieneAtributo" MonikerTypeName="EntidadTieneAtributoMoniker">
@@ -392,6 +444,26 @@
       </XmlClassData>
       <XmlClassData TypeName="EntidadTieneEstiloPagina" MonikerAttributeName="" SerializeId="true" MonikerElementName="entidadTieneEstiloPaginaMoniker" ElementName="entidadTieneEstiloPagina" MonikerTypeName="EntidadTieneEstiloPaginaMoniker">
         <DomainRelationshipMoniker Name="EntidadTieneEstiloPagina" />
+      </XmlClassData>
+      <XmlClassData TypeName="EstiloCampo" MonikerAttributeName="" SerializeId="true" MonikerElementName="estiloCampoMoniker" ElementName="estiloCampo" MonikerTypeName="EstiloCampoMoniker">
+        <DomainClassMoniker Name="EstiloCampo" />
+        <ElementData>
+          <XmlPropertyData XmlName="color">
+            <DomainPropertyMoniker Name="EstiloCampo/Color" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="tamanoLetra">
+            <DomainPropertyMoniker Name="EstiloCampo/TamanoLetra" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="tipoLetra">
+            <DomainPropertyMoniker Name="EstiloCampo/TipoLetra" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="tipoCampo">
+            <DomainPropertyMoniker Name="EstiloCampo/TipoCampo" />
+          </XmlPropertyData>
+        </ElementData>
+      </XmlClassData>
+      <XmlClassData TypeName="AtributoTieneEstiloCampo" MonikerAttributeName="" SerializeId="true" MonikerElementName="atributoTieneEstiloCampoMoniker" ElementName="atributoTieneEstiloCampo" MonikerTypeName="AtributoTieneEstiloCampoMoniker">
+        <DomainRelationshipMoniker Name="AtributoTieneEstiloCampo" />
       </XmlClassData>
     </ClassData>
   </XmlSerializationBehavior>
@@ -502,6 +574,9 @@
       </ElementTool>
       <ElementTool Name="EstiloPaginaTool" ToolboxIcon="Resources\Iconos\NP.bmp" Caption="EstiloPaginaTool" Tooltip="Estilo Pagina Tool" HelpKeyword="EstiloPaginaTool">
         <DomainClassMoniker Name="EstiloPagina" />
+      </ElementTool>
+      <ElementTool Name="EstiloCampoTool" ToolboxIcon="Resources\Iconos\NP.bmp" Caption="EstiloCampoTool" Tooltip="Estilo Campo Tool" HelpKeyword="EstiloCampoTool">
+        <DomainClassMoniker Name="EstiloCampo" />
       </ElementTool>
     </ToolboxTab>
     <Validation UsesMenu="false" UsesOpen="false" UsesSave="false" UsesLoad="false" />

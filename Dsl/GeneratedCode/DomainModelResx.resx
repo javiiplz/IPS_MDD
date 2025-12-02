@@ -285,6 +285,46 @@
     <value>Alineacion</value>
     <comment>DisplayName for DomainProperty &apos;Alineacion&apos; on DomainClass &apos;EstiloPagina&apos;</comment>
   </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo</value>
+    <comment>Description for DomainClass &apos;EstiloCampo&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo.DisplayName" xml:space="preserve">
+    <value>Estilo Campo</value>
+    <comment>DisplayName for DomainClass &apos;EstiloCampo&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo/Color.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo.Color</value>
+    <comment>Description for DomainProperty &apos;Color&apos; on DomainClass &apos;EstiloCampo&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo/Color.DisplayName" xml:space="preserve">
+    <value>Color</value>
+    <comment>DisplayName for DomainProperty &apos;Color&apos; on DomainClass &apos;EstiloCampo&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo/TamanoLetra.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo.Tamano Letra</value>
+    <comment>Description for DomainProperty &apos;TamanoLetra&apos; on DomainClass &apos;EstiloCampo&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo/TamanoLetra.DisplayName" xml:space="preserve">
+    <value>Tamano Letra</value>
+    <comment>DisplayName for DomainProperty &apos;TamanoLetra&apos; on DomainClass &apos;EstiloCampo&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo/TipoLetra.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo.Tipo Letra</value>
+    <comment>Description for DomainProperty &apos;TipoLetra&apos; on DomainClass &apos;EstiloCampo&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo/TipoLetra.DisplayName" xml:space="preserve">
+    <value>Tipo Letra</value>
+    <comment>DisplayName for DomainProperty &apos;TipoLetra&apos; on DomainClass &apos;EstiloCampo&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo/TipoCampo.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo.Tipo Campo</value>
+    <comment>Description for DomainProperty &apos;TipoCampo&apos; on DomainClass &apos;EstiloCampo&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo/TipoCampo.DisplayName" xml:space="preserve">
+    <value>Tipo Campo</value>
+    <comment>DisplayName for DomainProperty &apos;TipoCampo&apos; on DomainClass &apos;EstiloCampo&apos;</comment>
+  </data>
   <data name="UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEntidad.Description" xml:space="preserve">
     <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEntidad</value>
     <comment>Description for DomainClass &apos;DiagramaWebTieneEntidad&apos;</comment>
@@ -469,6 +509,38 @@
     <value>Entidad</value>
     <comment>PropertyDisplayName for DomainRole &apos;EstiloPagina&apos; on DomainRelationship &apos;EntidadTieneEstiloPagina&apos;</comment>
   </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo</value>
+    <comment>Description for DomainClass &apos;AtributoTieneEstiloCampo&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo.DisplayName" xml:space="preserve">
+    <value>Atributo Tiene Estilo Campo</value>
+    <comment>DisplayName for DomainClass &apos;AtributoTieneEstiloCampo&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo/Atributo.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo.Atributo</value>
+    <comment>Description for DomainRole &apos;Atributo&apos; on DomainRelationship &apos;AtributoTieneEstiloCampo&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo/Atributo.DisplayName" xml:space="preserve">
+    <value>Atributo</value>
+    <comment>DisplayName for DomainRole &apos;Atributo&apos; on DomainRelationship &apos;AtributoTieneEstiloCampo&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo/Atributo.PropertyDisplayName" xml:space="preserve">
+    <value>Estilo Campo</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Atributo&apos; on DomainRelationship &apos;AtributoTieneEstiloCampo&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo/EstiloCampo.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo.EstiloCampo</value>
+    <comment>Description for DomainRole &apos;EstiloCampo&apos; on DomainRelationship &apos;AtributoTieneEstiloCampo&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo/EstiloCampo.DisplayName" xml:space="preserve">
+    <value>Estilo Campo</value>
+    <comment>DisplayName for DomainRole &apos;EstiloCampo&apos; on DomainRelationship &apos;AtributoTieneEstiloCampo&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo/EstiloCampo.PropertyDisplayName" xml:space="preserve">
+    <value>Atributo</value>
+    <comment>PropertyDisplayName for DomainRole &apos;EstiloCampo&apos; on DomainRelationship &apos;AtributoTieneEstiloCampo&apos;</comment>
+  </data>
   <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum/Entero.DisplayName" xml:space="preserve">
     <value>Entero</value>
     <comment>Display name for EnumerationLiteral &apos;Entero&apos; on DomainEnumeration &apos;TipoDatoEnum&apos;</comment>
@@ -508,6 +580,46 @@
   <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum/Booleano.Description" xml:space="preserve">
     <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Booleano</value>
     <comment>Description for EnumerationLiteral &apos;Booleano&apos; on DomainEnumeration &apos;TipoDatoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum/Texto.DisplayName" xml:space="preserve">
+    <value>Texto</value>
+    <comment>Display name for EnumerationLiteral &apos;Texto&apos; on DomainEnumeration &apos;TipoCampoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum/Texto.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum.Texto</value>
+    <comment>Description for EnumerationLiteral &apos;Texto&apos; on DomainEnumeration &apos;TipoCampoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum/Numero.DisplayName" xml:space="preserve">
+    <value>Numero</value>
+    <comment>Display name for EnumerationLiteral &apos;Numero&apos; on DomainEnumeration &apos;TipoCampoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum/Numero.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum.Numero</value>
+    <comment>Description for EnumerationLiteral &apos;Numero&apos; on DomainEnumeration &apos;TipoCampoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum/Fecha.DisplayName" xml:space="preserve">
+    <value>Fecha</value>
+    <comment>Display name for EnumerationLiteral &apos;Fecha&apos; on DomainEnumeration &apos;TipoCampoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum/Fecha.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum.Fecha</value>
+    <comment>Description for EnumerationLiteral &apos;Fecha&apos; on DomainEnumeration &apos;TipoCampoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum/Checkbox.DisplayName" xml:space="preserve">
+    <value>Checkbox</value>
+    <comment>Display name for EnumerationLiteral &apos;Checkbox&apos; on DomainEnumeration &apos;TipoCampoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum/Checkbox.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum.Checkbox</value>
+    <comment>Description for EnumerationLiteral &apos;Checkbox&apos; on DomainEnumeration &apos;TipoCampoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum/Radiobutton.DisplayName" xml:space="preserve">
+    <value>Radiobutton</value>
+    <comment>Display name for EnumerationLiteral &apos;Radiobutton&apos; on DomainEnumeration &apos;TipoCampoEnum&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum/Radiobutton.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum.Radiobutton</value>
+    <comment>Description for EnumerationLiteral &apos;Radiobutton&apos; on DomainEnumeration &apos;TipoCampoEnum&apos;</comment>
   </data>
   <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EntidadShape.Description" xml:space="preserve">
     <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.EntidadShape</value>
@@ -615,6 +727,14 @@
   </data>
   <data name="EstiloPaginaToolToolboxTooltip" xml:space="preserve">
     <value>Estilo Pagina Tool</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="EstiloCampoToolToolboxItem" xml:space="preserve">
+    <value>EstiloCampoTool</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="EstiloCampoToolToolboxTooltip" xml:space="preserve">
+    <value>Estilo Campo Tool</value>
     <comment>Toolbox tooltip text</comment>
   </data>
   <data name="UnresolvedToolboxItem" xml:space="preserve">
@@ -759,6 +879,10 @@ A DomainClass can be serialized as a moniker only if
     <comment>Toolbox item image</comment>
   </data>
   <data name="EstiloPaginaToolToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Iconos\NP.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="EstiloCampoToolToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
     <value>..\Resources\Iconos\NP.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Toolbox item image</comment>
   </data>

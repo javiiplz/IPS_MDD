@@ -98,7 +98,7 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 		{
 			get
 			{
-				return 5;
+				return 6;
 			}
 		}
 		
@@ -225,6 +225,22 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 						"EstiloPaginaTool", // F1 help keyword for the toolbox item.
 						resourceManager.GetString("EstiloPaginaToolToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
 						CreateElementToolPrototype(store, global::UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
+						new global::System.ComponentModel.ToolboxItemFilterAttribute[] { // Collection of ToolboxItemFilterAttribute objects that determine visibility of the toolbox item.
+						new global::System.ComponentModel.ToolboxItemFilterAttribute(ToolboxFilterString, global::System.ComponentModel.ToolboxItemFilterType.Require) 
+						});
+					break;
+				case "UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampoToolToolboxItem":
+					// Add EstiloCampoTool shape tool.
+					result = new DslDesign::ModelingToolboxItem(
+						"UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampoToolToolboxItem", // Unique identifier (non-localized) for the toolbox item.
+						6, // Position relative to other items in the same toolbox tab.
+						resourceManager.GetString("EstiloCampoToolToolboxItem", resourceCulture), // Localized display name for the item.
+						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("EstiloCampoToolToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
+						"UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERAToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
+						resourceManager.GetString("PracticaDERAToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
+						"EstiloCampoTool", // F1 help keyword for the toolbox item.
+						resourceManager.GetString("EstiloCampoToolToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
+						CreateElementToolPrototype(store, global::UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
 						new global::System.ComponentModel.ToolboxItemFilterAttribute[] { // Collection of ToolboxItemFilterAttribute objects that determine visibility of the toolbox item.
 						new global::System.ComponentModel.ToolboxItemFilterAttribute(ToolboxFilterString, global::System.ComponentModel.ToolboxItemFilterType.Require) 
 						});

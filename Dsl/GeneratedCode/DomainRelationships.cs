@@ -1487,3 +1487,262 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 		#endregion
 	}
 }
+namespace UPM_IPS.JGAJPTJJLProyectoIPS
+{
+	/// <summary>
+	/// DomainRelationship AtributoTieneEstiloCampo
+	/// Description for UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo
+	/// </summary>
+	[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainRelationship(IsEmbedding=true)]
+	[DslModeling::DomainObjectId("8f613234-52d2-4b8d-ac08-48c506655410")]
+	public partial class AtributoTieneEstiloCampo : DslModeling::ElementLink
+	{
+		#region Constructors, domain class Id
+		
+		/// <summary>
+		/// AtributoTieneEstiloCampo domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x8f613234, 0x52d2, 0x4b8d, 0xac, 0x08, 0x48, 0xc5, 0x06, 0x65, 0x54, 0x10);
+	
+				
+		/// <summary>
+		/// Constructor
+		/// Creates a AtributoTieneEstiloCampo link in the same Partition as the given Atributo
+		/// </summary>
+		/// <param name="source">Atributo to use as the source of the relationship.</param>
+		/// <param name="target">EstiloCampo to use as the target of the relationship.</param>
+		public AtributoTieneEstiloCampo(Atributo source, EstiloCampo target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(AtributoTieneEstiloCampo.AtributoDomainRoleId, source), new DslModeling::RoleAssignment(AtributoTieneEstiloCampo.EstiloCampoDomainRoleId, target)}, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public AtributoTieneEstiloCampo(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public AtributoTieneEstiloCampo(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public AtributoTieneEstiloCampo(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(partition, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public AtributoTieneEstiloCampo(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, roleAssignments, propertyAssignments)
+		{
+		}
+		#endregion
+		#region Atributo domain role code
+		
+		/// <summary>
+		/// Atributo domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid AtributoDomainRoleId = new global::System.Guid(0x155d75da, 0xb87f, 0x44d0, 0x9e, 0xe2, 0xba, 0xda, 0x6b, 0xf5, 0xf9, 0xc4);
+		
+		/// <summary>
+		/// DomainRole Atributo
+		/// Description for UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo.Atributo
+		/// </summary>
+		[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo/Atributo.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo/Atributo.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "EstiloCampo", PropertyDisplayNameKey="UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo/Atributo.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.PropagatesCopyToLinkAndOppositeRolePlayer, Multiplicity = DslModeling::Multiplicity.One)]
+		[DslModeling::DomainObjectId("155d75da-b87f-44d0-9ee2-bada6bf5f9c4")]
+		public virtual Atributo Atributo
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (Atributo)DslModeling::DomainRoleInfo.GetRolePlayer(this, AtributoDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, AtributoDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access Atributo of a EstiloCampo
+		/// <summary>
+		/// Gets Atributo.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static Atributo GetAtributo(EstiloCampo element)
+		{
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, EstiloCampoDomainRoleId) as Atributo;
+		}
+		
+		/// <summary>
+		/// Sets Atributo.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetAtributo(EstiloCampo element, Atributo newAtributo)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, EstiloCampoDomainRoleId, newAtributo);
+		}
+		#endregion
+		#region EstiloCampo domain role code
+		
+		/// <summary>
+		/// EstiloCampo domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid EstiloCampoDomainRoleId = new global::System.Guid(0xfbfb4a03, 0x0555, 0x44f8, 0xa3, 0xae, 0x62, 0xf5, 0x36, 0x3d, 0x8a, 0x0d);
+		
+		/// <summary>
+		/// DomainRole EstiloCampo
+		/// Description for
+		/// UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo.EstiloCampo
+		/// </summary>
+		[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo/EstiloCampo.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo/EstiloCampo.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "Atributo", PropertyDisplayNameKey="UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo/EstiloCampo.PropertyDisplayName", PropagatesDelete = true,  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroOne)]
+		[DslModeling::DomainObjectId("fbfb4a03-0555-44f8-a3ae-62f5363d8a0d")]
+		public virtual EstiloCampo EstiloCampo
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (EstiloCampo)DslModeling::DomainRoleInfo.GetRolePlayer(this, EstiloCampoDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, EstiloCampoDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access EstiloCampo of a Atributo
+		/// <summary>
+		/// Gets EstiloCampo.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static EstiloCampo GetEstiloCampo(Atributo element)
+		{
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, AtributoDomainRoleId) as EstiloCampo;
+		}
+		
+		/// <summary>
+		/// Sets EstiloCampo.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetEstiloCampo(Atributo element, EstiloCampo newEstiloCampo)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, AtributoDomainRoleId, newEstiloCampo);
+		}
+		#endregion
+		#region Atributo link accessor
+		/// <summary>
+		/// Get the AtributoTieneEstiloCampo link to a Atributo.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo GetLinkToEstiloCampo (global::UPM_IPS.JGAJPTJJLProyectoIPS.Atributo atributoInstance)
+		{
+			global::System.Collections.Generic.IList<global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo> links = DslModeling::DomainRoleInfo.GetElementLinks<global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo>(atributoInstance, global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo.AtributoDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of Atributo not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
+		}
+		#endregion
+		#region EstiloCampo link accessor
+		/// <summary>
+		/// Get the AtributoTieneEstiloCampo link to a EstiloCampo.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo GetLinkToAtributo (global::UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo estiloCampoInstance)
+		{
+			global::System.Collections.Generic.IList<global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo> links = DslModeling::DomainRoleInfo.GetElementLinks<global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo>(estiloCampoInstance, global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo.EstiloCampoDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of EstiloCampo not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
+		}
+		#endregion
+		#region AtributoTieneEstiloCampo instance accessors
+		
+		/// <summary>
+		/// Get any AtributoTieneEstiloCampo links between a given Atributo and a EstiloCampo.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo> GetLinks( global::UPM_IPS.JGAJPTJJLProyectoIPS.Atributo source, global::UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo target )
+		{
+			global::System.Collections.Generic.List<global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo> outLinks = new global::System.Collections.Generic.List<global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo>();
+			global::System.Collections.Generic.IList<global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo> links = DslModeling::DomainRoleInfo.GetElementLinks<global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo>(source, global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo.AtributoDomainRoleId);
+			foreach ( global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo link in links )
+			{
+				if ( target.Equals(link.EstiloCampo) )
+				{
+					outLinks.Add(link);
+				}
+			}
+			return outLinks.AsReadOnly();
+		}
+		/// <summary>
+		/// Get the one AtributoTieneEstiloCampo link between a given Atributoand a EstiloCampo.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo GetLink( global::UPM_IPS.JGAJPTJJLProyectoIPS.Atributo source, global::UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo target )
+		{
+			global::System.Collections.Generic.IList<global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo> links = DslModeling::DomainRoleInfo.GetElementLinks<global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo>(source, global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo.AtributoDomainRoleId);
+			foreach ( global::UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo link in links )
+			{
+				if ( target.Equals(link.EstiloCampo) )
+				{
+					return link;
+				}
+			}
+			return null;
+		}
+		
+		#endregion
+	}
+}

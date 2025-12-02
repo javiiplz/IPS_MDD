@@ -176,6 +176,23 @@
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Relationship: AtributoTieneEstiloCampo -->
+          <xsd:element name="estiloCampo" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instance of AtributoTieneEstiloCampo</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="atributoTieneEstiloCampo" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of AtributoTieneEstiloCampo needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
         <!-- Id -->
         <xsd:attribute name="Id" type="xsd:string">
           <xsd:annotation>
@@ -289,6 +306,46 @@
   <xsd:complexType name="EstiloPaginaMoniker">
     <xsd:annotation>
       <xsd:documentation>Moniker for EstiloPagina instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- EstiloCampo -->
+  <xsd:element name="estiloCampo" type="EstiloCampo" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="EstiloCampo">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Color -->
+        <xsd:attribute name="color" type="xsd:string" />
+        <!-- Property: TamanoLetra -->
+        <xsd:attribute name="tamanoLetra" type="xsd:integer" />
+        <!-- Property: TipoLetra -->
+        <xsd:attribute name="tipoLetra" type="xsd:string" />
+        <!-- Property: TipoCampo -->
+        <xsd:attribute name="tipoCampo" type="TipoCampoEnum" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- EstiloCampo Moniker -->
+  <xsd:element name="estiloCampoMoniker" type="EstiloCampoMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="EstiloCampoMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for EstiloCampo instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -528,6 +585,46 @@
     </xsd:complexContent>
   </xsd:complexType>
   
+  <!-- AtributoTieneEstiloCampo -->
+  <xsd:element name="atributoTieneEstiloCampo" type="AtributoTieneEstiloCampo" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="AtributoTieneEstiloCampo">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end EstiloCampo -->
+          <xsd:element ref="estiloCampo" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- AtributoTieneEstiloCampo Moniker -->
+  <xsd:element name="atributoTieneEstiloCampoMoniker" type="AtributoTieneEstiloCampoMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="AtributoTieneEstiloCampoMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for AtributoTieneEstiloCampo instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
   <!-- Enum TipoDatoEnum -->
   <xsd:simpleType name="TipoDatoEnum">
     <xsd:annotation>
@@ -559,6 +656,17 @@
           <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Booleano</xsd:documentation>
         </xsd:annotation>
       </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <!-- Enum TipoCampoEnum -->
+  <xsd:simpleType name="TipoCampoEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Texto"/>
+      <xsd:enumeration value="Numero"/>
+      <xsd:enumeration value="Fecha"/>
+      <xsd:enumeration value="Checkbox"/>
+      <xsd:enumeration value="Radiobutton"/>
     </xsd:restriction>
   </xsd:simpleType>
   
