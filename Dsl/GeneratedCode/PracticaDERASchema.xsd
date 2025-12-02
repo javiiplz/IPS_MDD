@@ -25,6 +25,21 @@
               </xsd:sequence>
             </xsd:complexType>
           </xsd:element>
+          <!-- Relationship: DiagramaWebTieneEstiloPortal -->
+          <xsd:element name="estiloPortal" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instance of DiagramaWebTieneEstiloPortal</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="diagramaWebTieneEstiloPortal" minOccurs="1" maxOccurs="1">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of DiagramaWebTieneEstiloPortal needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
         </xsd:sequence>
         <!-- Id -->
         <xsd:attribute name="Id" type="xsd:string">
@@ -164,6 +179,8 @@
             <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Atributo.Tipo</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <!-- Property: esClaveprimaria -->
+        <xsd:attribute name="esClaveprimaria" type="xsd:boolean" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -173,6 +190,50 @@
   <xsd:complexType name="AtributoMoniker">
     <xsd:annotation>
       <xsd:documentation>Moniker for Atributo instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- EstiloPortal -->
+  <xsd:element name="estiloPortal" type="EstiloPortal" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="EstiloPortal">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Titulo -->
+        <xsd:attribute name="titulo" type="xsd:string" />
+        <!-- Property: ColorFondo -->
+        <xsd:attribute name="colorFondo" type="xsd:string" />
+        <!-- Property: ColorTitulo -->
+        <xsd:attribute name="colorTitulo" type="xsd:string" />
+        <!-- Property: TipoLetra -->
+        <xsd:attribute name="tipoLetra" type="xsd:string" />
+        <!-- Property: TamanoLetra -->
+        <xsd:attribute name="tamanoLetra" type="xsd:integer" />
+        <!-- Property: Alineacion -->
+        <xsd:attribute name="alineacion" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- EstiloPortal Moniker -->
+  <xsd:element name="estiloPortalMoniker" type="EstiloPortalMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="EstiloPortalMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for EstiloPortal instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -320,6 +381,46 @@
   <xsd:complexType name="RelacionMoniker">
     <xsd:annotation>
       <xsd:documentation>Moniker for Relacion instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DiagramaWebTieneEstiloPortal -->
+  <xsd:element name="diagramaWebTieneEstiloPortal" type="DiagramaWebTieneEstiloPortal" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="DiagramaWebTieneEstiloPortal">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end EstiloPortal -->
+          <xsd:element ref="estiloPortal" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DiagramaWebTieneEstiloPortal Moniker -->
+  <xsd:element name="diagramaWebTieneEstiloPortalMoniker" type="DiagramaWebTieneEstiloPortalMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="DiagramaWebTieneEstiloPortalMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for DiagramaWebTieneEstiloPortal instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">

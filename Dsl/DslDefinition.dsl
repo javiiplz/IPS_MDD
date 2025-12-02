@@ -58,6 +58,40 @@
         </DomainProperty>
       </Properties>
     </DomainClass>
+    <DomainClass Id="6807fc0c-f2fd-41d3-aaa4-d8acecb4426c" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal" Name="EstiloPortal" DisplayName="Estilo Portal" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS">
+      <Properties>
+        <DomainProperty Id="c55c5203-3485-4292-9c07-b2999b331d7d" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal.Titulo" Name="Titulo" DisplayName="Titulo">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="8492f4f7-24f3-4a0a-a033-d52c3bd3804e" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal.Color Fondo" Name="ColorFondo" DisplayName="Color Fondo">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="b3115dae-f5e4-4111-a936-3bed7027aaa2" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal.Color Titulo" Name="ColorTitulo" DisplayName="Color Titulo">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="82142e95-6d46-4ed6-97bf-6b18f1a607bb" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal.Tipo Letra" Name="TipoLetra" DisplayName="Tipo Letra">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="9381ca02-8968-4e56-ae3b-99d590ecd67a" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal.Tamano Letra" Name="TamanoLetra" DisplayName="Tamano Letra">
+          <Type>
+            <ExternalTypeMoniker Name="/System/Int32" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="86cbb140-b23d-4d9a-8f18-d7d123435f46" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal.Alineacion" Name="Alineacion" DisplayName="Alineacion">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+      </Properties>
+    </DomainClass>
   </Classes>
   <Relationships>
     <DomainRelationship Id="b20186c3-98c3-4932-a9f5-9c00ae76b0ce" Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEntidad" Name="DiagramaWebTieneEntidad" DisplayName="Diagrama_Web_Tiene_Entidad" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS" IsEmbedding="true">
@@ -121,6 +155,22 @@
         <DomainRole Id="2424df7c-f223-45cc-acf4-4d460dfb586a" Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.DestinoEntidad" Name="DestinoEntidad" DisplayName="DestinoEntidad" PropertyName="OrigenEntidad" PropertyDisplayName="OrigenEntidad">
           <RolePlayer>
             <DomainClassMoniker Name="Entidad" />
+          </RolePlayer>
+        </DomainRole>
+      </Target>
+    </DomainRelationship>
+    <DomainRelationship Id="fda28509-cc6f-45bb-9c9c-2f6fff3f94c9" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal" Name="DiagramaWebTieneEstiloPortal" DisplayName="Diagrama Web Tiene Estilo Portal" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS" IsEmbedding="true">
+      <Source>
+        <DomainRole Id="42e9ac22-424a-47d0-bc1e-57ff14b9da0a" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal.DiagramaWeb" Name="DiagramaWeb" DisplayName="Diagrama Web" PropertyName="EstiloPortal" Multiplicity="One" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Estilo Portal">
+          <RolePlayer>
+            <DomainClassMoniker Name="DiagramaWeb" />
+          </RolePlayer>
+        </DomainRole>
+      </Source>
+      <Target>
+        <DomainRole Id="b7511ad4-4683-4b30-a84f-0252d689baf6" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal.EstiloPortal" Name="EstiloPortal" DisplayName="Estilo Portal" PropertyName="DiagramaWeb" Multiplicity="ZeroOne" PropagatesDelete="true" PropertyDisplayName="Diagrama Web">
+          <RolePlayer>
+            <DomainClassMoniker Name="EstiloPortal" />
           </RolePlayer>
         </DomainRole>
       </Target>
@@ -189,6 +239,9 @@
           <XmlRelationshipData UseFullForm="true" RoleElementName="entidad">
             <DomainRelationshipMoniker Name="DiagramaWebTieneEntidad" />
           </XmlRelationshipData>
+          <XmlRelationshipData UseFullForm="true" RoleElementName="estiloPortal">
+            <DomainRelationshipMoniker Name="DiagramaWebTieneEstiloPortal" />
+          </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="PracticaDERADiagram" MonikerAttributeName="" SerializeId="true" MonikerElementName="practicaDERADiagramMoniker" ElementName="practicaDERADiagram" MonikerTypeName="PracticaDERADiagramMoniker">
@@ -250,6 +303,32 @@
       </XmlClassData>
       <XmlClassData TypeName="CompartmentShape1" MonikerAttributeName="" SerializeId="true" MonikerElementName="compartmentShape1Moniker" ElementName="compartmentShape1" MonikerTypeName="CompartmentShape1Moniker">
         <CompartmentShapeMoniker Name="CompartmentShape1" />
+      </XmlClassData>
+      <XmlClassData TypeName="EstiloPortal" MonikerAttributeName="" SerializeId="true" MonikerElementName="estiloPortalMoniker" ElementName="estiloPortal" MonikerTypeName="EstiloPortalMoniker">
+        <DomainClassMoniker Name="EstiloPortal" />
+        <ElementData>
+          <XmlPropertyData XmlName="titulo">
+            <DomainPropertyMoniker Name="EstiloPortal/Titulo" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="colorFondo">
+            <DomainPropertyMoniker Name="EstiloPortal/ColorFondo" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="colorTitulo">
+            <DomainPropertyMoniker Name="EstiloPortal/ColorTitulo" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="tipoLetra">
+            <DomainPropertyMoniker Name="EstiloPortal/TipoLetra" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="tamanoLetra">
+            <DomainPropertyMoniker Name="EstiloPortal/TamanoLetra" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="alineacion">
+            <DomainPropertyMoniker Name="EstiloPortal/Alineacion" />
+          </XmlPropertyData>
+        </ElementData>
+      </XmlClassData>
+      <XmlClassData TypeName="DiagramaWebTieneEstiloPortal" MonikerAttributeName="" SerializeId="true" MonikerElementName="diagramaWebTieneEstiloPortalMoniker" ElementName="diagramaWebTieneEstiloPortal" MonikerTypeName="DiagramaWebTieneEstiloPortalMoniker">
+        <DomainRelationshipMoniker Name="DiagramaWebTieneEstiloPortal" />
       </XmlClassData>
     </ClassData>
   </XmlSerializationBehavior>
@@ -355,6 +434,9 @@
       <ConnectionTool Name="RelacionTool" ToolboxIcon="Resources\Iconos\EnlaceNP_NS_Tool.bmp" Caption="Relacion" Tooltip="Relacion Tool" HelpKeyword="RelacionTool">
         <ConnectionBuilderMoniker Name="PracticaDERA/GeneradorRelacion" />
       </ConnectionTool>
+      <ElementTool Name="EstiloPortalTool" ToolboxIcon="Resources\Iconos\NP.bmp" Caption="EstiloPortalTool" Tooltip="Estilo Portal Tool" HelpKeyword="EstiloPortalTool">
+        <DomainClassMoniker Name="EstiloPortal" />
+      </ElementTool>
     </ToolboxTab>
     <Validation UsesMenu="false" UsesOpen="false" UsesSave="false" UsesLoad="false" />
     <DiagramMoniker Name="PracticaDERADiagram" />

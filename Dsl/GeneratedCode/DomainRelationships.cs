@@ -968,3 +968,263 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 		#endregion
 	}
 }
+namespace UPM_IPS.JGAJPTJJLProyectoIPS
+{
+	/// <summary>
+	/// DomainRelationship DiagramaWebTieneEstiloPortal
+	/// Description for UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal
+	/// </summary>
+	[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainRelationship(IsEmbedding=true)]
+	[DslModeling::DomainObjectId("fda28509-cc6f-45bb-9c9c-2f6fff3f94c9")]
+	public partial class DiagramaWebTieneEstiloPortal : DslModeling::ElementLink
+	{
+		#region Constructors, domain class Id
+		
+		/// <summary>
+		/// DiagramaWebTieneEstiloPortal domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xfda28509, 0xcc6f, 0x45bb, 0x9c, 0x9c, 0x2f, 0x6f, 0xff, 0x3f, 0x94, 0xc9);
+	
+				
+		/// <summary>
+		/// Constructor
+		/// Creates a DiagramaWebTieneEstiloPortal link in the same Partition as the given DiagramaWeb
+		/// </summary>
+		/// <param name="source">DiagramaWeb to use as the source of the relationship.</param>
+		/// <param name="target">EstiloPortal to use as the target of the relationship.</param>
+		public DiagramaWebTieneEstiloPortal(DiagramaWeb source, EstiloPortal target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(DiagramaWebTieneEstiloPortal.DiagramaWebDomainRoleId, source), new DslModeling::RoleAssignment(DiagramaWebTieneEstiloPortal.EstiloPortalDomainRoleId, target)}, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public DiagramaWebTieneEstiloPortal(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public DiagramaWebTieneEstiloPortal(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public DiagramaWebTieneEstiloPortal(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(partition, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public DiagramaWebTieneEstiloPortal(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, roleAssignments, propertyAssignments)
+		{
+		}
+		#endregion
+		#region DiagramaWeb domain role code
+		
+		/// <summary>
+		/// DiagramaWeb domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid DiagramaWebDomainRoleId = new global::System.Guid(0x42e9ac22, 0x424a, 0x47d0, 0xbc, 0x1e, 0x57, 0xff, 0x14, 0xb9, 0xda, 0x0a);
+		
+		/// <summary>
+		/// DomainRole DiagramaWeb
+		/// Description for
+		/// UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal.DiagramaWeb
+		/// </summary>
+		[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal/DiagramaWeb.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal/DiagramaWeb.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "EstiloPortal", PropertyDisplayNameKey="UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal/DiagramaWeb.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.PropagatesCopyToLinkAndOppositeRolePlayer, Multiplicity = DslModeling::Multiplicity.One)]
+		[DslModeling::DomainObjectId("42e9ac22-424a-47d0-bc1e-57ff14b9da0a")]
+		public virtual DiagramaWeb DiagramaWeb
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (DiagramaWeb)DslModeling::DomainRoleInfo.GetRolePlayer(this, DiagramaWebDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, DiagramaWebDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access DiagramaWeb of a EstiloPortal
+		/// <summary>
+		/// Gets DiagramaWeb.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static DiagramaWeb GetDiagramaWeb(EstiloPortal element)
+		{
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, EstiloPortalDomainRoleId) as DiagramaWeb;
+		}
+		
+		/// <summary>
+		/// Sets DiagramaWeb.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetDiagramaWeb(EstiloPortal element, DiagramaWeb newDiagramaWeb)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, EstiloPortalDomainRoleId, newDiagramaWeb);
+		}
+		#endregion
+		#region EstiloPortal domain role code
+		
+		/// <summary>
+		/// EstiloPortal domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid EstiloPortalDomainRoleId = new global::System.Guid(0xb7511ad4, 0x4683, 0x4b30, 0xa8, 0x4f, 0x02, 0x52, 0xd6, 0x89, 0xba, 0xf6);
+		
+		/// <summary>
+		/// DomainRole EstiloPortal
+		/// Description for
+		/// UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal.EstiloPortal
+		/// </summary>
+		[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal/EstiloPortal.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal/EstiloPortal.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "DiagramaWeb", PropertyDisplayNameKey="UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal/EstiloPortal.PropertyDisplayName", PropagatesDelete = true,  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroOne)]
+		[DslModeling::DomainObjectId("b7511ad4-4683-4b30-a84f-0252d689baf6")]
+		public virtual EstiloPortal EstiloPortal
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (EstiloPortal)DslModeling::DomainRoleInfo.GetRolePlayer(this, EstiloPortalDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, EstiloPortalDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access EstiloPortal of a DiagramaWeb
+		/// <summary>
+		/// Gets EstiloPortal.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static EstiloPortal GetEstiloPortal(DiagramaWeb element)
+		{
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, DiagramaWebDomainRoleId) as EstiloPortal;
+		}
+		
+		/// <summary>
+		/// Sets EstiloPortal.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetEstiloPortal(DiagramaWeb element, EstiloPortal newEstiloPortal)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, DiagramaWebDomainRoleId, newEstiloPortal);
+		}
+		#endregion
+		#region DiagramaWeb link accessor
+		/// <summary>
+		/// Get the DiagramaWebTieneEstiloPortal link to a DiagramaWeb.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal GetLinkToEstiloPortal (global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWeb diagramaWebInstance)
+		{
+			global::System.Collections.Generic.IList<global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal> links = DslModeling::DomainRoleInfo.GetElementLinks<global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal>(diagramaWebInstance, global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal.DiagramaWebDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of DiagramaWeb not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
+		}
+		#endregion
+		#region EstiloPortal link accessor
+		/// <summary>
+		/// Get the DiagramaWebTieneEstiloPortal link to a EstiloPortal.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal GetLinkToDiagramaWeb (global::UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal estiloPortalInstance)
+		{
+			global::System.Collections.Generic.IList<global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal> links = DslModeling::DomainRoleInfo.GetElementLinks<global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal>(estiloPortalInstance, global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal.EstiloPortalDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of EstiloPortal not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
+		}
+		#endregion
+		#region DiagramaWebTieneEstiloPortal instance accessors
+		
+		/// <summary>
+		/// Get any DiagramaWebTieneEstiloPortal links between a given DiagramaWeb and a EstiloPortal.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal> GetLinks( global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWeb source, global::UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal target )
+		{
+			global::System.Collections.Generic.List<global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal> outLinks = new global::System.Collections.Generic.List<global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal>();
+			global::System.Collections.Generic.IList<global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal> links = DslModeling::DomainRoleInfo.GetElementLinks<global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal>(source, global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal.DiagramaWebDomainRoleId);
+			foreach ( global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal link in links )
+			{
+				if ( target.Equals(link.EstiloPortal) )
+				{
+					outLinks.Add(link);
+				}
+			}
+			return outLinks.AsReadOnly();
+		}
+		/// <summary>
+		/// Get the one DiagramaWebTieneEstiloPortal link between a given DiagramaWeband a EstiloPortal.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal GetLink( global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWeb source, global::UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal target )
+		{
+			global::System.Collections.Generic.IList<global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal> links = DslModeling::DomainRoleInfo.GetElementLinks<global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal>(source, global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal.DiagramaWebDomainRoleId);
+			foreach ( global::UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal link in links )
+			{
+				if ( target.Equals(link.EstiloPortal) )
+				{
+					return link;
+				}
+			}
+			return null;
+		}
+		
+		#endregion
+	}
+}

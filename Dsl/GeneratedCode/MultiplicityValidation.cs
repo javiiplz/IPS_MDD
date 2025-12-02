@@ -10,5 +10,29 @@
 using DslModeling = global::Microsoft.VisualStudio.Modeling;
 using DslDesign = global::Microsoft.VisualStudio.Modeling.Design;
 using DslValidation = global::Microsoft.VisualStudio.Modeling.Validation;
+namespace UPM_IPS.JGAJPTJJLProyectoIPS
+{
+	[DslValidation::ValidationState(DslValidation::ValidationState.Enabled)]
+	public partial class DiagramaWeb
+	{
+		/// <summary>
+		/// Checks that the relationships that have a multiplicity of One or OneMany do actually have a link.
+		/// </summary>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Generated code.")]
+		[DslValidation::ValidationMethod(DslValidation::ValidationCategories.Open | DslValidation::ValidationCategories.Save | DslValidation::ValidationCategories.Menu)]
+		private void ValidateDiagramaWebMultiplicity (DslValidation::ValidationContext context)
+		{
+			if (this.EstiloPortal == null)
+			{
+				context.LogViolation(DslValidation::ViolationType.Error,
+					string.Format(global::System.Globalization.CultureInfo.CurrentCulture, 
+						UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel.SingletonResourceManager.GetString("MinimumMultiplicityMissingLink"), 
+						"DiagramaWeb", "", "EstiloPortal"),
+						"DSL0001", this);
+			}
+		} // ValidateDiagramaWebMultiplicity
+	} // class DiagramaWeb
+} // UPM_IPS.JGAJPTJJLProyectoIPS
+
 	
  
