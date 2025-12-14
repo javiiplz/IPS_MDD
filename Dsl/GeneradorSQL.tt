@@ -1,0 +1,176 @@
+﻿<#@ template hostspecific="true" language="C#" #>
+<#@ output extension=".sql" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Xml.Linq" #>
+<#@ assembly name="Microsoft.CSharp" #> 
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Xml.Linq" #>
+
+CREATE DATABASE IF NOT EXISTS PracticaIPS;
+USE PracticaIPS;
+
+<#
+    string carpetaDebugging = Path.Combine(Path.GetDirectoryName(this.Host.TemplateFile), "..", "Debugging");
+    string archivoDatos = "";
+
+    if (Directory.Exists(carpetaDebugging))
+    {
+        foreach (var f in Directory.GetFiles(carpetaDebugging))
+        {
+            if (f.EndsWith(".diagram") || Path.GetFileName(f).StartsWith("~")) continue;
+            try {
+                string t = File.ReadAllText(f);
+                if (t.Contains("<entidad") || t.Contains("<Entidad")) { archivoDatos = f; break; }
+            } catch {}
+        }
+    }
+
+    if (string.IsNullOrEmpty(archivoDatos))
+    {
+#>
+-- No se ha encontrado el archivo XML.
+<#
+    }
+    else
+    {
+        try 
+        {
+            XDocument doc = XDocument.Load(archivoDatos);
+            var listaEntidades = new List<dynamic>();
+            var nodosEntidad = doc.Descendants().Where(x => x.Name.LocalName.Equals("entidad", StringComparison.OrdinalIgnoreCase));
+
+            foreach (var nodo in nodosEntidad)
+            {
+                string id = nodo.Attribute("Id")?.Value ?? "";
+                string nombreRaw = nodo.Attribute("nombre")?.Value ?? nodo.Attribute("Nombre")?.Value ?? "Desconocida";
+                string nombre = nombreRaw.Trim().Replace(" ", "_");
+                
+                if (nombre.Equals("Desconocida", StringComparison.OrdinalIgnoreCase)) continue;
+
+                string pkName = "Id"; 
+                string pkType = "INT";
+                
+                var todosLosAtributos = nodo.Descendants().Where(x => x.Name.LocalName.Equals("atributo", StringComparison.OrdinalIgnoreCase));
+                
+                foreach(var attr in todosLosAtributos)
+                {
+                    if (attr.Attribute("nombre") == null && attr.Attribute("Nombre") == null) continue;
+                    
+                    string esClave = attr.Attribute("esClaveprimaria")?.Value ?? "false";
+                    if(esClave.ToLower().Contains("true"))
+                    {
+                        string rawName = attr.Attribute("nombre")?.Value ?? attr.Attribute("Nombre")?.Value;
+                        pkName = rawName.Trim().Replace(" ", "_");
+                        
+                        string t = attr.Attribute("tipo")?.Value ?? attr.Attribute("Tipo")?.Value ?? "Texto";
+                        if (t.Contains("Int") || t.Contains("Entero")) pkType = "INT";
+                        else pkType = "VARCHAR(255)";
+                        break; 
+                    }
+                }
+                listaEntidades.Add(new { Id = id, NombreTabla = nombre, NombrePK = pkName, TipoPK = pkType });
+            }
+
+            foreach (var nodo in nodosEntidad)
+            {
+                string id = nodo.Attribute("Id")?.Value ?? "";
+                dynamic info = listaEntidades.FirstOrDefault(e => e.Id == id);
+                if (info == null) continue;
+
+#>
+CREATE TABLE IF NOT EXISTS <#= info.NombreTabla #> (
+<#
+                var atributosImprimibles = nodo.Descendants().Where(x => x.Name.LocalName.Equals("atributo", StringComparison.OrdinalIgnoreCase));
+                var listaCols = new List<string>();
+
+                foreach(var attr in atributosImprimibles)
+                {
+                     if (attr.Attribute("nombre") == null && attr.Attribute("Nombre") == null) continue;
+                     if (attr.Attribute("tipo") == null && attr.Attribute("Tipo") == null) continue;
+
+                     string nRaw = attr.Attribute("nombre")?.Value ?? attr.Attribute("Nombre")?.Value ?? "Columna";
+                     string nAttr = nRaw.Trim().Replace(" ", "_");
+                     
+                     string tAttr = attr.Attribute("tipo")?.Value ?? attr.Attribute("Tipo")?.Value ?? "Texto";
+                     string sqlT = "VARCHAR(255)";
+                     if (tAttr.Contains("Int") || tAttr.Contains("Entero")) sqlT = "INT";
+                     else if (tAttr.Contains("Dobl") || tAttr.Contains("Real")) sqlT = "DOUBLE";
+                     else if (tAttr.Contains("Date") || tAttr.Contains("Fech")) sqlT = "DATE";
+                     else if (tAttr.Contains("Bool")) sqlT = "BOOLEAN";
+
+                     listaCols.Add("    " + nAttr + " " + sqlT + " NOT NULL");
+                }
+                
+                for(int i=0; i < listaCols.Count; i++)
+                {
+                    string coma = (i < listaCols.Count - 1 || !string.IsNullOrEmpty(info.NombrePK)) ? "," : "";
+#>
+<#= listaCols[i] #><#= coma #>
+<#
+                }
+
+                if (!string.IsNullOrEmpty(info.NombrePK))
+                {
+                    bool pkExiste = listaCols.Any(c => c.Contains(" " + info.NombrePK + " "));
+                    if (!pkExiste && info.NombrePK == "Id")
+                    {
+#>
+    Id INT NOT NULL AUTO_INCREMENT,
+<#
+                    }
+#>
+    PRIMARY KEY (<#= info.NombrePK #>)
+<#
+                }
+#>
+);
+
+<#
+            }
+
+            foreach (var nodoOrigen in nodosEntidad)
+            {
+                string idOrigen = nodoOrigen.Attribute("Id")?.Value;
+                dynamic infoOrigen = listaEntidades.FirstOrDefault(e => e.Id == idOrigen);
+                if (infoOrigen == null) continue;
+
+                var relaciones = nodoOrigen.Descendants().Where(x => x.Name.LocalName.Equals("relacion", StringComparison.OrdinalIgnoreCase));
+
+                foreach(var rel in relaciones)
+                {
+                    string nombreRaw = rel.Attribute("nombre")?.Value ?? rel.Attribute("Nombre")?.Value ?? rel.Attribute("Id")?.Value;
+                    var moniker = rel.Descendants().Where(x => x.Name.LocalName.EndsWith("Moniker")).FirstOrDefault();
+                    if (moniker == null) continue;
+
+                    string idDestino = moniker.Attribute("Id")?.Value;
+                    dynamic infoDestino = listaEntidades.FirstOrDefault(e => e.Id == idDestino);
+                    if (infoDestino == null) continue;
+
+                    string nombreRel = nombreRaw;
+                    if (string.IsNullOrEmpty(nombreRel) || nombreRel.Contains("-"))
+                    {
+                         nombreRel = infoOrigen.NombreTabla + "_" + infoDestino.NombreTabla;
+                    }
+                    nombreRel = nombreRel.Trim().Replace(" ", "_");
+
+                    string colOrigen = infoOrigen.NombreTabla + "_" + infoOrigen.NombrePK;
+                    string colDestino = infoDestino.NombreTabla + "_" + infoDestino.NombrePK;
+#>
+CREATE TABLE IF NOT EXISTS <#= nombreRel #> (
+    <#= colOrigen #> <#= infoOrigen.TipoPK #> NOT NULL,
+    <#= colDestino #> <#= infoDestino.TipoPK #> NOT NULL,
+    FOREIGN KEY (<#= colOrigen #>) REFERENCES <#= infoOrigen.NombreTabla #> (<#= infoOrigen.NombrePK #>) ON DELETE CASCADE,
+    FOREIGN KEY (<#= colDestino #>) REFERENCES <#= infoDestino.NombreTabla #> (<#= infoDestino.NombrePK #>) ON DELETE CASCADE,
+    PRIMARY KEY (<#= colOrigen #>, <#= colDestino #>)
+);
+<#
+                }
+            }
+        }
+        catch (Exception) { }
+    }
+#>

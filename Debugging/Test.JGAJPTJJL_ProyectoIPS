@@ -1,1 +1,46 @@
-﻿ 
+﻿<?xml version="1.0" encoding="utf-8"?>
+<diagramaWeb xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="5d8e9276-ed4f-4920-a785-187fd4028c4a" xmlns="http://schemas.microsoft.com/dsltools/PracticaDERA">
+  <entidad>
+    <diagramaWebTieneEntidad Id="0c618cc8-4e7c-4150-a70e-bef40200b8dd">
+      <entidad Id="2b79e523-096d-46d7-99a3-7cfb381c5a5f" nombre="Alumno">
+        <atributo>
+          <entidadTieneAtributo Id="c1f73d12-ef6a-495e-a0d9-dc7b7bc60718">
+            <atributo Id="e5c6b9cf-8dec-48af-a2f4-1038e89601b6" nombre="NumMat" tipo="Entero" esClaveprimaria="true" />
+          </entidadTieneAtributo>
+          <entidadTieneAtributo Id="8e5022b1-fb05-4f6c-8304-a2a35854a3d5">
+            <atributo Id="7dff423b-96bb-40a5-b8d4-72eaec171dda" nombre="Nombre" tipo="Texto" />
+          </entidadTieneAtributo>
+          <entidadTieneAtributo Id="5520b5c4-7be4-4858-b960-64f4c98ae584">
+            <atributo Id="56aa0c70-96c1-41fb-85a9-8a57e8b430e6" nombre="Apellido1" tipo="Texto" />
+          </entidadTieneAtributo>
+          <entidadTieneAtributo Id="e3d329eb-240a-40f2-9933-259475fba643">
+            <atributo Id="e46bb23c-2252-4c48-acdb-38490763b843" nombre="Apellido2" tipo="Texto" />
+          </entidadTieneAtributo>
+          <entidadTieneAtributo Id="5ee8e05f-a9bb-4637-93bd-27e86962c062">
+            <atributo Id="9f362bcf-5fff-4ee0-a896-3c4fe8626006" nombre="Curso" tipo="Texto" />
+          </entidadTieneAtributo>
+          <entidadTieneAtributo Id="a996f09c-7df4-431c-bc8b-02063a1bfba7">
+            <atributo Id="e55dda7f-11cd-4b81-bc02-2b8ec89ba865" nombre="Fecha de Nacimiento" tipo="Fecha" />
+          </entidadTieneAtributo>
+        </atributo>
+        <destinoEntidad>
+          <relacion Id="48b281eb-c5de-44ea-84ed-f3211a8be561" nombreRelacion="Matricula">
+            <EntidadMoniker Id="1673bd6b-3fa3-4517-b82d-65545bace0f3" />
+          </relacion>
+        </destinoEntidad>
+      </entidad>
+    </diagramaWebTieneEntidad>
+    <diagramaWebTieneEntidad Id="7cbd4070-adc4-4e05-85ff-d10851c9dc60">
+      <entidad Id="1673bd6b-3fa3-4517-b82d-65545bace0f3" nombre="Asignatura">
+        <atributo>
+          <entidadTieneAtributo Id="b0e3af6d-ceee-4da3-b1d8-5c370c8a4dc7">
+            <atributo Id="8706780f-da32-43e5-ac97-ee8530b32cb5" nombre="Codigo" tipo="Entero" esClaveprimaria="true" />
+          </entidadTieneAtributo>
+          <entidadTieneAtributo Id="e0dd57e0-acca-4ef8-8f73-111e567a207c">
+            <atributo Id="305ccec7-74d3-4782-a4d6-97b0776addc2" nombre="Nombre" tipo="Texto" />
+          </entidadTieneAtributo>
+        </atributo>
+      </entidad>
+    </diagramaWebTieneEntidad>
+  </entidad>
+</diagramaWeb>

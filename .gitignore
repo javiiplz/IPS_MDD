@@ -1,7 +1,11 @@
-.vs/
 bin/
 obj/
-*.suo
+.vs/
 *.user
-*.db
-*.opc
+*.suo
+Debugging/bin/
+Debugging/obj/
+Dsl/bin/
+Dsl/obj/
+DslPackage/bin/
+DslPackage/obj/
