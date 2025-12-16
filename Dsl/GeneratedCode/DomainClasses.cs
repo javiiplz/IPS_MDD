@@ -877,6 +877,71 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 		}
 		
 		#endregion
+		#region TextoVisual domain property code
+		
+		/// <summary>
+		/// TextoVisual domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid TextoVisualDomainPropertyId = new global::System.Guid(0x4941c9be, 0x5c49, 0x4f2e, 0x84, 0x69, 0x26, 0x04, 0x1b, 0x9f, 0x95, 0xc5);
+		
+		/// <summary>
+		/// Gets or sets the value of TextoVisual domain property.
+		/// Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Atributo.Texto Visual
+		/// </summary>
+		[DslDesign::DisplayNameResource("UPM_IPS.JGAJPTJJLProyectoIPS.Atributo/TextoVisual.DisplayName", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.JGAJPTJJLProyectoIPS.Atributo/TextoVisual.Description", typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel), "UPM_IPS.JGAJPTJJLProyectoIPS.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.ReadOnly(true)]
+		[DslModeling::DomainProperty(Kind = DslModeling::DomainPropertyKind.Calculated)]
+		[DslModeling::DomainObjectId("4941c9be-5c49-4f2e-8469-26041b9f95c5")]
+		public global::System.String TextoVisual
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return TextoVisualPropertyHandler.Instance.GetValue(this);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Atributo.TextoVisual domain property.
+		/// </summary>
+		internal sealed partial class TextoVisualPropertyHandler : DslModeling::CalculatedPropertyValueHandler<Atributo, global::System.String>
+		{
+			private TextoVisualPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Atributo.TextoVisual domain property value handler.
+			/// </summary>
+			public static readonly TextoVisualPropertyHandler Instance = new TextoVisualPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Atributo.TextoVisual domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return TextoVisualDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(Atributo element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				// There is no storage for TextoVisual because its Kind is
+				// set to Calculated. Please provide the GetTextoVisualValue()
+				// method on the domain class.
+				return element.GetTextoVisualValue();
+			}
+		
+		}
+		
+		#endregion
 		#region Entidad opposite domain role accessor
 		/// <summary>
 		/// Gets or sets Entidad.

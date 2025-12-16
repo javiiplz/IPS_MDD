@@ -743,7 +743,7 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 			internal static void ElementPropertyChanged(DslModeling::ElementPropertyChangedEventArgs e, bool repaintOnly)
 			{
 				if(e==null) throw new global::System.ArgumentNullException("e");
-				if(e.ModelElement is global::UPM_IPS.JGAJPTJJLProyectoIPS.Atributo && e.DomainProperty.Id == global::UPM_IPS.JGAJPTJJLProyectoIPS.Atributo.NombreDomainPropertyId)
+				if(e.ModelElement is global::UPM_IPS.JGAJPTJJLProyectoIPS.Atributo && e.DomainProperty.Id == global::UPM_IPS.JGAJPTJJLProyectoIPS.Atributo.TextoVisualDomainPropertyId)
 				{
 					global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetEntidadForEntidadShapeListaAtributos((global::UPM_IPS.JGAJPTJJLProyectoIPS.Atributo)e.ModelElement);
 					CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::UPM_IPS.JGAJPTJJLProyectoIPS.EntidadShape), "ListaAtributos", repaintOnly);

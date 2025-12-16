@@ -56,6 +56,11 @@
             <ExternalTypeMoniker Name="/System/Boolean" />
           </Type>
         </DomainProperty>
+        <DomainProperty Id="4941c9be-5c49-4f2e-8469-26041b9f95c5" Description="Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Atributo.Texto Visual" Name="TextoVisual" DisplayName="Texto Visual" Kind="Calculated">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
       </Properties>
     </DomainClass>
     <DomainClass Id="6807fc0c-f2fd-41d3-aaa4-d8acecb4426c" Description="Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal" Name="EstiloPortal" DisplayName="Estilo Portal" Namespace="UPM_IPS.JGAJPTJJLProyectoIPS">
@@ -374,6 +379,9 @@
           <XmlRelationshipData UseFullForm="true" RoleElementName="estiloCampo">
             <DomainRelationshipMoniker Name="AtributoTieneEstiloCampo" />
           </XmlRelationshipData>
+          <XmlPropertyData XmlName="textoVisual" Representation="Ignore">
+            <DomainPropertyMoniker Name="Atributo/TextoVisual" />
+          </XmlPropertyData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="EntidadTieneAtributo" MonikerAttributeName="" SerializeId="true" MonikerElementName="EntidadTieneAtributoMoniker" ElementName="entidadTieneAtributo" MonikerTypeName="EntidadTieneAtributoMoniker">
@@ -515,7 +523,7 @@
           </ElementsDisplayed>
           <PropertyDisplayed>
             <PropertyPath>
-              <DomainPropertyMoniker Name="Atributo/Nombre" />
+              <DomainPropertyMoniker Name="Atributo/TextoVisual" />
             </PropertyPath>
           </PropertyDisplayed>
         </CompartmentMap>

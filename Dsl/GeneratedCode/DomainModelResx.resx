@@ -189,6 +189,14 @@
     <value>Es Claveprimaria</value>
     <comment>DisplayName for DomainProperty &apos;esClaveprimaria&apos; on DomainClass &apos;Atributo&apos;</comment>
   </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Atributo/TextoVisual.Description" xml:space="preserve">
+    <value>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Atributo.Texto Visual</value>
+    <comment>Description for DomainProperty &apos;TextoVisual&apos; on DomainClass &apos;Atributo&apos;</comment>
+  </data>
+  <data name="UPM_IPS.JGAJPTJJLProyectoIPS.Atributo/TextoVisual.DisplayName" xml:space="preserve">
+    <value>Texto Visual</value>
+    <comment>DisplayName for DomainProperty &apos;TextoVisual&apos; on DomainClass &apos;Atributo&apos;</comment>
+  </data>
   <data name="UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal.Description" xml:space="preserve">
     <value>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal</value>
     <comment>Description for DomainClass &apos;EstiloPortal&apos;</comment>

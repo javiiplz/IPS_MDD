@@ -107,6 +107,7 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 				new DomainMemberInfo(typeof(Atributo), "Nombre", Atributo.NombreDomainPropertyId, typeof(Atributo.NombrePropertyHandler)),
 				new DomainMemberInfo(typeof(Atributo), "Tipo", Atributo.TipoDomainPropertyId, typeof(Atributo.TipoPropertyHandler)),
 				new DomainMemberInfo(typeof(Atributo), "esClaveprimaria", Atributo.esClaveprimariaDomainPropertyId, typeof(Atributo.esClaveprimariaPropertyHandler)),
+				new DomainMemberInfo(typeof(Atributo), "TextoVisual", Atributo.TextoVisualDomainPropertyId, typeof(Atributo.TextoVisualPropertyHandler)),
 				new DomainMemberInfo(typeof(EstiloPortal), "Titulo", EstiloPortal.TituloDomainPropertyId, typeof(EstiloPortal.TituloPropertyHandler)),
 				new DomainMemberInfo(typeof(EstiloPortal), "ColorFondo", EstiloPortal.ColorFondoDomainPropertyId, typeof(EstiloPortal.ColorFondoPropertyHandler)),
 				new DomainMemberInfo(typeof(EstiloPortal), "ColorTitulo", EstiloPortal.ColorTituloDomainPropertyId, typeof(EstiloPortal.ColorTituloPropertyHandler)),

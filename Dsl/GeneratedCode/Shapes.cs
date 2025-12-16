@@ -313,7 +313,7 @@ namespace UPM_IPS.JGAJPTJJLProyectoIPS
 					}
 					mappings[localCompartmentMappingsOffset+0] = new DslDiagrams::ElementListCompartmentMapping(
 																				"ListaAtributos", 
-																				global::UPM_IPS.JGAJPTJJLProyectoIPS.Atributo.NombreDomainPropertyId, 
+																				global::UPM_IPS.JGAJPTJJLProyectoIPS.Atributo.TextoVisualDomainPropertyId, 
 																				global::UPM_IPS.JGAJPTJJLProyectoIPS.Atributo.DomainClassId, 
 																				GetElementsFromEntidadForListaAtributos,
 																				null,
