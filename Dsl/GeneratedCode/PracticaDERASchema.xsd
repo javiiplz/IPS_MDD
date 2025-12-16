@@ -54,7 +54,11 @@
           </xsd:annotation>
         </xsd:attribute>
         <!-- Property: Titulo -->
-        <xsd:attribute name="titulo" type="xsd:string" />
+        <xsd:attribute name="titulo" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWeb.Titulo</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -79,6 +83,9 @@
   <!-- Entidad -->
   <xsd:element name="entidad" type="Entidad" substitutionGroup="core:modelElement" />
   <xsd:complexType name="Entidad">
+    <xsd:annotation>
+      <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Entidad</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -135,7 +142,11 @@
           </xsd:annotation>
         </xsd:attribute>
         <!-- Property: Nombre -->
-        <xsd:attribute name="nombre" type="xsd:string" />
+        <xsd:attribute name="nombre" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Entidad.Nombre</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -160,6 +171,9 @@
   <!-- Atributo -->
   <xsd:element name="atributo" type="Atributo" substitutionGroup="core:modelElement" />
   <xsd:complexType name="Atributo">
+    <xsd:annotation>
+      <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Atributo</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -186,15 +200,19 @@
           </xsd:annotation>
         </xsd:attribute>
         <!-- Property: Nombre -->
-        <xsd:attribute name="nombre" type="xsd:string" />
-        <!-- Property: Tipo -->
-        <xsd:attribute name="tipo" type="TipoDatoEnum" />
-        <!-- Property: esClaveprimaria -->
-        <xsd:attribute name="esClaveprimaria" type="xsd:boolean" >
+        <xsd:attribute name="nombre" type="xsd:string" >
           <xsd:annotation>
-            <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.Atributo.Es Claveprimaria</xsd:documentation>
+            <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Atributo.Nombre</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <!-- Property: Tipo -->
+        <xsd:attribute name="tipo" type="TipoDatoEnum" >
+          <xsd:annotation>
+            <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Atributo.Tipo</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: esClaveprimaria -->
+        <xsd:attribute name="esClaveprimaria" type="xsd:boolean" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -219,9 +237,6 @@
   <!-- EstiloPortal -->
   <xsd:element name="estiloPortal" type="EstiloPortal" substitutionGroup="core:modelElement" />
   <xsd:complexType name="EstiloPortal">
-    <xsd:annotation>
-      <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal</xsd:documentation>
-    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <!-- Id -->
@@ -231,41 +246,17 @@
           </xsd:annotation>
         </xsd:attribute>
         <!-- Property: Titulo -->
-        <xsd:attribute name="titulo" type="xsd:string" >
-          <xsd:annotation>
-            <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal.Titulo</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
+        <xsd:attribute name="titulo" type="xsd:string" />
         <!-- Property: ColorFondo -->
-        <xsd:attribute name="colorFondo" type="xsd:string" >
-          <xsd:annotation>
-            <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal.Color Fondo</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
+        <xsd:attribute name="colorFondo" type="xsd:string" />
         <!-- Property: ColorTitulo -->
-        <xsd:attribute name="colorTitulo" type="xsd:string" >
-          <xsd:annotation>
-            <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal.Color Titulo</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
+        <xsd:attribute name="colorTitulo" type="xsd:string" />
         <!-- Property: TipoLetra -->
-        <xsd:attribute name="tipoLetra" type="xsd:string" >
-          <xsd:annotation>
-            <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal.Tipo Letra</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
+        <xsd:attribute name="tipoLetra" type="xsd:string" />
         <!-- Property: TamanoLetra -->
-        <xsd:attribute name="tamanoLetra" type="xsd:integer" >
-          <xsd:annotation>
-            <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal.Tamano Letra</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
+        <xsd:attribute name="tamanoLetra" type="xsd:integer" />
         <!-- Property: Alineacion -->
-        <xsd:attribute name="alineacion" type="xsd:string" >
-          <xsd:annotation>
-            <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPortal.Alineacion</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
+        <xsd:attribute name="alineacion" type="xsd:string" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -290,9 +281,6 @@
   <!-- EstiloPagina -->
   <xsd:element name="estiloPagina" type="EstiloPagina" substitutionGroup="core:modelElement" />
   <xsd:complexType name="EstiloPagina">
-    <xsd:annotation>
-      <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina</xsd:documentation>
-    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <!-- Id -->
@@ -302,29 +290,13 @@
           </xsd:annotation>
         </xsd:attribute>
         <!-- Property: Color -->
-        <xsd:attribute name="color" type="xsd:string" >
-          <xsd:annotation>
-            <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.Color</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
+        <xsd:attribute name="color" type="xsd:string" />
         <!-- Property: TipoLetra -->
-        <xsd:attribute name="tipoLetra" type="xsd:string" >
-          <xsd:annotation>
-            <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.Tipo Letra</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
+        <xsd:attribute name="tipoLetra" type="xsd:string" />
         <!-- Property: TamanoLetra -->
-        <xsd:attribute name="tamanoLetra" type="xsd:integer" >
-          <xsd:annotation>
-            <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.Tamano Letra</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
+        <xsd:attribute name="tamanoLetra" type="xsd:integer" />
         <!-- Property: Alineacion -->
-        <xsd:attribute name="alineacion" type="xsd:string" >
-          <xsd:annotation>
-            <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloPagina.Alineacion</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
+        <xsd:attribute name="alineacion" type="xsd:string" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -349,9 +321,6 @@
   <!-- EstiloCampo -->
   <xsd:element name="estiloCampo" type="EstiloCampo" substitutionGroup="core:modelElement" />
   <xsd:complexType name="EstiloCampo">
-    <xsd:annotation>
-      <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo</xsd:documentation>
-    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <!-- Id -->
@@ -361,29 +330,13 @@
           </xsd:annotation>
         </xsd:attribute>
         <!-- Property: Color -->
-        <xsd:attribute name="color" type="xsd:string" >
-          <xsd:annotation>
-            <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo.Color</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
+        <xsd:attribute name="color" type="xsd:string" />
         <!-- Property: TamanoLetra -->
-        <xsd:attribute name="tamanoLetra" type="xsd:integer" >
-          <xsd:annotation>
-            <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo.Tamano Letra</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
+        <xsd:attribute name="tamanoLetra" type="xsd:integer" />
         <!-- Property: TipoLetra -->
-        <xsd:attribute name="tipoLetra" type="xsd:string" >
-          <xsd:annotation>
-            <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo.Tipo Letra</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
+        <xsd:attribute name="tipoLetra" type="xsd:string" />
         <!-- Property: TipoCampo -->
-        <xsd:attribute name="tipoCampo" type="TipoCampoEnum" >
-          <xsd:annotation>
-            <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EstiloCampo.Tipo Campo</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
+        <xsd:attribute name="tipoCampo" type="TipoCampoEnum" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -408,6 +361,9 @@
   <!-- DiagramaWebTieneEntidad -->
   <xsd:element name="diagramaWebTieneEntidad" type="DiagramaWebTieneEntidad" substitutionGroup="core:modelElement" />
   <xsd:complexType name="DiagramaWebTieneEntidad">
+    <xsd:annotation>
+      <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEntidad</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -448,6 +404,9 @@
   <!-- EntidadTieneAtributo -->
   <xsd:element name="entidadTieneAtributo" type="EntidadTieneAtributo" substitutionGroup="core:modelElement" />
   <xsd:complexType name="EntidadTieneAtributo">
+    <xsd:annotation>
+      <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneAtributo</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -488,6 +447,9 @@
   <!-- Relacion -->
   <xsd:element name="relacion" type="Relacion" substitutionGroup="core:modelElement" />
   <xsd:complexType name="Relacion">
+    <xsd:annotation>
+      <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -505,11 +467,23 @@
           </xsd:annotation>
         </xsd:attribute>
         <!-- Property: NombreRelacion -->
-        <xsd:attribute name="nombreRelacion" type="xsd:string" />
+        <xsd:attribute name="nombreRelacion" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.Nombre Relacion</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
         <!-- Property: CardOrigen -->
-        <xsd:attribute name="cardOrigen" type="xsd:string" />
+        <xsd:attribute name="cardOrigen" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.Card Origen</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
         <!-- Property: CardDestino -->
-        <xsd:attribute name="cardDestino" type="xsd:string" />
+        <xsd:attribute name="cardDestino" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.Relacion.Card Destino</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -534,9 +508,6 @@
   <!-- DiagramaWebTieneEstiloPortal -->
   <xsd:element name="diagramaWebTieneEstiloPortal" type="DiagramaWebTieneEstiloPortal" substitutionGroup="core:modelElement" />
   <xsd:complexType name="DiagramaWebTieneEstiloPortal">
-    <xsd:annotation>
-      <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.DiagramaWebTieneEstiloPortal</xsd:documentation>
-    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -577,9 +548,6 @@
   <!-- EntidadTieneEstiloPagina -->
   <xsd:element name="entidadTieneEstiloPagina" type="EntidadTieneEstiloPagina" substitutionGroup="core:modelElement" />
   <xsd:complexType name="EntidadTieneEstiloPagina">
-    <xsd:annotation>
-      <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.EntidadTieneEstiloPagina</xsd:documentation>
-    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -620,9 +588,6 @@
   <!-- AtributoTieneEstiloCampo -->
   <xsd:element name="atributoTieneEstiloCampo" type="AtributoTieneEstiloCampo" substitutionGroup="core:modelElement" />
   <xsd:complexType name="AtributoTieneEstiloCampo">
-    <xsd:annotation>
-      <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.AtributoTieneEstiloCampo</xsd:documentation>
-    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -662,46 +627,46 @@
   
   <!-- Enum TipoDatoEnum -->
   <xsd:simpleType name="TipoDatoEnum">
+    <xsd:annotation>
+      <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="Entero"/>
-      <xsd:enumeration value="Real"/>
-      <xsd:enumeration value="Texto"/>
-      <xsd:enumeration value="Fecha"/>
-      <xsd:enumeration value="Booleano"/>
+      <xsd:enumeration value="Entero">
+        <xsd:annotation>
+          <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Entero</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="Real">
+        <xsd:annotation>
+          <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Real</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="Texto">
+        <xsd:annotation>
+          <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Texto</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="Fecha">
+        <xsd:annotation>
+          <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Fecha</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="Booleano">
+        <xsd:annotation>
+          <xsd:documentation>Descripción de UPM_IPS.JGAJPTJJLProyectoIPS.TipoDatoEnum.Booleano</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
     </xsd:restriction>
   </xsd:simpleType>
   
   <!-- Enum TipoCampoEnum -->
   <xsd:simpleType name="TipoCampoEnum">
-    <xsd:annotation>
-      <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum</xsd:documentation>
-    </xsd:annotation>
     <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="Texto">
-        <xsd:annotation>
-          <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum.Texto</xsd:documentation>
-        </xsd:annotation>
-      </xsd:enumeration>
-      <xsd:enumeration value="Numero">
-        <xsd:annotation>
-          <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum.Numero</xsd:documentation>
-        </xsd:annotation>
-      </xsd:enumeration>
-      <xsd:enumeration value="Fecha">
-        <xsd:annotation>
-          <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum.Fecha</xsd:documentation>
-        </xsd:annotation>
-      </xsd:enumeration>
-      <xsd:enumeration value="Checkbox">
-        <xsd:annotation>
-          <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum.Checkbox</xsd:documentation>
-        </xsd:annotation>
-      </xsd:enumeration>
-      <xsd:enumeration value="Radiobutton">
-        <xsd:annotation>
-          <xsd:documentation>Description for UPM_IPS.JGAJPTJJLProyectoIPS.TipoCampoEnum.Radiobutton</xsd:documentation>
-        </xsd:annotation>
-      </xsd:enumeration>
+      <xsd:enumeration value="Texto"/>
+      <xsd:enumeration value="Numero"/>
+      <xsd:enumeration value="Fecha"/>
+      <xsd:enumeration value="Checkbox"/>
+      <xsd:enumeration value="Radiobutton"/>
     </xsd:restriction>
   </xsd:simpleType>
   
