@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.10318</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{eb7e64ec-9351-4c90-96c1-f51eb381851f}</ProjectGuid>
+    <ProjectGuid>{EB7E64EC-9351-4C90-96C1-F51EB381851F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Debugging</RootNamespace>
@@ -44,6 +44,11 @@
       <SubType>
       </SubType>
     </None>
+    <None Include="GeneracionPHP.php">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneracionPHP.tt</DependentUpon>
+    </None>
     <None Include="PracticaDERAReport.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PracticaDERAReport.txt</LastGenOutput>
@@ -65,6 +70,10 @@
     <Service Include="{508349B6-6B84-4df5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GeneracionPHP.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GeneracionPHP.php</LastGenOutput>
+    </Content>
     <Content Include="PracticaDERAReport.txt">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
