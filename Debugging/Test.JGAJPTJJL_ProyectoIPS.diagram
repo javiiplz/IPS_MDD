@@ -8,10 +8,10 @@
         <elementListCompartment Id="46ca7eb4-2c47-4d44-8579-8ec0c0be72ad" absoluteBounds="4.14, 2.135, 1.4700000000000002, 1.4031982421875" name="ListaAtributos" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </entidadShape>
-    <entidadShape Id="1feba3f0-23b4-4766-9bb1-966c6b6def95" absoluteBounds="9.5, 2, 1.5, 1.7439925130208329">
+    <entidadShape Id="1feba3f0-23b4-4766-9bb1-966c6b6def95" absoluteBounds="9.5, 2, 1.5, 1.9362939453124999">
       <EntidadMoniker Id="1673bd6b-3fa3-4517-b82d-65545bace0f3" />
       <nestedChildShapes>
-        <elementListCompartment Id="14b5c8c4-9eed-42c4-a756-1f563f21b194" absoluteBounds="9.515, 3.01, 1.4700000000000002, 0.63399251302083326" name="ListaAtributos" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="14b5c8c4-9eed-42c4-a756-1f563f21b194" absoluteBounds="9.515, 3.01, 1.4700000000000002, 0.8262939453125" name="ListaAtributos" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </entidadShape>
     <relacionConector Id="3c0ed91f-0b22-4b28-bf08-2ceccdbf89ca" edgePoints="[(5.625 : 2.81909912109375); (9.5 : 2.81909912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">

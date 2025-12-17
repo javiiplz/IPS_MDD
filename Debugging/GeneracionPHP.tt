@@ -1,0 +1,178 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output extension=".txt" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="Microsoft.CSharp" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
+
+<#
+    var currentDomain = AppDomain.CurrentDomain;
+    string dslDebugPath = Host.ResolvePath(@"..\Dsl\bin\Debug");
+    string dslReleasePath = Host.ResolvePath(@"..\Dsl\bin\Release");
+    string outputDir = Path.GetDirectoryName(Host.TemplateFile);
+
+    ResolveEventHandler handler = (sender, args) => {
+        string shortName = new System.Reflection.AssemblyName(args.Name).Name;
+        foreach(var asm in AppDomain.CurrentDomain.GetAssemblies()) { if(asm.GetName().Name == shortName) return asm; }
+        if(Directory.Exists(dslDebugPath)) { string local = Path.Combine(dslDebugPath, shortName + ".dll"); if(File.Exists(local)) return Assembly.LoadFrom(local); }
+        if(Directory.Exists(dslReleasePath)) { string local = Path.Combine(dslReleasePath, shortName + ".dll"); if(File.Exists(local)) return Assembly.LoadFrom(local); }
+        string root = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+        string root86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+        string[] vsPaths = {
+            Path.Combine(root, @"Microsoft Visual Studio\2022\Enterprise\Common7\IDE\PublicAssemblies"),
+            Path.Combine(root, @"Microsoft Visual Studio\2022\Community\Common7\IDE\PublicAssemblies"),
+            Path.Combine(root, @"Microsoft Visual Studio\2022\Enterprise\VSSDK\VisualStudioIntegration\Common\Assemblies\v4.0"),
+            Path.Combine(root86, @"Microsoft Visual Studio\2019\Community\Common7\IDE\PublicAssemblies")
+        };
+        foreach(var path in vsPaths) { string candidate = Path.Combine(path, shortName + ".dll"); if(File.Exists(candidate)) return Assembly.LoadFrom(candidate); }
+        return null;
+    };
+    currentDomain.AssemblyResolve += handler; 
+
+    try 
+    {
+        string myDllPath = "";
+        if(Directory.Exists(dslDebugPath)) { var f = Directory.GetFiles(dslDebugPath, "*.Dsl.dll"); if(f.Length>0) myDllPath=f[0]; }
+        if(string.IsNullOrEmpty(myDllPath) && Directory.Exists(dslReleasePath)) { var f = Directory.GetFiles(dslReleasePath, "*.Dsl.dll"); if(f.Length>0) myDllPath=f[0]; }
+        var dslAsm = Assembly.LoadFrom(myDllPath);
+
+        Type domainModelT = dslAsm.GetType("UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel");
+        Type serializationHelperT = dslAsm.GetType("UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERASerializationHelper");
+        Type entityT = dslAsm.GetType("UPM_IPS.JGAJPTJJLProyectoIPS.Entidad");
+        
+        Type baseType = domainModelT.BaseType; 
+        while(baseType != null && baseType.Name != "DomainModel") { baseType = baseType.BaseType; }
+        Type storeT = baseType.Assembly.GetType("Microsoft.VisualStudio.Modeling.Store");
+
+        string modelName = "Test.JGAJPTJJL_ProyectoIPS";
+        string modelPath = Host.ResolvePath(modelName); 
+        if(!File.Exists(modelPath)) modelPath = Host.ResolvePath(@"..\Debugging\" + modelName);
+        if(!File.Exists(modelPath)) {
+            var dirs = new string[] { Path.GetDirectoryName(Host.TemplateFile), Host.ResolvePath(@"..\Debugging") };
+            foreach(var d in dirs) {
+                if(Directory.Exists(d)) { var files = Directory.GetFiles(d, "*.JGAJPTJJL_ProyectoIPS"); foreach(var f in files) { if(!Path.GetFileName(f).StartsWith("Sample")) { modelPath = f; break; } } }
+                if(File.Exists(modelPath)) break;
+            }
+        }
+
+        object store = Activator.CreateInstance(storeT, new object[] { new Type[] { domainModelT } });
+        var instanceProp = serializationHelperT.GetProperty("Instance");
+        object helper = instanceProp.GetValue(null);
+        MethodInfo loadMethod = null;
+        foreach(var m in helper.GetType().GetMethods()) { if(m.Name == "LoadModel" && m.GetParameters().Length >= 2) { loadMethod = m; break; } }
+        
+        var txManagerProp = store.GetType().GetProperty("TransactionManager");
+        object txManager = txManagerProp.GetValue(store);
+        var beginTxMethod = txManager.GetType().GetMethod("BeginTransaction", new Type[] { typeof(string) });
+        object tx = beginTxMethod.Invoke(txManager, new object[] { "GeneracionPHP" });
+        loadMethod.Invoke(helper, new object[] { store, modelPath, null, null, null });
+
+        var elementDirectoryProp = store.GetType().GetProperty("ElementDirectory");
+        object elementDirectory = elementDirectoryProp.GetValue(store);
+        var findMethod = elementDirectory.GetType().GetMethod("FindElements", new Type[] { typeof(bool) }).MakeGenericMethod(entityT);
+        var listaEntidades = (System.Collections.IEnumerable)findMethod.Invoke(elementDirectory, new object[] { false });
+        
+        System.Text.StringBuilder menuSb = new System.Text.StringBuilder();
+        menuSb.AppendLine("<html><head><title>Menu Principal</title></head>");
+        menuSb.AppendLine("<body style='text-align:center; font-family: Arial, sans-serif; margin-top: 50px;'>"); 
+        menuSb.AppendLine("<h1>Gestion de Base de Datos</h1>");
+        
+        menuSb.AppendLine("<ul style='list-style-type: none; padding: 0;'>"); 
+
+        foreach(dynamic ent in listaEntidades)
+        {
+            string nombreEntidad = ent.Nombre;
+            string nombreArchivo = nombreEntidad.Trim().Replace(" ", "_") + ".php";
+            string pathArchivo = Path.Combine(outputDir, nombreArchivo);
+            
+            menuSb.AppendLine("<li style='margin: 15px;'><a href='" + nombreArchivo + "' style='font-size: 18px; text-decoration: none; color: #0044cc; font-weight: bold;'>Gestionar " + nombreEntidad + "</a></li>");
+
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            sb.AppendLine("<html><head><title>" + nombreEntidad + "</title></head>");
+            sb.AppendLine("<body bgcolor='#B8D1F1' style='text-align:center; font-family: Arial, sans-serif; margin-top: 30px;'>"); 
+            
+            string pkName = "Id";
+            foreach(dynamic a in ent.Atributo) if(a.esClaveprimaria) pkName = a.Nombre;
+            pkName = pkName.Trim().Replace(" ", "_");
+            
+            sb.AppendLine("<?php");
+            sb.AppendLine("  if (!(isset($_GET['var" + pkName + "']))) {");
+            sb.AppendLine("?>");
+            
+            sb.AppendLine("<h1>" + nombreEntidad + "</h1>");
+            sb.AppendLine("<div style='display: inline-block; border: 1px solid #666; padding: 20px; background-color: #fff; border-radius: 10px;'>");
+            sb.AppendLine("<form action='" + nombreArchivo + "' method='GET'>");
+            
+            string camposInsert = "";
+            string valoresInsert = "";
+            bool primero = true;
+
+            foreach(dynamic att in ent.Atributo)
+            {
+                string nRaw = att.Nombre;
+                string nSanitized = nRaw.Trim().Replace(" ", "_"); 
+                
+                sb.AppendLine("<div style='margin-bottom: 10px;'>");
+                sb.AppendLine("<b>" + nRaw + ":</b> <br>");
+                sb.AppendLine("<input name='var" + nSanitized + "' type='text' value='' style='padding: 5px; width: 200px;'>");
+                sb.AppendLine("</div>");
+                
+                if(!primero) { camposInsert += ", "; valoresInsert += ", "; }
+                camposInsert += nSanitized; 
+                valoresInsert += "'$val" + nSanitized + "'";
+                primero = false;
+            }
+            
+            sb.AppendLine("<br><input type='submit' value='Alta' style='padding: 10px 20px; font-weight: bold; cursor: pointer;' />");
+            sb.AppendLine("</form>");
+            sb.AppendLine("</div>"); 
+            
+            sb.AppendLine("<br><br><a href='Menu.html' style='color: #333;'>Volver al Menu</a>");
+
+            sb.AppendLine("<?php");
+            sb.AppendLine("  } else {");
+            sb.AppendLine("    $conex = mysqli_connect('localhost', 'root') or die('ERROR DE CONEXION');");
+            sb.AppendLine("    mysqli_select_db($conex, 'PracticaIPS') or die('ERROR CON LA BD');");
+            
+            foreach(dynamic att in ent.Atributo) {
+                string nSanitized = att.Nombre.ToString().Trim().Replace(" ", "_");
+                sb.AppendLine("    $val" + nSanitized + " = $_GET['var" + nSanitized + "'];");
+            }
+            
+            string nombreTablaSQL = nombreEntidad.Trim().Replace(" ", "_");
+            
+            sb.AppendLine("    $sql = \"INSERT INTO " + nombreTablaSQL + " (" + camposInsert + ") VALUES (" + valoresInsert + ")\";");
+            sb.AppendLine("    $resultado = mysqli_query($conex, $sql);");
+            sb.AppendLine("    if ($resultado) echo '<h2 style=\"color: green;\">Datos Insertados Correctamente</h2>';");
+            sb.AppendLine("    else echo '<h2 style=\"color: red;\">Error en la insercion: ' . mysqli_error($conex) . '</h2>';");
+            sb.AppendLine("    mysqli_close($conex);");
+            sb.AppendLine("    echo '<br><a href=\"" + nombreArchivo + "\">Volver a intentar</a>';");
+            sb.AppendLine("    echo '<br><br><a href=\"Menu.html\">Volver al Menu</a>';");
+            sb.AppendLine("  }");
+            sb.AppendLine("?>");
+            sb.AppendLine("</body></html>");
+
+            File.WriteAllText(pathArchivo, sb.ToString());
+            WriteLine("Archivo generado: " + nombreArchivo);
+        }
+        
+        menuSb.AppendLine("</ul></body></html>");
+        File.WriteAllText(Path.Combine(outputDir, "Menu.html"), menuSb.ToString());
+        WriteLine("Archivo generado: Menu.html");
+
+        var rollbackMethod = tx.GetType().GetMethod("Rollback");
+        rollbackMethod.Invoke(tx, null);
+    } 
+    catch (Exception ex) 
+    {
+        WriteLine("ERROR: " + ex.Message);
+    }
+    finally { currentDomain.AssemblyResolve -= handler; }
+#>

@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS Alumno (
 CREATE TABLE IF NOT EXISTS Asignatura (
     Codigo INT NOT NULL,
     Nombre VARCHAR(255) NOT NULL,
+    Profesor VARCHAR(255) NOT NULL,
     PRIMARY KEY (Codigo)
 );
 

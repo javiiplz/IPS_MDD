@@ -65,6 +65,15 @@
     <Service Include="{508349B6-6B84-4df5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GeneracionPHP.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GeneracionPHP1.txt</LastGenOutput>
+    </Content>
+    <Content Include="GeneracionPHP1.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneracionPHP.tt</DependentUpon>
+    </Content>
     <Content Include="GeneradorSQL.sql">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
