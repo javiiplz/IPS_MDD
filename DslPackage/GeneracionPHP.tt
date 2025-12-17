@@ -1,0 +1,200 @@
+﻿<#@ template hostspecific="true" language="C#" #>
+<#@ output extension=".txt" #>
+
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Xml.Linq" #>
+<#@ assembly name="Microsoft.CSharp" #>
+
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+
+<#@ include file="EF.utility.CS.ttinclude" #>
+
+<#
+    string carpetaDebugging = Path.Combine(Path.GetDirectoryName(this.Host.TemplateFile), "..", "Debugging");
+    string archivoDatos = "";
+
+    if (Directory.Exists(carpetaDebugging))
+    {
+        foreach (var f in Directory.GetFiles(carpetaDebugging))
+        {
+            if (f.EndsWith(".diagram") || Path.GetFileName(f).StartsWith("~")) continue;
+
+            try
+            {
+                string t = File.ReadAllText(f);
+                if (t.Contains("<entidad") || t.Contains("<Entidad"))
+                {
+                    archivoDatos = f;
+                    break;
+                }
+            }
+            catch { }
+        }
+    }
+
+    var fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
+    string dbName = "PracticaIPS";
+    string dbUser = "root";
+    string dbHost = "localhost";
+
+    if (string.IsNullOrEmpty(archivoDatos))
+    {
+        WriteLine("No se ha encontrado el archivo XML del modelo (no se generará nada).");
+    }
+    else
+    {
+        XDocument doc = XDocument.Load(archivoDatos);
+
+        var nodosEntidad = doc.Descendants()
+            .Where(x => x.Name.LocalName.Equals("entidad", StringComparison.OrdinalIgnoreCase));
+
+        foreach (var nodo in nodosEntidad)
+        {
+            string nombreRaw = nodo.Attribute("nombre")?.Value ?? nodo.Attribute("Nombre")?.Value ?? "Desconocida";
+            string tabla = nombreRaw.Trim().Replace(" ", "_");
+
+            if (tabla.Equals("Desconocida", StringComparison.OrdinalIgnoreCase)) continue;
+
+            string pkName = "Id";
+            var atributos = nodo.Descendants()
+                .Where(x => x.Name.LocalName.Equals("atributo", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            foreach (var attr in atributos)
+            {
+                string esClave =
+                    attr.Attribute("esClaveprimaria")?.Value ??
+                    attr.Attribute("esClavePrimaria")?.Value ??
+                    "false";
+
+                if (esClave.IndexOf("true", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    string rawName = attr.Attribute("nombre")?.Value ?? attr.Attribute("Nombre")?.Value ?? "Id";
+                    pkName = rawName.Trim().Replace(" ", "_");
+                    break;
+                }
+            }
+
+            fileManager.StartNewFile(tabla + ".php");
+#>
+<html>
+<head><title><#= tabla #></title></head>
+<body bgcolor="#B8D1F1">
+
+<?php
+if (!(isset($_GET['var<#= pkName #>']))) {
+?>
+  <form>
+    <h1><#= tabla #></h1>
+
+<#
+            foreach (var attr in atributos)
+            {
+                if (attr.Attribute("nombre") == null && attr.Attribute("Nombre") == null) continue;
+
+                string nRaw = attr.Attribute("nombre")?.Value ?? attr.Attribute("Nombre")?.Value ?? "Columna";
+                string n = nRaw.Trim().Replace(" ", "_");
+
+                string tipo = attr.Attribute("tipo")?.Value ?? attr.Attribute("Tipo")?.Value ?? "Texto";
+
+                bool esNumero =
+                    tipo.IndexOf("Int", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                    tipo.IndexOf("Entero", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                    tipo.IndexOf("Dobl", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                    tipo.IndexOf("Real", StringComparison.OrdinalIgnoreCase) >= 0;
+
+                string htmlType = esNumero ? "number" : "text";
+#>
+    <#= n #>:
+    <input name="var<#= n #>" type="<#= htmlType #>" value="">
+    <br/>
+<#
+            }
+#>
+
+    <input type="submit" value="Alta" />
+  </form>
+
+<?php
+} else {
+  $conex = mysqli_connect("<#= dbHost #>","<#= dbUser #>") or die("ERROR.");
+  mysqli_select_db($conex,"<#= dbName #>") or die("ERROR CON LA BASE DE DATOS");
+
+  $sql = "INSERT INTO <#= tabla #> (";
+<#
+            var cols = atributos
+                .Where(a => (a.Attribute("nombre") != null || a.Attribute("Nombre") != null))
+                .Select(a => (a.Attribute("nombre")?.Value ?? a.Attribute("Nombre")?.Value ?? "Columna").Trim().Replace(" ", "_"))
+                .ToList();
+
+            string colsSql = string.Join(",", cols);
+            string valsSql = string.Join(",", cols.Select(c => "'\".$_GET['var" + c + "'].\"'"));
+#>
+  $sql .= "<#= colsSql #>) VALUES (<#= valsSql #>)";
+
+  $resultado = mysqli_query($conex, $sql);
+
+  if ($resultado) echo "<b>Datos Insertados</b>";
+  else echo "Error en la inserción";
+
+  mysqli_close($conex);
+}
+?>
+
+</body>
+</html>
+<#
+        }
+
+        fileManager.StartNewFile("Alumno_Asignatura.php");
+#>
+<html>
+<head><title>Alumno_Asignatura</title></head>
+<body bgcolor="#B8D1F1">
+
+<?php
+if (!(isset($_GET['varAlumno_NumMat']))) {
+?>
+  <form>
+    <h1>Alumno_Asignatura</h1>
+
+    Alumno_NumMat:
+    <input name="varAlumno_NumMat" type="number" value="">
+    <br/>
+
+    Asignatura_Codigo:
+    <input name="varAsignatura_Codigo" type="number" value="">
+    <br/>
+
+    <input type="submit" value="Alta" />
+  </form>
+
+<?php
+} else {
+  $conex = mysqli_connect("localhost","root") or die("ERROR.");
+  mysqli_select_db($conex,"PracticaIPS") or die("ERROR CON LA BASE DE DATOS");
+
+  $sql = "INSERT INTO Alumno_Asignatura (Alumno_NumMat,Asignatura_Codigo) VALUES ('".$_GET['varAlumno_NumMat']."','".$_GET['varAsignatura_Codigo']."')";
+  $resultado = mysqli_query($conex, $sql);
+
+  if ($resultado) echo "<b>Datos Insertados</b>";
+  else echo "Error en la inserción";
+
+  mysqli_close($conex);
+}
+?>
+
+</body>
+</html>
+<#
+    }
+
+    fileManager.Process();
+#>

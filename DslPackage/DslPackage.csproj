@@ -22,7 +22,7 @@
     <StartupObject>
     </StartupObject>
     <MinimumVisualStudioVersion>17.0</MinimumVisualStudioVersion>
-	<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -94,6 +94,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CommandSet.tt</DependentUpon>
     </Compile>
+    <None Include="Alumno.php">
+      <DependentUpon>GeneracionPHP.tt</DependentUpon>
+    </None>
+    <None Include="Alumno_Asignatura.php">
+      <DependentUpon>GeneracionPHP.tt</DependentUpon>
+    </None>
+    <None Include="Asignatura.php">
+      <DependentUpon>GeneracionPHP.tt</DependentUpon>
+    </None>
     <None Include="source.extension.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>source.extension.vsixmanifest</LastGenOutput>
@@ -247,6 +256,15 @@
     <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml">
       <Link>CodeAnalysisDictionary.xml</Link>
     </CodeAnalysisDictionary>
+    <Content Include="GeneracionPHP.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GeneracionPHP.txt</LastGenOutput>
+    </Content>
+    <Content Include="GeneracionPHP.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneracionPHP.tt</DependentUpon>
+    </Content>
     <Content Include="Resources\ModelExplorerToolWindowBitmaps.bmp" />
   </ItemGroup>
 </Project>
