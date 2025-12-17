@@ -1,0 +1,234 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output extension=".sql" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="Microsoft.CSharp" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
+
+<#
+    // **************************************************************************************
+    // PARTE 1: INFRAESTRUCTURA DEL ENTORNO (Solución a problemas de carga)
+    // **************************************************************************************
+    // Debido a problemas con el procesador de directivas estándar y conflictos de versiones 
+    // en Visual Studio, se implementa una carga manual del Modelo y del SDK mediante Reflexión.
+    
+    var currentDomain = AppDomain.CurrentDomain;
+    string dslDebugPath = Host.ResolvePath(@"..\Dsl\bin\Debug");
+    string dslReleasePath = Host.ResolvePath(@"..\Dsl\bin\Release");
+
+    // Manejador para resolver dependencias de ensamblados (DLLs) dinámicamente
+    ResolveEventHandler handler = (sender, args) => {
+        string shortName = new System.Reflection.AssemblyName(args.Name).Name;
+        
+        // 1. Buscar en memoria cargada
+        foreach(var asm in AppDomain.CurrentDomain.GetAssemblies()) {
+            if(asm.GetName().Name == shortName) return asm;
+        }
+        // 2. Buscar en directorios del proyecto
+        if(Directory.Exists(dslDebugPath)) {
+            string local = Path.Combine(dslDebugPath, shortName + ".dll");
+            if(File.Exists(local)) return Assembly.LoadFrom(local);
+        }
+        if(Directory.Exists(dslReleasePath)) {
+            string local = Path.Combine(dslReleasePath, shortName + ".dll");
+            if(File.Exists(local)) return Assembly.LoadFrom(local);
+        }
+        // 3. Buscar en directorios de Visual Studio (SDK)
+        string root = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+        string root86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+        string[] vsPaths = {
+            Path.Combine(root, @"Microsoft Visual Studio\2022\Enterprise\Common7\IDE\PublicAssemblies"),
+            Path.Combine(root, @"Microsoft Visual Studio\2022\Community\Common7\IDE\PublicAssemblies"),
+            Path.Combine(root, @"Microsoft Visual Studio\2022\Enterprise\VSSDK\VisualStudioIntegration\Common\Assemblies\v4.0"),
+            Path.Combine(root86, @"Microsoft Visual Studio\2019\Community\Common7\IDE\PublicAssemblies")
+        };
+        foreach(var path in vsPaths) {
+             string candidate = Path.Combine(path, shortName + ".dll");
+             if(File.Exists(candidate)) return Assembly.LoadFrom(candidate);
+        }
+        return null;
+    };
+    currentDomain.AssemblyResolve += handler; 
+
+    try 
+    {
+        // Localización y carga del ensamblado del DSL compilado
+        string myDllPath = "";
+        if(Directory.Exists(dslDebugPath)) { var f = Directory.GetFiles(dslDebugPath, "*.Dsl.dll"); if(f.Length>0) myDllPath=f[0]; }
+        if(string.IsNullOrEmpty(myDllPath) && Directory.Exists(dslReleasePath)) { var f = Directory.GetFiles(dslReleasePath, "*.Dsl.dll"); if(f.Length>0) myDllPath=f[0]; }
+        if(string.IsNullOrEmpty(myDllPath)) throw new Exception("No se encuentra Dsl.dll. Es necesario compilar el proyecto Dsl.");
+        
+        var dslAsm = Assembly.LoadFrom(myDllPath);
+
+        // Identificación de tipos del Dominio
+        Type domainModelT = dslAsm.GetType("UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERADomainModel");
+        Type serializationHelperT = dslAsm.GetType("UPM_IPS.JGAJPTJJLProyectoIPS.PracticaDERASerializationHelper");
+        Type entityT = dslAsm.GetType("UPM_IPS.JGAJPTJJLProyectoIPS.Entidad");
+        Type relationT = dslAsm.GetType("UPM_IPS.JGAJPTJJLProyectoIPS.Relacion");
+
+        // Obtención del Store base
+        Type baseType = domainModelT.BaseType; 
+        while(baseType != null && baseType.Name != "DomainModel") { baseType = baseType.BaseType; }
+        Type storeT = baseType.Assembly.GetType("Microsoft.VisualStudio.Modeling.Store");
+
+        // Búsqueda del archivo del modelo (.JGA...)
+        string modelName = "Test.JGAJPTJJL_ProyectoIPS";
+        string modelPath = Host.ResolvePath(modelName); 
+        if(!File.Exists(modelPath)) modelPath = Host.ResolvePath(@"..\Debugging\" + modelName);
+        if(!File.Exists(modelPath)) {
+            var dirs = new string[] { Path.GetDirectoryName(Host.TemplateFile), Host.ResolvePath(@"..\Debugging") };
+            foreach(var d in dirs) {
+                if(Directory.Exists(d)) {
+                    var files = Directory.GetFiles(d, "*.JGAJPTJJL_ProyectoIPS");
+                    foreach(var f in files) { if(!Path.GetFileName(f).StartsWith("Sample")) { modelPath = f; break; } }
+                }
+                if(File.Exists(modelPath)) break;
+            }
+        }
+        if(!File.Exists(modelPath)) throw new Exception("No se encuentra el archivo del modelo.");
+
+        // Inicialización del Store y Transacción
+        object store = Activator.CreateInstance(storeT, new object[] { new Type[] { domainModelT } });
+        var instanceProp = serializationHelperT.GetProperty("Instance");
+        object helper = instanceProp.GetValue(null);
+        MethodInfo loadMethod = null;
+        foreach(var m in helper.GetType().GetMethods()) { if(m.Name == "LoadModel" && m.GetParameters().Length >= 2) { loadMethod = m; break; } }
+        
+        var txManagerProp = store.GetType().GetProperty("TransactionManager");
+        object txManager = txManagerProp.GetValue(store);
+        var beginTxMethod = txManager.GetType().GetMethod("BeginTransaction", new Type[] { typeof(string) });
+        
+        object tx = beginTxMethod.Invoke(txManager, new object[] { "GeneracionSQL" });
+        loadMethod.Invoke(helper, new object[] { store, modelPath, null, null, null });
+
+        // Obtención de elementos del modelo
+        var elementDirectoryProp = store.GetType().GetProperty("ElementDirectory");
+        object elementDirectory = elementDirectoryProp.GetValue(store);
+
+
+        // **************************************************************************************
+        // PARTE 2: LÓGICA DE GENERACIÓN Transformación DSL -> SQL 
+        // **************************************************************************************
+        // Aquí comienza la traducción real de los elementos del modelo a código SQL. (Que era lo q se pedia en esta parte)
+
+        WriteLine("CREATE DATABASE IF NOT EXISTS PracticaIPS;");
+        WriteLine("USE PracticaIPS;");
+        WriteLine("");
+        
+        // Limpieza de tablas previas (Orden inverso para respetar FKs)
+        WriteLine("DROP TABLE IF EXISTS Matricula;"); 
+        WriteLine("DROP TABLE IF EXISTS Asignatura;");
+        WriteLine("DROP TABLE IF EXISTS Alumno;");
+        WriteLine("");
+
+        // A) GENERACIÓN DE ENTIDADES
+        var findMethod = elementDirectory.GetType().GetMethod("FindElements", new Type[] { typeof(bool) }).MakeGenericMethod(entityT);
+        var listaEntidades = (System.Collections.IEnumerable)findMethod.Invoke(elementDirectory, new object[] { false });
+
+        foreach(dynamic ent in listaEntidades)
+        {
+            string nombreTabla = ent.Nombre; 
+            nombreTabla = nombreTabla.Trim().Replace(" ", "_");
+
+            WriteLine("CREATE TABLE IF NOT EXISTS " + nombreTabla + " (");
+
+            bool hayPK = false;
+            string pkName = "Id";
+
+            // Recorrer atributos de la entidad
+            if (ent.Atributo != null)
+            {
+                foreach(dynamic att in ent.Atributo)
+                {
+                    string col = att.Nombre.Trim().Replace(" ", "_");
+                    string tRaw = att.Tipo.ToString(); 
+                    string tipoSQL = "VARCHAR(255)";
+                    
+                    // Mapeo de tipos del DSL a tipos SQL
+                    if(tRaw.Contains("Int") || tRaw.Contains("Entero")) tipoSQL = "INT";
+                    else if(tRaw.Contains("Real") || tRaw.Contains("Dobl")) tipoSQL = "DOUBLE";
+                    else if(tRaw.Contains("Date") || tRaw.Contains("Fech")) tipoSQL = "DATE";
+                    
+                    if(att.esClaveprimaria == true) {
+                        hayPK = true;
+                        pkName = col;
+                    }
+                    
+                    WriteLine("    " + col + " " + tipoSQL + " NOT NULL,");
+                }
+            }
+            
+            // Definición de Clave Primaria
+            if(!hayPK) WriteLine("    Id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY (Id)");
+            else WriteLine("    PRIMARY KEY (" + pkName + ")");
+            
+            WriteLine(");");
+            WriteLine("");
+        }
+
+        // B) GENERACIÓN DE RELACIONES (Tablas intermedias M:N)
+        if(relationT != null)
+        {
+            var findRelMethod = elementDirectory.GetType().GetMethod("FindElements", new Type[] { typeof(bool) }).MakeGenericMethod(relationT);
+            var listaRelaciones = (System.Collections.IEnumerable)findRelMethod.Invoke(elementDirectory, new object[] { false });
+
+            foreach(dynamic rel in listaRelaciones)
+            {
+                dynamic origen = rel.OrigenEntidad;
+                dynamic destino = rel.DestinoEntidad;
+
+                if(origen != null && destino != null)
+                {
+                    string t1 = origen.Nombre.Trim().Replace(" ", "_");
+                    string t2 = destino.Nombre.Trim().Replace(" ", "_");
+                    
+                    string relName = rel.NombreRelacion;
+                    if(string.IsNullOrEmpty(relName)) relName = t1 + "_" + t2;
+                    relName = relName.Trim().Replace(" ", "_");
+
+                    // Búsqueda de PKs de las entidades relacionadas
+                    string pkOrigen = "Id";
+                    foreach(dynamic a in origen.Atributo) if(a.esClaveprimaria) pkOrigen = a.Nombre;
+                    
+                    string pkDestino = "Id";
+                    foreach(dynamic a in destino.Atributo) if(a.esClaveprimaria) pkDestino = a.Nombre;
+
+                    // Creación de tabla intermedia
+                    WriteLine("CREATE TABLE IF NOT EXISTS " + relName + " (");
+                    WriteLine("    FK_" + pkOrigen + " INT NOT NULL,");
+                    WriteLine("    FK_" + pkDestino + " INT NOT NULL,");
+                    
+                    // Clave Primaria Compuesta y Claves Foráneas
+                    WriteLine("    PRIMARY KEY (FK_" + pkOrigen + ", FK_" + pkDestino + "),");
+                    WriteLine("    FOREIGN KEY (FK_" + pkOrigen + ") REFERENCES " + t1 + "(" + pkOrigen + ") ON DELETE CASCADE,");
+                    WriteLine("    FOREIGN KEY (FK_" + pkDestino + ") REFERENCES " + t2 + "(" + pkDestino + ") ON DELETE CASCADE");
+                    
+                    WriteLine(");");
+                    WriteLine("");
+                }
+            }
+        }
+
+        // **************************************************************************************
+        // FIN DE LÓGICA - CIERRE DE RECURSOS
+        // **************************************************************************************
+        var rollbackMethod = tx.GetType().GetMethod("Rollback");
+        rollbackMethod.Invoke(tx, null);
+    } 
+    catch (Exception ex) 
+    {
+        WriteLine("-- ERROR GENERACIÓN: " + ex.Message);
+        if(ex.InnerException != null) WriteLine("-- DETALLE: " + ex.InnerException.Message);
+    }
+    finally 
+    {
+        currentDomain.AssemblyResolve -= handler;
+    }
+#>

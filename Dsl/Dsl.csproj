@@ -179,15 +179,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="GeneradorSQL.sql">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GeneradorSQL.tt</DependentUpon>
-    </Content>
-    <Content Include="GeneradorSQL.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>GeneradorSQL.sql</LastGenOutput>
-    </Content>
     <None Include="DslDefinition.dsl.diagram">
       <DependentUpon>DslDefinition.dsl</DependentUpon>
     </None>

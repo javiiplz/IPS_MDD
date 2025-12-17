@@ -44,11 +44,6 @@
       <SubType>
       </SubType>
     </None>
-    <None Include="GeneracionPHP.php">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GeneracionPHP.tt</DependentUpon>
-    </None>
     <None Include="PracticaDERAReport.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PracticaDERAReport.txt</LastGenOutput>
@@ -70,9 +65,14 @@
     <Service Include="{508349B6-6B84-4df5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="GeneracionPHP.tt">
+    <Content Include="GeneradorSQL.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneradorSQL.tt</DependentUpon>
+    </Content>
+    <Content Include="GeneradorSQL.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>GeneracionPHP.php</LastGenOutput>
+      <LastGenOutput>GeneradorSQL.sql</LastGenOutput>
     </Content>
     <Content Include="PracticaDERAReport.txt">
       <AutoGen>True</AutoGen>

@@ -1,7 +1,10 @@
-﻿ 
-
+﻿
 CREATE DATABASE IF NOT EXISTS PracticaIPS;
 USE PracticaIPS;
+
+DROP TABLE IF EXISTS Matricula;
+DROP TABLE IF EXISTS Asignatura;
+DROP TABLE IF EXISTS Alumno;
 
 CREATE TABLE IF NOT EXISTS Alumno (
     NumMat INT NOT NULL,
@@ -19,10 +22,11 @@ CREATE TABLE IF NOT EXISTS Asignatura (
     PRIMARY KEY (Codigo)
 );
 
-CREATE TABLE IF NOT EXISTS Alumno_Asignatura (
-    Alumno_NumMat INT NOT NULL,
-    Asignatura_Codigo INT NOT NULL,
-    FOREIGN KEY (Alumno_NumMat) REFERENCES Alumno (NumMat) ON DELETE CASCADE,
-    FOREIGN KEY (Asignatura_Codigo) REFERENCES Asignatura (Codigo) ON DELETE CASCADE,
-    PRIMARY KEY (Alumno_NumMat, Asignatura_Codigo)
+CREATE TABLE IF NOT EXISTS Matricula (
+    FK_NumMat INT NOT NULL,
+    FK_Codigo INT NOT NULL,
+    PRIMARY KEY (FK_NumMat, FK_Codigo),
+    FOREIGN KEY (FK_NumMat) REFERENCES Alumno(NumMat) ON DELETE CASCADE,
+    FOREIGN KEY (FK_Codigo) REFERENCES Asignatura(Codigo) ON DELETE CASCADE
 );
+
