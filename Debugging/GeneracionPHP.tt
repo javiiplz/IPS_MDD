@@ -13,10 +13,12 @@
 <#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
 
 <#
+    // ======================================================================================
+    // TODO ESTO ES PARA QUE NO SE ROMPA EL PROGRAMA (AL IGUAL QUE EN OTROS T4) NO ENTENDEMOS EL ERROR Y NO HAY SOLUCION APARENTE EN INTERNET
+    // ======================================================================================
     var currentDomain = AppDomain.CurrentDomain;
     string dslDebugPath = Host.ResolvePath(@"..\Dsl\bin\Debug");
     string dslReleasePath = Host.ResolvePath(@"..\Dsl\bin\Release");
-    string outputDir = Path.GetDirectoryName(Host.TemplateFile);
 
     ResolveEventHandler handler = (sender, args) => {
         string shortName = new System.Reflection.AssemblyName(args.Name).Name;
@@ -38,6 +40,7 @@
 
     try 
     {
+        // 1. Carga del Modelo
         string myDllPath = "";
         if(Directory.Exists(dslDebugPath)) { var f = Directory.GetFiles(dslDebugPath, "*.Dsl.dll"); if(f.Length>0) myDllPath=f[0]; }
         if(string.IsNullOrEmpty(myDllPath) && Directory.Exists(dslReleasePath)) { var f = Directory.GetFiles(dslReleasePath, "*.Dsl.dll"); if(f.Length>0) myDllPath=f[0]; }
@@ -78,101 +81,126 @@
         object elementDirectory = elementDirectoryProp.GetValue(store);
         var findMethod = elementDirectory.GetType().GetMethod("FindElements", new Type[] { typeof(bool) }).MakeGenericMethod(entityT);
         var listaEntidades = (System.Collections.IEnumerable)findMethod.Invoke(elementDirectory, new object[] { false });
+
+        // ======================================================================================
+        // PARTE 2: LÓGICA DE GENERACIÓN DE PHP (LO QUE REALMENTE HACE LA PLANTILLA)
+        // ======================================================================================
         
-        System.Text.StringBuilder menuSb = new System.Text.StringBuilder();
-        menuSb.AppendLine("<html><head><title>Menu Principal</title></head>");
-        menuSb.AppendLine("<body style='text-align:center; font-family: Arial, sans-serif; margin-top: 50px;'>"); 
-        menuSb.AppendLine("<h1>Gestion de Base de Datos</h1>");
-        
-        menuSb.AppendLine("<ul style='list-style-type: none; padding: 0;'>"); 
+
+        var fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
 
         foreach(dynamic ent in listaEntidades)
         {
-            string nombreEntidad = ent.Nombre;
-            string nombreArchivo = nombreEntidad.Trim().Replace(" ", "_") + ".php";
-            string pathArchivo = Path.Combine(outputDir, nombreArchivo);
-            
-            menuSb.AppendLine("<li style='margin: 15px;'><a href='" + nombreArchivo + "' style='font-size: 18px; text-decoration: none; color: #0044cc; font-weight: bold;'>Gestionar " + nombreEntidad + "</a></li>");
-
-            System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            sb.AppendLine("<html><head><title>" + nombreEntidad + "</title></head>");
-            sb.AppendLine("<body bgcolor='#B8D1F1' style='text-align:center; font-family: Arial, sans-serif; margin-top: 30px;'>"); 
-            
-            string pkName = "Id";
-            foreach(dynamic a in ent.Atributo) if(a.esClaveprimaria) pkName = a.Nombre;
-            pkName = pkName.Trim().Replace(" ", "_");
-            
-            sb.AppendLine("<?php");
-            sb.AppendLine("  if (!(isset($_GET['var" + pkName + "']))) {");
-            sb.AppendLine("?>");
-            
-            sb.AppendLine("<h1>" + nombreEntidad + "</h1>");
-            sb.AppendLine("<div style='display: inline-block; border: 1px solid #666; padding: 20px; background-color: #fff; border-radius: 10px;'>");
-            sb.AppendLine("<form action='" + nombreArchivo + "' method='GET'>");
-            
-            string camposInsert = "";
-            string valoresInsert = "";
-            bool primero = true;
-
-            foreach(dynamic att in ent.Atributo)
-            {
-                string nRaw = att.Nombre;
-                string nSanitized = nRaw.Trim().Replace(" ", "_"); 
-                
-                sb.AppendLine("<div style='margin-bottom: 10px;'>");
-                sb.AppendLine("<b>" + nRaw + ":</b> <br>");
-                sb.AppendLine("<input name='var" + nSanitized + "' type='text' value='' style='padding: 5px; width: 200px;'>");
-                sb.AppendLine("</div>");
-                
-                if(!primero) { camposInsert += ", "; valoresInsert += ", "; }
-                camposInsert += nSanitized; 
-                valoresInsert += "'$val" + nSanitized + "'";
-                primero = false;
-            }
-            
-            sb.AppendLine("<br><input type='submit' value='Alta' style='padding: 10px 20px; font-weight: bold; cursor: pointer;' />");
-            sb.AppendLine("</form>");
-            sb.AppendLine("</div>"); 
-            
-            sb.AppendLine("<br><br><a href='Menu.html' style='color: #333;'>Volver al Menu</a>");
-
-            sb.AppendLine("<?php");
-            sb.AppendLine("  } else {");
-            sb.AppendLine("    $conex = mysqli_connect('localhost', 'root') or die('ERROR DE CONEXION');");
-            sb.AppendLine("    mysqli_select_db($conex, 'PracticaIPS') or die('ERROR CON LA BD');");
-            
-            foreach(dynamic att in ent.Atributo) {
-                string nSanitized = att.Nombre.ToString().Trim().Replace(" ", "_");
-                sb.AppendLine("    $val" + nSanitized + " = $_GET['var" + nSanitized + "'];");
-            }
-            
-            string nombreTablaSQL = nombreEntidad.Trim().Replace(" ", "_");
-            
-            sb.AppendLine("    $sql = \"INSERT INTO " + nombreTablaSQL + " (" + camposInsert + ") VALUES (" + valoresInsert + ")\";");
-            sb.AppendLine("    $resultado = mysqli_query($conex, $sql);");
-            sb.AppendLine("    if ($resultado) echo '<h2 style=\"color: green;\">Datos Insertados Correctamente</h2>';");
-            sb.AppendLine("    else echo '<h2 style=\"color: red;\">Error en la insercion: ' . mysqli_error($conex) . '</h2>';");
-            sb.AppendLine("    mysqli_close($conex);");
-            sb.AppendLine("    echo '<br><a href=\"" + nombreArchivo + "\">Volver a intentar</a>';");
-            sb.AppendLine("    echo '<br><br><a href=\"Menu.html\">Volver al Menu</a>';");
-            sb.AppendLine("  }");
-            sb.AppendLine("?>");
-            sb.AppendLine("</body></html>");
-
-            File.WriteAllText(pathArchivo, sb.ToString());
-            WriteLine("Archivo generado: " + nombreArchivo);
+            string nombreArchivo = ent.Nombre.Trim().Replace(" ", "_") + ".php";
+            fileManager.StartNewFile(nombreArchivo);
+            GenerarPaginaEntidad(ent, nombreArchivo);
         }
-        
-        menuSb.AppendLine("</ul></body></html>");
-        File.WriteAllText(Path.Combine(outputDir, "Menu.html"), menuSb.ToString());
-        WriteLine("Archivo generado: Menu.html");
+
+
+        fileManager.StartNewFile("Menu.html");
+        GenerarMenu(listaEntidades);
+
+
+        fileManager.Process();
 
         var rollbackMethod = tx.GetType().GetMethod("Rollback");
         rollbackMethod.Invoke(tx, null);
     } 
     catch (Exception ex) 
     {
-        WriteLine("ERROR: " + ex.Message);
+        WriteLine("ERROR CRITICO: " + ex.Message);
     }
     finally { currentDomain.AssemblyResolve -= handler; }
+#>
+<#@ include file="EF.utility.CS.ttinclude" #>
+<#+
+
+    private void GenerarPaginaEntidad(dynamic ent, string nombreArchivo)
+    {
+        string nombreEntidad = ent.Nombre;
+        string pkName = GetPrimaryKey(ent);
+        string pkSanitized = pkName.Trim().Replace(" ", "_");
+
+        WriteLine("<html><head><title>" + nombreEntidad + "</title></head>");
+        WriteLine("<body bgcolor='#B8D1F1' style='text-align:center; font-family: Arial, sans-serif; margin-top: 30px;'>");
+        
+        WriteLine("<?php");
+        WriteLine("  if (!(isset($_GET['var" + pkSanitized + "']))) {");
+        WriteLine("?>");
+
+        WriteLine("<h1>" + nombreEntidad + "</h1>");
+        WriteLine("<div style='display: inline-block; border: 1px solid #666; padding: 20px; background-color: #fff; border-radius: 10px;'>");
+        WriteLine("<form action='" + nombreArchivo + "' method='GET'>");
+
+        string camposInsert = "";
+        string valoresInsert = "";
+        bool primero = true;
+
+        foreach(dynamic att in ent.Atributo)
+        {
+            string nRaw = att.Nombre;
+            string nSanitized = nRaw.Trim().Replace(" ", "_");
+            
+            WriteLine("<div style='margin-bottom: 10px;'>");
+            WriteLine("<b>" + nRaw + ":</b> <br>");
+            WriteLine("<input name='var" + nSanitized + "' type='text' value='' style='padding: 5px; width: 200px;'>");
+            WriteLine("</div>");
+
+            if(!primero) { camposInsert += ", "; valoresInsert += ", "; }
+            camposInsert += nSanitized;
+            valoresInsert += "'$val" + nSanitized + "'";
+            primero = false;
+        }
+
+        WriteLine("<br><input type='submit' value='Alta' style='padding: 10px 20px; font-weight: bold; cursor: pointer;' />");
+        WriteLine("</form>");
+        WriteLine("</div>");
+        WriteLine("<br><br><a href='Menu.html' style='color: #333;'>Volver al Menu</a>");
+
+        WriteLine("<?php");
+        WriteLine("  } else {");
+        WriteLine("    $conex = mysqli_connect('localhost', 'root') or die('ERROR DE CONEXION');");
+        WriteLine("    mysqli_select_db($conex, 'PracticaIPS') or die('ERROR CON LA BD');");
+
+        foreach(dynamic att in ent.Atributo) {
+            string nSanitized = att.Nombre.ToString().Trim().Replace(" ", "_");
+            WriteLine("    $val" + nSanitized + " = $_GET['var" + nSanitized + "'];");
+        }
+
+        string nombreTablaSQL = nombreEntidad.Trim().Replace(" ", "_");
+        WriteLine("    $sql = \"INSERT INTO " + nombreTablaSQL + " (" + camposInsert + ") VALUES (" + valoresInsert + ")\";");
+        
+        WriteLine("    $resultado = mysqli_query($conex, $sql);");
+        WriteLine("    if ($resultado) echo '<h2 style=\"color: green;\">Datos Insertados Correctamente</h2>';");
+        WriteLine("    else echo '<h2 style=\"color: red;\">Error en la insercion: ' . mysqli_error($conex) . '</h2>';");
+        WriteLine("    mysqli_close($conex);");
+        WriteLine("    echo '<br><a href=\"" + nombreArchivo + "\">Volver a intentar</a>';");
+        WriteLine("    echo '<br><br><a href=\"Menu.html\">Volver al Menu</a>';");
+        WriteLine("  }");
+        WriteLine("?>");
+        WriteLine("</body></html>");
+    }
+
+    private void GenerarMenu(System.Collections.IEnumerable listaEntidades)
+    {
+        WriteLine("<html><head><title>Menu Principal</title></head>");
+        WriteLine("<body style='text-align:center; font-family: Arial, sans-serif; margin-top: 50px;'>");
+        WriteLine("<h1>Gestion de Base de Datos</h1>");
+        WriteLine("<ul style='list-style-type: none; padding: 0;'>");
+
+        foreach(dynamic ent in listaEntidades)
+        {
+            string nombreEntidad = ent.Nombre;
+            string nombreArchivo = nombreEntidad.Trim().Replace(" ", "_") + ".php";
+            WriteLine("<li style='margin: 15px;'><a href='" + nombreArchivo + "' style='font-size: 18px; text-decoration: none; color: #0044cc; font-weight: bold;'>Gestionar " + nombreEntidad + "</a></li>");
+        }
+        WriteLine("</ul></body></html>");
+    }
+
+    private string GetPrimaryKey(dynamic ent)
+    {
+        foreach(dynamic a in ent.Atributo) if(a.esClaveprimaria) return a.Nombre;
+        return "Id";
+    }
 #>

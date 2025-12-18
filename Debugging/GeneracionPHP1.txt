@@ -1,4 +1,0 @@
-﻿
-Archivo generado: Alumno.php
-Archivo generado: Asignatura.php
-Archivo generado: Menu.html

@@ -36,6 +36,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="EF.utility.CS.ttinclude" />
+    <Compile Include="GeneracionPHP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneracionPHP.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -67,12 +73,7 @@
   <ItemGroup>
     <Content Include="GeneracionPHP.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>GeneracionPHP1.txt</LastGenOutput>
-    </Content>
-    <Content Include="GeneracionPHP1.txt">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GeneracionPHP.tt</DependentUpon>
+      <LastGenOutput>GeneracionPHP.cs</LastGenOutput>
     </Content>
     <Content Include="GeneradorSQL.sql">
       <AutoGen>True</AutoGen>

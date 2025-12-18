@@ -1,0 +1,2 @@
+﻿
+ERROR CRITICO: 'System.MarshalByRefObject' no contiene una definición para 'TemplateFile'.

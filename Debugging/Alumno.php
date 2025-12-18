@@ -1,3 +1,4 @@
+
 <html><head><title>Alumno</title></head>
 <body bgcolor='#B8D1F1' style='text-align:center; font-family: Arial, sans-serif; margin-top: 30px;'>
 <?php

@@ -1,0 +1,49 @@
+﻿<#+
+public class EntityFrameworkTemplateFileManager
+{
+    private Microsoft.VisualStudio.TextTemplating.TextTransformation _template;
+    private string _outputDir;
+    private System.Text.StringBuilder _sb;
+    private string _currentFileName;
+
+    //Para no usar la de Microsoft que daba error se hace esta que imita su funcionamiento sin comederos de cabeza
+
+    public static EntityFrameworkTemplateFileManager Create(Microsoft.VisualStudio.TextTemplating.TextTransformation template)
+    {
+        dynamic dynamicTemplate = template;
+        string path = System.IO.Path.GetDirectoryName(dynamicTemplate.Host.TemplateFile);
+        return new EntityFrameworkTemplateFileManager(template, path);
+    }
+
+    private EntityFrameworkTemplateFileManager(Microsoft.VisualStudio.TextTemplating.TextTransformation template, string path)
+    {
+        _template = template;
+        _outputDir = path;
+        _sb = new System.Text.StringBuilder();
+    }
+
+    public void StartNewFile(string name)
+    {
+        SaveCurrent();
+        _currentFileName = name;
+        _sb.Clear();
+    }
+
+    public void Process()
+    {
+        SaveCurrent();
+    }
+
+    private void SaveCurrent()
+    {
+        if (!string.IsNullOrEmpty(_currentFileName))
+        {
+            string path = System.IO.Path.Combine(_outputDir, _currentFileName);
+            string content = _template.GenerationEnvironment.ToString();
+            _template.GenerationEnvironment.Clear(); 
+            System.IO.File.WriteAllText(path, content);
+            Console.WriteLine("Generado: " + _currentFileName);
+        }
+    }
+}
+#>
